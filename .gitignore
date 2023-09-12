@@ -12,3 +12,5 @@
 /PROD/UE04 Oktal/test.exe
 /PROD/UE04 Oktal/test.o
 /.idea/vcs.xml
+/PROD/*/*.exe
+/PROD/*/*.o
