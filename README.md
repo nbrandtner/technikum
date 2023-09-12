@@ -1,2 +1,4 @@
-# english
-Technical English_Julia Schwob
+# Technikum Repo
+#### von Niklas Brandtner
+
+Alle Technikum Schulübungen die wir machen.
