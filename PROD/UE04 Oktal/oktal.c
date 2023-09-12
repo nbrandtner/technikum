@@ -1,39 +1,19 @@
 #include <stdio.h>
 #include <math.h>
 int main() {
-    int octalNumber,numDigits=0,dec,sum;
-    int digit3,digit2,digit1;
-    scanf("%o", &octalNumber);
-    int temp = octalNumber;
-    while (temp != 0) {
-        temp /= 10;
-        numDigits++;
+    int input,dec,zs;
+    scanf("%d",&input);
+    for(int i = 1; input != 0; i= i*8) {
+        int digit = input%10;
+        input = input/10;
+        dec+=digit*i;
     }
-    switch(numDigits){
-        case 3:
-            digit3 = octalNumber % 8;
-            octalNumber /= 8;
-            digit2 = octalNumber % 8;
-            octalNumber /= 8;
-            digit1 = octalNumber % 8;
-            
-            dec=(digit3*pow(8, 2))+(digit2*8)+digit1;
-            sum=digit3+digit2+digit1;
-            break;
-        case 2:
-            digit2 = octalNumber % 8;
-            octalNumber /= 8;
-            digit1 = octalNumber % 8;
-            
-            dec=(digit2*(8))+digit1;
-            sum=digit2+digit1;
-            break;
-        case 1:
-            dec=octalNumber;
-            sum=dec;
-            break;
-        default:
-            printf("Something went wrong.. good luck");
+    int dec_for_sum = dec;
+    while(dec_for_sum!=0) {
+        int digit = dec_for_sum%10;
+        dec_for_sum = dec_for_sum/10;
+        zs += digit;
+
     }
-    printf(": dec.: %d\nZS: %d",dec,sum);
+    printf(": dec.: %d\nZS: %d",dec,zs);
 }
