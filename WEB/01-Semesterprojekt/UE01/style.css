@@ -1,16 +1,43 @@
 header{
     padding: 80px;
     text-align: center;
-    background-image:url("wellness-1021131_1920.jpg")
+    background-image:url("img/wellness-1021131_1920.jpg")
     /*background-image:url("img/logo-transparent.png")*/
 }
 footer{
-    position: fixed;
+    padding-top: 5%;
+    padding-left: 15%;
     left: 0;
     bottom: 0;
 }
 main{
-    padding-top: 40px;
-    padding-left: 80px;
-    padding-right: 80px;
+    margin-top: 40px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+nav{
+    padding-top:40px
+}
+a {
+    text-align: center;
+    font-size: 14px;
+    border-radius: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 2px solid white;
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+    font-family: 'Georgia';
+}
+h1{
+    padding-bottom: 20px;
+    font-family: 'Georgia';
+    text-align: center;
+}
+h3{
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
