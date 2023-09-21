@@ -45,12 +45,13 @@ button {
     background-color: transparent;
     font-family: 'Georgia';
 }
-.top-nav{
-  padding-top: 10px;
-  padding-bottom: 5px;
-  padding-right: 20px;
-  text-align: right;
-  background-color: black;
+
+.top-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0); /* Transparente Hintergrundfarbe */
+  padding: 10px; /* Füge etwas Abstand um die Buttons hinzu */
 }
 
 .blackcolor{
@@ -107,6 +108,45 @@ label {
   display: inline-block;
 }
 
+/* Navigationsbuttons mit Hover-Effekt */
+button.glow-on-hover {
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-family: 'Georgia';
+  cursor: pointer;
+  transition: color 0.3s ease; /* Füge eine Übergangsanimation für die Textfarbe hinzu */
+}
+
+button.glow-on-hover::before {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.137);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+button.glow-on-hover:hover::before {
+  width: 120%;
+  height: 300%;
+  opacity: 1;
+  transition: all 0.4s ease;
+}
+
+
+
+
+/* Submit button */
 button[type=submit] {
   background-color: #04AA6D;
   color: white;
