@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <title>Hilfe / FAQs</title>
     <!-- Füge hier deine CSS-Dateien hinzu, um das Styling anzupassen -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,7 +15,7 @@
         <button onclick="window.location.href='login.html'" type="button" href="login.html"class="glow-on-hover upper-corner">Sign in</button>
     </nav>
 
-    <header>
+    <header class="header-login">
         <img src="img/logo-transparent.png" width="330px">
             <nav>
                 <button onclick="window.location.href='index.html'" type="button" href="index.html"class="glow-on-hover">Startseite</button>
@@ -26,18 +26,27 @@
     </header>
 
     <main>
-        <h1 class="blackcolor">Hilfe / FAQs</h1>
-        <hr></br>
-        <p><strong>Frage 1:</strong> Wie kann ich ein Zimmer reservieren?</p>
-        <p><strong>Antwort:</strong> Um ein Zimmer zu reservieren, müssen Sie sich zuerst registrieren und dann auf die Reservierungsseite gehen.</p>
-        </br>
-        <p><strong>Frage 2:</strong> Kann ich mein Profil bearbeiten?</p>
-        <p><strong>Antwort:</strong> Ja, nachdem Sie sich angemeldet haben, können Sie Ihr Profil bearbeiten, um Ihre Stammdaten zu ändern.</p>
-        </br>
-
-        <!-- Füge weitere FAQs hinzu -->
-
-        <p>Wenn Sie weitere Fragen haben, können Sie uns jederzeit über das Kontaktformular erreichen.</p>
+        <!--Hier beginnt das Registierungsformular-->
+        <form action="">
+            <h1 class="blackcolor">Login</h1>
+            <hr>
+            <div class="row">
+                <div class="col-25">
+                    <label for="username">Username</label>
+                </div>
+                <div class="col-75">
+                    <input id="username" placeholder="Dein Username ..." type="text"></br>
+                </div>
+                <div class="col-25">
+                    <label for="password">Passwort</label>
+                </div>
+                <div class="col-75">
+                    <input id="password" placeholder="Dein Passwort  ...." type="password"></br>
+                </div>
+            </div>
+            <button type="submit">Sign in</button>
+        </form>
+      
     </main>
 
     <footer>

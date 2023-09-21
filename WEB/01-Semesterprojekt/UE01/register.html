@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- Füge hier deine CSS-Dateien hinzu, um das Styling anzupassen -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--Obere Navbar für Login udn Register-->
+    <nav class="top-nav">
+        <button onclick="window.location.href='register.html'" type="button" href="register.html"class="glow-on-hover upper-corner">Sign up</button>
+        <button onclick="window.location.href='login.html'" type="button" href="login.html"class="glow-on-hover upper-corner">Sign in</button>
+    </nav>
+
+    <header class="header-login">
+        <img src="img/logo-transparent.png" width="330px">
+            <nav>
+                <button onclick="window.location.href='index.html'" type="button" href="index.html"class="glow-on-hover">Startseite</button>
+                <button onclick="window.location.href='help.html'" type="button" href="help.html"class="glow-on-hover">Hilfe/FAQs</button>
+                <button onclick="window.location.href='impressum.html'" type="button" href="impressum.html"class="glow-on-hover">Impressum</button>
+                <!-- Weitere Navigationslinks für angemeldete Benutzer -->
+            </nav>
+    </header>
+
+    <main>
+        <!--Hier beginnt das Registierungsformular-->
+        <form action="">
+            <h1 class="blackcolor">Registriere dich bei Serenity Haven</h1>
+            <hr>
+            <div class="row">
+                <div class="col-25">
+                    <label for="anrede">Anrede</label>
+                </div>
+                <div class="col-75">
+                    <input id="anrede" placeholder="Deine Anrede ..." type="text">
+                </div>
+                <div class="col-25">
+                    <label for="vorname">Vorname</label>
+                </div>
+                <div class="col-75">
+                    <input id="vorname" placeholder="Dein Vorname ..." type="text"></br>
+                </div>
+                <div class="col-25">
+                    <label for="nachname">Nachname</label>
+                </div>
+                <div class="col-75">
+                    <input id="nachname" placeholder="Dein Nachname ..." type="text"></br>
+                </div>
+                <div class="col-25">
+                    <label for="email">E-Mail-Adresse</label>
+                </div>
+                <div class="col-75">
+                    <input id="email" placeholder="Deine Emailadresse ..." type="email"></br>
+                </div>
+                <div class="col-25">
+                    <label for="username">Username</label>
+                </div>
+                <div class="col-75">
+                    <input id="username" placeholder="Dein Username ..." type="text"></br>
+                </div>
+                <div class="col-25">
+                    <label for="password">Passwort</label>
+                </div>
+                <div class="col-75">
+                    <input id="password" placeholder="Dein Passwort  ...." type="password"></br>
+                </div>
+                <div class="col-25">
+                    <label for="confirmpassword">Passwort bestätigen</label>
+                </div>
+                <div class="col-75">
+                    <input id="confirmpassword" placeholder="Wiederhole dein Passwort ...." type="password"></br>
+                </div>
+            </div>
+            <button type="submit">Sign up</button>
+        </form>
+      
+    </main>
+
+    <footer>
+        <p>&copy; <?php echo date("Y"); ?> Hotel Webseite</p>
+    </footer>
+</body>
+</html>

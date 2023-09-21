@@ -1,6 +1,6 @@
 header {
     padding: 21%;
-    padding-top: 20%;
+    padding-top: 10%;
     text-align:center;
     background-image: url("img/testwp.jpg");
     min-height: 100vh;
@@ -10,7 +10,7 @@ header {
     background-size: cover;
 }
 img.logo{
-    padding-top: -100px;
+    padding-top: -120px;
 }
 footer{
     padding-top: 5%;
@@ -26,11 +26,7 @@ main{
 nav{
     padding-top:-20px
 }
-h1{
-    padding-bottom: 20px;
-    font-family: 'Georgia';
-    text-align: center;
-}
+
 h3{
     padding-bottom: 20px;
     padding-top: 20px;
@@ -49,6 +45,83 @@ button {
     background-color: transparent;
     font-family: 'Georgia';
 }
+.top-nav{
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-right: 20px;
+  text-align: right;
+  background-color: black;
+}
+
+.blackcolor{
+  color: black;
+  padding-bottom: 20px;
+  font-family: 'Georgia';
+  text-align: center;
+}
+
+/* Login und Register*/
+
+.header-login{
+  background-image: url("img/testwp-small.jpg");
+  min-height: 50vh;
+  background-position:top;
+  background-size:contain;
+  padding-bottom: 5%;
+}
+
+form{
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+button[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 20px;
+  float:right;
+}
+
+button[type=submit]:hover {
+  background-color: #45a049;
+}
+
 
 /*---------------CSS for Social-Buttons with animation-------------*/
 
