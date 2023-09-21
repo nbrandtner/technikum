@@ -286,3 +286,22 @@ button[type=submit]:hover {
   .icon-rotate i {
     z-index: 1;
   }
+
+
+  /* Stil für die Anrede-Radio-Buttons */
+  .form-check-label::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 2px solid #ffffff69;
+    border-radius: 50%;
+    position: relative;
+    top: 4px;
+}
+
+/* Stil für den Text der ausgewählten Radio-Buttons */
+.form-check-input:checked + .form-check-label {
+    font-weight: bold;
+}
