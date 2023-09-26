@@ -1,138 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <!-- Füge hier deine CSS-Dateien hinzu, um das Styling anzupassen -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!--Obere Navbar für Login udn Register-->
-    <nav class="top-nav">
-        <button type="button" href="register.html"class="glow-on-hover upper-corner" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
-        <button type="button" href="login.html"class="glow-on-hover upper-corner" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-  </nav>
-
-  <!-- Modal für Anmeldung -->
-  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!-- Anmeldeformularfelder hier -->
-                <!-- Beispiel: E-Mail und Passwort -->
-                <div class="mb-3">
-                    <label for="loginEmail" class="form-label">E-Mail</label>
-                    <input type="email" class="form-control" id="loginEmail" name="loginEmail" required>
-                    <label for="loginPW" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="loginPW" name="loginPW" required>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Impressum</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <!-- Füge hier deine CSS-Dateien hinzu, um das Styling anzupassen -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!--Obere Navbar für Login und Register-->
+        <nav class="top-nav">
+            <button type="button" href="register.html"class="glow-on-hover upper-corner" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+            <button type="button" href="login.html"class="glow-on-hover upper-corner" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+        </nav>
+        <!-- Modal für Anmeldung -->
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Anmeldeformularfelder hier -->
+                        <!-- Beispiel: E-Mail und Passwort -->
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="loginEmail" name="loginEmail" placeholder="E-Mail" alt="Please enter your E-Mail" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" id="loginPW" name="loginPW" placeholder="Password" alt="Please enter your password" required>
+                        </div>
+                        <!-- Weitere Anmeldeformularfelder hier -->
+                    </div>
+                    <div class="modal-footer">  
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Login</button>
+                    </div>
                 </div>
-                <!-- Weitere Anmeldeformularfelder hier -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
-                <button type="button" class="btn btn-primary">Anmelden</button>
             </div>
         </div>
-    </div>
-</div>
-
-<!-- Modal für Registrierung -->
-<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="registerModalLabel">Registrieren</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <!-- Registrierungsformularfelder hier -->
-            <div class="mb-3">
-              <label for="registerSalutation" class="form-label">Anrede</label>
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="registerSalutation" id="male" value="male">
-                  <label class="form-check-label mr-3" for="male">Male</label>
-              </div>
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="registerSalutation" id="female" value="female">
-                  <label class="form-check-label mr-3" for="female">Female</label>
-              </div>
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="registerSalutation" id="diverse" value="diverse">
-                  <label class="form-check-label" for="diverse">Diverse</label>
-              </div>
-          </div>            
-            <div class="mb-3">
-                <input type="text" class="form-control" id="registerFirstName" name="registerFirstName" placeholder="Vorname" required>
-            </div>
-            <div class="mb-3">
-                <input type="text" class="form-control" id="registerLastName" name="registerLastName" placeholder="Nachname" required>
-            </div>
-            <div class="mb-3">
-                <input type="email" class="form-control" id="registerEmail" name="registerEmail" placeholder="E-Mail-Adresse" required>
-            </div>
-            <div class="mb-3">
-                <input type="text" class="form-control" id="registerUsername" name="registerUsername" placeholder="Benutzername" required>
-            </div>
-            <div class="mb-3">
-                <input type="password" class="form-control" id="registerPassword" name="registerPassword" placeholder="Passwort" required>
-            </div>
-            <div class="mb-3">
-                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Passwort bestätigen" required>
-            </div>            
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
-                <button type="button" class="btn btn-primary">Registrieren</button>
+        <!-- Modal für Registrierung -->
+        <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Registrierungsformularfelder hier -->
+                        <div class="mb-3">
+                            <label for="registerSalutation" class="form-label">Gender:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="registerSalutation" id="male" value="male">
+                                <label class="form-check-label mr-3" for="male" alt="male">Male</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="registerSalutation" id="female" value="female">
+                                <label class="form-check-label mr-3" for="female" alt="female">Female</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="registerSalutation" id="diverse" value="diverse">
+                                <label class="form-check-label" for="diverse" alt="diverse">Diverse</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="registerFirstName" name="registerFirstName" placeholder="Firstname" alt="Please enter your firstname" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="registerLastName" name="registerLastName" placeholder="Surname" alt="Please enter your surname"required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="registerEmail" name="registerEmail" placeholder="E-Mail" alt="Please enter your E-Mail" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" id="registerPassword" name="registerPassword" placeholder="Password" alt="Please enter your password" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" alt="Please confirm your password" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Register</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-  </div>
-</div>
-
-    <header>
-        <img src="img/logo-transparent.png" width="330px">
+        <header>
+            <img src="img/logo-transparent.png" width="330px">
             <nav>
-                <button onclick="window.location.href='index.html'" type="button" href="index.html"class="glow-on-hover">Startseite</button>
-                <button onclick="window.location.href='help.html'" type="button" href="help.html"class="glow-on-hover">Hilfe/FAQs</button>
-                <button onclick="window.location.href='impressum.html'" type="button" href="impressum.html"class="glow-on-hover">Impressum</button>
+                <button onclick="window.location.href='index.html'" type="button" href="index.html"class="glow-on-hover" alt="Homepage">Homepage</button>
+                <button onclick="window.location.href='help.html'" type="button" href="help.html"class="glow-on-hover" alt="Help/FAQ">Help/FAQs</button>
+                <button onclick="window.location.href='impressum.html'" type="button" href="impressum.html"class="glow-on-hover" alt="Impressum">Impressum</button>
                 <!-- Weitere Navigationslinks für angemeldete Benutzer -->
             </nav>
-    </header>
-
-    <main>
-        <h1 class="blackcolor">Impressum</h1>
-        <hr>
-        <p>Dieses Impressum gilt für die Website der Hotelverwaltung:</p>
-
-        <p><strong>Firma:</strong> Serenity Haven</p>
-        <p><strong>Adresse:</strong> Höchstädtpl. 6, 1200 Wien</p>
-        <p><strong>Telefon:</strong> +43 XXXXX XXXXXX</p>
-        <p><strong>E-Mail:</strong>  roman.tisch.serenity@gmail.com</p>
-        <p><strong>Firmenbuchnummer (FBN) oder Handelsregisternummer:</strong> FN 123456a</p>
-        <p><strong>Umsatzsteuer-Identifikationsnummer (UID):</strong> ATU12345678</p>
-        <p><strong>Berufsrechtliche Vorschriften:</strong> Gemäß Hotel- und Gaststättenverordnung</p>
-        <p><strong>Kammermitgliedschaft:</strong> Wirtschaftskammer Österreich</p>
-        <p><strong>Aufsichtsbehörde:</strong> Magistratisches Bezirksamt Wien</p>
-        <p><strong>Bankverbindung:</strong> Musterbank, IBAN: AT611234567890123456</p>
-        <p><strong>Haftpflichtversicherung:</strong> Allianz Versicherung, Polizei Nr. 98765432</p>
-        <p><strong>Copyright:</strong> Copyright © 2023 Serenity Haven</p>
-        <hr>
-
-        <h3>Projektteam</h3>
-        <p>Beteiligte Studierende am Projekt:</p>
-        <ul>
-            <li>Elaine Fink</li>
-            <li>Niklas Brandtner</li>
-        </ul>
-    </main>
-
-    <footer>
-        <p>&copy; <?php echo date("Y"); ?> Hotel Webseite</p>
-    </footer>
-</body>
+        </header>
+        <div class="icon-container">
+        <!--Buttons für verschieden Links/Socials-->
+        <div class="icon icon-fill">
+            <i class="fa fa-home"></i>
+        </div>
+        <div class="icon icon-enter">
+            <i class="fa fa-user"></i>
+        </div>
+        <div class="icon icon-expand">
+            <i class="fa fa-bars"></i>
+        </div>
+        <div class="icon icon-collapse">
+            <i class="fa fa-sign-in"></i>
+        </div>
+        <div class="icon icon-rotate">
+            <i class="fa fa-phone"></i>
+        </div>
+        <main>
+            <h1 class="blackcolor">Impressum</h1>
+            <hr>
+            <p>Dieses Impressum gilt für die Website der Hotelverwaltung:</p>
+            <p><strong>Firma:</strong> Serenity Haven</p>
+            <p><strong>Adresse:</strong> Höchstädtpl. 6, 1200 Wien</p>
+            <p><strong>Telefon:</strong> +43 XXXXX XXXXXX</p>
+            <p><strong>E-Mail:</strong>  roman.tisch.serenity@gmail.com</p>
+            <p><strong>Firmenbuchnummer (FBN) oder Handelsregisternummer:</strong> FN 123456a</p>
+            <p><strong>Umsatzsteuer-Identifikationsnummer (UID):</strong> ATU12345678</p>
+            <p><strong>Berufsrechtliche Vorschriften:</strong> Gemäß Hotel- und Gaststättenverordnung</p>
+            <p><strong>Kammermitgliedschaft:</strong> Wirtschaftskammer Österreich</p>
+            <p><strong>Aufsichtsbehörde:</strong> Magistratisches Bezirksamt Wien</p>
+            <p><strong>Bankverbindung:</strong> Musterbank, IBAN: AT611234567890123456</p>
+            <p><strong>Haftpflichtversicherung:</strong> Allianz Versicherung, Polizei Nr. 98765432</p>
+            <p><strong>Copyright:</strong> Copyright © 2023 Serenity Haven</p>
+            <hr>
+            <h3>Projektteam</h3>
+            <p>Beteiligte Studierende am Projekt:</p>
+            <ul>
+                <li>Elaine Fink</li>
+                <li>Niklas Brandtner</li>
+            </ul>
+        </main>
+        <footer>
+            <p>&copy; <?php echo date("Y"); ?> Hotel Webseite</p>
+        </footer>
+    </body>
 </html>
