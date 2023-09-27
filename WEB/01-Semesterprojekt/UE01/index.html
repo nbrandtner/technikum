@@ -51,20 +51,21 @@
                     <div class="modal-body">
                         <!-- Registrierungsformularfelder hier -->
                         <div class="mb-3">
-                            <label for="registerSalutation" class="form-label">Gender:</label>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="registerSalutation" id="male" value="male">
+                            <label class="form-label">Gender:</label>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="radio" id="male" class="form-check-input input" value="male" checked="">
                                 <label class="form-check-label mr-3" for="male" alt="male">Male</label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="registerSalutation" id="female" value="female">
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="radio" id="female" class="form-check-input input" value="female">
                                 <label class="form-check-label mr-3" for="female" alt="female">Female</label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="registerSalutation" id="diverse" value="diverse">
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="radio" id="diverse" class="form-check-input input" value="diverse">
                                 <label class="form-check-label" for="diverse" alt="diverse">Diverse</label>
                             </div>
                         </div>
+                        
                         <div class="mb-3">
                             <input type="text" class="form-control" id="registerFirstName" name="registerFirstName" placeholder="Firstname" alt="Please enter your firstname" required>
                         </div>
