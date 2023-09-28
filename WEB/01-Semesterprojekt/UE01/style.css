@@ -336,3 +336,31 @@ button[type=submit]:hover {
 .input:checked {
   background-position: 0 0;
 }
+
+/* Card style für das Anzeigen der News*/
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  margin-right: 16%;
+  margin-left: 16%;
+  max-width: 90%;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.cardcontainer {
+  padding-top: 15px;
+  padding: 5%;
+}
+.cardimg {
+  max-width: 100%;
+}
+h4 {
+  font-family: 'Georgia';
+  font-weight: 1000;
+}
