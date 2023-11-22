@@ -33,6 +33,9 @@
                     <input type="email" class="form-control" id="registerEmail" name="registerEmail" placeholder="E-Mail" alt="Please enter your E-Mail" required>
                 </div>
                 <div class="mb-3">
+                    <input type="text" class="form-control" id="registerUser" name="registerUser" placeholder="Username" alt="Please enter your Username" required>
+                </div>
+                <div class="mb-3">
                     <input type="password" class="form-control" id="registerPassword" name="registerPassword" placeholder="Password" alt="Please enter your password" required>
                 </div>
                 <div class="mb-3">

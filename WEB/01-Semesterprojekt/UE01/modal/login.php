@@ -8,12 +8,12 @@
             </div>
             <div class="modal-body">
                 <!-- Anmeldeformularfelder hier -->
-                <!-- Beispiel: E-Mail und Passwort -->
+                <!-- Beispiel: Username und Passwort -->
                 <div class="mb-3">
-                    <input type="email" class="form-control" id="loginEmail" name="loginEmail" placeholder="E-Mail" alt="Please enter your E-Mail" required>
+                    <input type="text" class="form-control" id="loginUser" name="loginUser" placeholder="Username" alt="Please enter your Username" required>
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control" id="loginPW" name="loginPW" placeholder="Password" alt="Please enter your password" required>
+                    <input type="password" class="form-control" id="loginPW" name="loginPW" placeholder="Password" alt="Please enter your Password" required>
                 </div>
                 <!-- Weitere Anmeldeformularfelder hier -->
             </div>
