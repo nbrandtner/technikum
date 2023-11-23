@@ -1,39 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Serenity Haven - Impressum</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-        <!-- Füge hier deine CSS-Dateien hinzu, um das Styling anzupassen -->
-        <link rel="stylesheet" href="style.css">
-    </head>
+    <?php include 'htmlhead.php'; ?>
     <body>
         <?php 
-            include 'modal/login.php'; 
-            include 'modal/profil.php';
-            include 'modal/register.php';
+            include 'login.php'; 
+            include 'profil.php';
+            include 'register.php';
         ?>
         <?php
             include 'header.php';
         ?>
         <div class="icon-container">
-        <!--Buttons für verschieden Links/Socials-->
-        <div class="icon icon-fill">
-            <i class="fa fa-home"></i>
-        </div>
-        <div class="icon icon-enter">
-            <i class="fa fa-user"></i>
-        </div>
-        <div class="icon icon-expand">
-            <i class="fa fa-bars"></i>
-        </div>
-        <div class="icon icon-collapse">
-            <i class="fa fa-sign-in"></i>
-        </div>
-        <div class="icon icon-rotate">
-            <i class="fa fa-phone"></i>
-        </div>
         <main>
             <h1 class="blackcolor">Impressum</h1>
             <hr>
