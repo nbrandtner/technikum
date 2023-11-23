@@ -11,7 +11,7 @@
                 <div class="mb-3">
                     <label class="form-label">Gender:</label>
                     <div class="form-check form-check-inline">
-                        <input type="radio" name="radio" id="male" class="form-check-input input" value="male" checked>
+                        <input type="radio" name="radio" id="male" class="form-check-input input" value="male" checked="">
                         <label class="form-check-label mr-3" for="male" alt="male">Male</label>
                     </div>
                     <div class="form-check form-check-inline">
@@ -24,17 +24,22 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="registerFirstName" name="registerFirstName" placeholder="Firstname" alt="Please enter your firstname" required>
+                    <label class="form-label">Firstname:</label>
+                    <input type="text" class="form-control" id="registerFirstName" name="registerFirstName" placeholder="Firstname" alt="Your firstname" required>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="registerLastName" name="registerLastName" placeholder="Surname" alt="Please enter your surname"required>
+                    <label class="form-label">Surname:</label>
+                    <input type="text" class="form-control" id="registerLastName" name="registerLastName" placeholder="Surname" alt="Your surname"required>
                 </div>
                 <div class="mb-3">
-                    <input type="email" class="form-control" id="registerEmail" name="registerEmail" placeholder="E-Mail" alt="Please enter your E-Mail" required>
+                    <label class="form-label">E-Mail:</label>
+                    <input type="email" class="form-control" id="registerEmail" name="registerEmail" placeholder="E-Mail" alt="Your E-Mail" required>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="registerUser" name="registerUser" placeholder="Username" alt="Please enter your Username" required>
+                    <label class="form-label">Username::</label>
+                    <input type="text" class="form-control" id="registerUser" name="registerUser" placeholder="Username" alt="Your Username" required>
                 </div>
+                <br>
                 <div class="mb-3">
                     <input type="password" class="form-control" id="registerPassword" name="registerPassword" placeholder="Password" alt="Please enter your password" required>
                 </div>
