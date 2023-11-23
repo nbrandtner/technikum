@@ -42,7 +42,8 @@ if(isset($_POST['submit'])) {
                                     <label style="color:white;" for="loginPW">Password</label>
                                     <input type="password" class="form-control" id="loginPW" name="loginPW" placeholder="Password" required>
                                 </div>
-                                <button type="submit" name="submit" class="btn btn-primary">Login</button>
+                                <button type="submit" name="submit" class="btn btn-primary">Login</button><br>
+                                <button onclick="window.location.href='index.php'" type="button" href="index.php"class="btn btn-primary">Close</button>
                             </form>
                         </div>
                     </div>
