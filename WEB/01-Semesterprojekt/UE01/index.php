@@ -10,24 +10,8 @@ if(isset($_SESSION['user'])) {
 <!DOCTYPE html>
 <html lang="en">
     <?php include 'htmlhead.php'; ?>
-    <body>
-        <?php if(isset($_SESSION['loggedin'])): ?>
-            <?php if($_SESSION['role'] == 'admin'):
-                
-                include 'profil.php';
-                include 'newuser.php';
-            ?>
-            <?php else:
-                include 'profil.php';
-                include 'logout.php';
-            endif; 
-        ?>
-        <?php else:
-            include 'register.php';
-        endif; ?>
-        <?php
-            include 'header.php';
-        ?>
+    <body>   
+        <?php include 'header.php'; ?>
         <div class="icon-container">
         <main>
             <h1 class="blackcolor">Welcome to Serenity Haven!</h1>
