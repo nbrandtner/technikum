@@ -1,4 +1,3 @@
-
 <?php
 $target_dir = "img_uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);

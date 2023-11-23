@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -37,11 +41,13 @@
         <main>
             <h1 class="blackcolor">Welcome to Serenity Haven!</h1>
             <hr>
+            <br>
             <form enctype="multipart/form-data" method="post" action="fileupload.php">
                 <input type="file" name="fileToUpload" id="fileToUpload">
                 <input type="submit" value="Hochladen" name ="submit">
             </form>
             <br>
+            <hr>
             <div class ="card">
                 <img class="cardimg" src="img/rose_wine.jpg">
                 <div class="cardcontainer">
