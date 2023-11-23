@@ -34,7 +34,7 @@ if(isset($_SESSION['user'])) {
             <hr>
             <br>
             <form enctype="multipart/form-data" method="post" action="fileupload.php">
-                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="file" name="fileToUpload"  id="fileToUpload">
                 <input type="submit" value="Hochladen" name ="submit">
             </form>
             <br>

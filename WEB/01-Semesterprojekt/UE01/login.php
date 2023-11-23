@@ -1,19 +1,35 @@
 <!-- Modal für Anmeldung -->
 <?php
-if(session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-if(isset($_POST['submit'])) {
-    $user = $_POST['loginUser'];
-    $password = $_POST['loginPW'];
-    
-    // Überprüfung des Passworts
-    if ($user == 'test' && $password == 'test') {
-        $_SESSION['user'] = $user;
-        header('Location: index.php'); // Redirect to the index page
+session_start();
+include 'users.php';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Loop through the users array and check if the credentials match
+    foreach ($users as $user) {
+        if ($username == $user["username"] && $password == $user["password"]) {
+            // Credentials are correct, set the session variables
+            $_SESSION['loggedin'] = true;
+            $_SESSION['username'] = $username;
+            $_SESSION['password'] = $password;
+            $_SESSION['role'] = $user["role"];
+            break;
+        }
+    }
+
+    // Check if the session variables are set
+    if (isset($_SESSION["loggedin"]) && isset($_SESSION["username"]) && isset($_SESSION["role"])) {
+        // Redirect to a new page based on the user role
+        if ($_SESSION["role"] == "user") {
+            header("Location: index.php");
+        } else if ($_SESSION["role"] == "admin") {
+            header("Location: index.php");
+        }
         exit;
     } else {
-        $errorMessage = "E-Mail oder Passwort war ungültig<br>";
+        // Credentials are incorrect, show an error message
+        $_SESSION['message'] = 'Login failed';
     }
 }
 ?>
@@ -27,12 +43,12 @@ if(isset($_POST['submit'])) {
             <button type="button" onclick="window.location.href='login.php'" href="login.php"class="glow-on-hover upper-corner" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
         </nav>
         <header>
-            <img src="img/logo-transparent.png" width="330px">
+        <a href="index.php"><img src="img/logo-transparent.png" width="330px"></a>
             <div class="icon-container">
                 <main>
                     <div class="row justify-content-center">
                         <div class="col-md-6">
-                            <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
+                        <form class="credentials" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                                 <h2 style="color:white;">Login</h2>
                                 <div class="form-group">
                                     <label style="color:white;" for="loginUser">Username</label>

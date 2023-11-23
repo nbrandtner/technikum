@@ -3,7 +3,6 @@
     <?php include 'htmlhead.php'; ?>
     <body>
         <?php 
-            include 'login.php'; 
             include 'profil.php';
             include 'register.php';
         ?>
