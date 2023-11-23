@@ -1,22 +1,26 @@
 <!-- Modal für Anmeldung -->
 <?php
+if(session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 if(isset($_POST['submit'])) {
     $user = $_POST['loginUser'];
-    $passwort = $_POST['loginPW'];
-    //Überprüfung des Passworts
-    if ($user == 'testuser' && $passwort == 'passwort') {
+    $password = $_POST['loginPW'];
+    
+    // Überprüfung des Passworts
+    if ($user == 'test' && $password == 'test') {
         $_SESSION['user'] = $user;
-        echo('Login erfolgreich.');
+        header('Location: index.php'); // Redirect to the index page
+        exit;
     } else {
         $errorMessage = "E-Mail oder Passwort war ungültig<br>";
     }
-    
 }
 ?>
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+            <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
             <div class="modal-header">
                 <h5 class="modal-title" id="loginModalLabel">Login</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -34,7 +38,7 @@ if(isset($_POST['submit'])) {
                 <!-- Weitere Anmeldeformularfelder hier -->
             </div>
             <div class="modal-footer">  
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" name="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Login</button>
             </div>
         </form>

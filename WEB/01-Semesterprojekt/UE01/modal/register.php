@@ -10,7 +10,7 @@
                     <div class="modal-body">
                         <!-- Registrierungsformularfelder hier -->
                         <div class="mb-3">
-                            <label cl   ass="form-label">Gender:</label>
+                            <label class="form-label">Gender:
                             <div class="form-check form-check-inline">
                                 <input type="radio" name="radio" id="male" class="form-check-input input" value="male" checked="">
                                 <label class="form-check-label mr-3" for="male" alt="male">Male</label>
@@ -23,6 +23,7 @@
                                 <input type="radio" name="radio" id="diverse" class="form-check-input input" value="diverse">
                                 <label class="form-check-label" for="diverse" alt="diverse">Diverse</label>
                             </div>
+                            </label>
                         </div>
                         
                         <div class="mb-3">
