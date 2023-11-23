@@ -1,30 +1,45 @@
- <!-- Modal für das Profil -->
- <!-- Modal für Anmeldung -->
+<?php
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['loggedin'])) {
+    // User is not logged in. Redirect them to the login page
+    header('Location: login.php');
+    exit;
+}
+
+// User's data for this example
+$password = $_SESSION['password'];
+$role = $_SESSION['role'];
+$username = $_SESSION['username'];
+
+// Include the users.php file
+include 'users.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <?php include 'htmlhead.php'; ?>
     <body>
-        <nav class="top-nav">
-            <button type="button" onclick="window.location.href='profil.php'" href="profil.php" class="glow-on-hover upper-corner" >Profil</button>
-            <button type="button" onclick="window.location.href='register.php'" href="register.php"class="glow-on-hover upper-corner" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
-            <button type="button" onclick="window.location.href='login.php'" href="login.php"class="glow-on-hover upper-corner" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-        </nav>
-        <header>
-            <img src="img/logo-transparent.png" width="330px">
-            <div class="icon-container">
-                <main>
-                    <div class="row justify-content-center">
-                        <div class="col-md-6">
-                            <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
-                                <h2 style="color:white;">Profil</h2>
-                                <p style="color:white;">nothing here yet</p><br>
-                                <button onclick="window.location.href='index.php'" type="button" href="index.php"class="btn btn-primary">Close</button>
-                                <button type="button" class="btn btn-primary">Edit</button>
+    <header>
+        <a href="index.php"><img src="img/logo-transparent.png" width="330px"></a>
+        <div class="icon-container">
+            <main>
+                <div class="row justify-content-center">
+                    <div class="col-md-6" style="color:white">
+                        <div class="about">
+                            <h2>Welcome <?php echo $username;?>!</h2><br>
+                            <p>Password: <?php echo $password; ?></p>
+                            <p>Role: <?php echo $role; ?></p>
+                            <!-- Add more user data here -->
+                            <form action="logout.php" method="post">
+                                <input type="submit" value="Logout">
                             </form>
                         </div>
                     </div>
-                </main>
-            </div>
+                </div>
+            </main>
+        </div>
         </header>
         <footer>
             <p>&copy; <?php echo date("Y"); ?> Hotel Website</p>

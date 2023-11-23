@@ -51,12 +51,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <form class="credentials" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                                 <h2 style="color:white;">Login</h2>
                                 <div class="form-group">
-                                    <label style="color:white;" for="loginUser">Username</label>
-                                    <input type="text" class="form-control" id="loginUser" name="loginUser" placeholder="Username" required>
+                                    <label style="color:white;" for="username">Username</label>
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
                                 </div>
                                 <div class="form-group">
-                                    <label style="color:white;" for="loginPW">Password</label>
-                                    <input type="password" class="form-control" id="loginPW" name="loginPW" placeholder="Password" required>
+                                    <label style="color:white;" for="password">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                                 </div>
                                 <button type="submit" name="submit" class="btn btn-primary">Login</button><br>
                                 <button onclick="window.location.href='index.php'" type="button" href="index.php"class="btn btn-primary">Close</button>

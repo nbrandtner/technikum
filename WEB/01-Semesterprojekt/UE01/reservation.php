@@ -2,10 +2,6 @@
 <html lang="en">
     <?php include 'htmlhead.php'; ?>
     <body>
-        <?php 
-            include 'profil.php';
-            include 'register.php';
-        ?>
         <?php
             include 'header.php';
         ?>
