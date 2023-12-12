@@ -15,7 +15,6 @@ const char *genreNames[] = {
     "Romantik",
     "Sachbuch"
 };
-
 struct book {
     char title[32];
     enum genre bookGenre;
