@@ -3,7 +3,7 @@
 #include <string.h>
 
 enum genre {
-    HORROR,
+    HORROR=1,
     ABENTEUER,
     ROMANTIK,
     SACHBUCH
@@ -15,6 +15,7 @@ const char *genreNames[] = {
     "Romantik",
     "Sachbuch"
 };
+
 struct book {
     char title[32];
     enum genre bookGenre;
@@ -41,7 +42,7 @@ struct bookNode *createBookNode(char *tempTitle, enum genre tempGenre, int tempY
 void insertBook(struct bookNode **head);
 struct borrowNode *createBorrowNode(char *title, char *name);
 void borrowBook(struct bookNode **head, struct borrowNode **headBorrow);
-void returnbook();
+void returnBook(struct bookNode **head, struct borrowNode **headBorrow);
 void printList(struct bookNode **head);
 void printListInOrder(struct bookNode **head);
 
@@ -113,12 +114,12 @@ void insertBook(struct bookNode **head) {
 
     
     printf("\nGeben Sie den Titel ein: ");
-    scanf("%31s", tempTitle);
+    scanf(" %31s", tempTitle);
 
     while(1){
     printf("\nGeben Sie das Genre ein. Horror (1), Abenteuer (2), Romantik (3), Sachbuch (4): ");
-        scanf("%d",&tempGenre);
-        if(tempGenre>=0&&tempGenre<=3){
+        scanf(" %d",&tempGenre);
+        if(tempGenre>=1&&tempGenre<=4){
             break;
         }else{
             notValid();
@@ -126,7 +127,7 @@ void insertBook(struct bookNode **head) {
     }
     while(1){
     printf("\nGeben Sie das Erscheinungsjahr ein: ");
-        scanf("%d",&tempYear);
+        scanf(" %d",&tempYear);
         if(tempYear>0){
             break;
         }else{
@@ -143,7 +144,7 @@ void insertBook(struct bookNode **head) {
         }
     }
     
-    struct bookNode *newNode = createBookNode(tempTitle, tempGenre-1, tempYear, tempAmount);
+    struct bookNode *newNode = createBookNode(tempTitle, tempGenre, tempYear, tempAmount);
 
     newNode->next = *head;
     *head = newNode;
@@ -162,63 +163,132 @@ struct borrowNode *createBorrowNode(char* tempTitle, char* tempName) {
     return newNode;
 }
 
-void borrowBook(struct bookNode **head, struct borrowNode **headBorrow){
-    struct borrowNode *current=*headBorrow;
+void borrowBook(struct bookNode **head, struct borrowNode **headBorrow) {
+    struct borrowNode *current = *headBorrow;
+    struct bookNode *bookToBorrow = *head;
     int borrowBook;
-    int countBook=countBookList(*head);
-    int countBorrow=countBorrowList(*headBorrow);
-    char tempTitle[32]="";
-    char tempName[32]="";
-    if(countBook==0){
+    int countBook = countBookList(*head);
+    int countBorrow = countBorrowList(*headBorrow);
+    char tempTitle[32] = "";
+    char tempName[32] = "";
+
+    if (countBook == 0) {
         printf("\nEs sind keine Buecher im Inventar vorhanden.");
         return;
     }
+
     printList(head);
-    while(1){
-        printf("\nWelchen Titel moechten Sie leihen? (1-%d): ",countBook);
-        scanf("%d",&borrowBook);
-        if(borrowBook<1||borrowBook>countBook){
+
+    while (1) {
+        printf("\nWelchen Titel moechten Sie leihen? (1-%d): ", countBook);
+        scanf("%d", &borrowBook);
+
+        if (borrowBook < 1 || borrowBook > countBook) {
             notValid();
             continue;
-        }else{
-            struct bookNode *bookToBorrow = *head; // Initialize a pointer to the head of the book list
-            for (int i = 1; i < borrowBook; i++) { // Move the pointer to the selected book
+        } else {
+            for (int i = 1; i < borrowBook; i++) {
                 bookToBorrow = bookToBorrow->next;
             }
-            strcpy(tempTitle, bookToBorrow->content.title); // Copy the title of the selected book
+            strcpy(tempTitle, bookToBorrow->content.title);
         }
+
         printf("\nGeben Sie Ihren Namen ein: ");
-        scanf("%31s",tempName);
-        for(int i=0;i<countBorrow;i++){
-            if(strcmp(current->title,tempTitle)==0&&strcmp(current->name,tempName)==0){
+        scanf("%31s", tempName);
+
+        int found = 0; // Flag to indicate if the user has already borrowed the book
+        current = *headBorrow; // Reset current pointer to the beginning
+
+        for (int i = 0; i < countBorrow; i++) {
+            if (strcmp(current->title, tempTitle) == 0 && strcmp(current->name, tempName) == 0) {
                 printf("\nSie haben diesen Titel bereits ausgeliehen!");
-                return;
+                found = 1; // Set the flag to indicate the book is already borrowed
+                break; // Exit the loop since the book is found
             }
             current = current->next;
         }
+
+        if (found) {
+            break; // If the book is already borrowed, exit the borrowing process
+        }
+
+        // Borrow the book if it's available
+        if (bookToBorrow->content.amount == 0) {
+            printf("\nBereits alle Exemplare ausgeliehen!");
+            return;
+        } else {
+            bookToBorrow->content.amount--;
+        }
+        
+        struct borrowNode *newNode = createBorrowNode(tempTitle, tempName);
+
+        newNode->next = *headBorrow;
+        *headBorrow = newNode;
+
         break;
     }
-    struct borrowNode *newNode = createBorrowNode(tempTitle, tempName);
-
-    newNode->next = *headBorrow;
-    *headBorrow = newNode;
 }
 
-void returnbook(){
+void returnBook(struct bookNode **head,struct borrowNode **headBorrow) {
+    struct borrowNode *current = *headBorrow;
+    int countBorrow = countBorrowList(*headBorrow);
+    int userBorrow = 0;
+
+    if (countBorrow == 0) {
+        printf("\nEs sind keine Titel ausgeliehen!");
+        return;
+    }
+
+    for (int i = 0; i < countBorrow; i++) {
+        printf("\n%d: %s geliehen von %s", i + 1, current->title, current->name);
+        current = current->next;
+    }
+
+    while (1) {
+        printf("\n\nWelchen Titel moechten Sie retournieren? (1-%d): ", countBorrow);
+        scanf("%d", &userBorrow);
+
+        if (userBorrow < 1 || userBorrow > countBorrow) {
+            notValid();
+            continue;
+        }
+
+        break;
+    }
+
+    current = *headBorrow;
+    struct borrowNode *prev = NULL;
+    for (int i = 1; i < userBorrow; i++) {
+        prev = current;
+        current = current->next;
+    }
     
+    if (prev == NULL) {
+        *headBorrow = current->next;
+    } else {
+        prev->next = current->next;
+    }
+
+    struct bookNode *bookToReturn = *head;
+    while (strcmp(bookToReturn->content.title, current->title) != 0) {
+        bookToReturn = bookToReturn->next;
+    }
+    bookToReturn->content.amount++; // Increment the available quantity
+
+    free(current);
 }
 
 void printList(struct bookNode **head){
     struct bookNode *current=*head;
     for(int i=0;i<countBookList(*head);i++){
-        printf("\n%d: %s, %s (%d)", i+1,current->content.title,genreNames[current->content.bookGenre],current->content.year);
+        printf("\n%d: %s, %s (%d)", i+1,current->content.title,genreNames[current->content.bookGenre-1],current->content.year);
         current = current->next; 
     }
     printf("\n");
 }
 
 void printListInOrder(struct bookNode **head) {
-    int count = countBookList(*head); // Zähle die Anzahl der Elemente in der Liste
+    int count = countBookList(*head); // Count the number of elements in the list
 
     struct bookNode **tempArray = (struct bookNode **)malloc(count * sizeof(struct bookNode *));
     if (tempArray == NULL) {
@@ -226,14 +296,14 @@ void printListInOrder(struct bookNode **head) {
         return;
     }
 
-    // Fülle das temporäre Array mit den Knoten der Liste
+    // Fill the temporary array with the nodes from the list
     struct bookNode *current = *head;
     for (int i = 0; i < count; i++) {
         tempArray[i] = current;
         current = current->next;
     }
 
-    // Sortiere das temporäre Array nach dem Jahr
+    // Sort the temporary array based on the year
     for (int i = 0; i < count - 1; i++) {
         for (int j = 0; j < count - i - 1; j++) {
             if (tempArray[j]->content.year > tempArray[j + 1]->content.year) {
@@ -244,13 +314,13 @@ void printListInOrder(struct bookNode **head) {
         }
     }
 
-    // Gib die sortierte Liste aus
+    // Print the sorted list
     for (int i = 0; i < count; i++) {
-        printf("\n%d: %s, %s (%d)", i + 1, tempArray[i]->content.title, genreNames[tempArray[i]->content.bookGenre], tempArray[i]->content.year);
+        printf("\n%d: %s, %s (%d)", i+1, tempArray[i]->content.title, genreNames[tempArray[i]->content.bookGenre-1], tempArray[i]->content.year);
     }
     printf("\n");
 
-    free(tempArray); // Freigabe des allokierten temporären Arrays
+    free(tempArray); // Free the allocated temporary array
 }
 
 
@@ -270,7 +340,7 @@ int main(){
                 borrowBook(&head, &headBorrow);
                 break;
             case 'r':
-                returnbook();
+                returnBook(&head, &headBorrow);
                 break;
             case 'l':
                 printList(&head);
