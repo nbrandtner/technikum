@@ -1,17 +1,12 @@
 <nav class="top-nav">
         <?php if(isset($_SESSION['loggedin'])): ?>
-                <?php if($_SESSION['role'] == 'admin'): ?>
-                        <button type="button" onclick="window.location.href='profil.php'" href="profil.php" class="glow-on-hover upper-corner" >Profil</button>
-                <?php else: ?>
-                        <button type="button" onclick="window.location.href='profil.php'" href="profil.php" class="glow-on-hover upper-corner" >Profil</button>
-                <?php endif; ?>
+                <button type="button" onclick="window.location.href='profil.php'" href="profil.php" class="glow-on-hover upper-corner" >Profil</button>
         <?php else: ?>
                 <button type="button" onclick="window.location.href='register.php'" href="register.php"class="glow-on-hover upper-corner">Register</button>
                 <button type="button" onclick="window.location.href='login.php'" href="login.php"class="glow-on-hover upper-corner">Login</button>
         <?php endif; ?>
 </nav>
-        <?php if ($_SERVER['PHP_SELF'] == '/index.php'||$_SERVER['PHP_SELF'] == '/help.php'||$_SERVER['PHP_SELF'] == '/reservation.php'||$_SERVER['PHP_SELF'] == '/impressum.php'): ?>
-                <header>
+        <header>
                 <a href="index.php"><img src="img/logo-transparent.png" width="330px"></a>
                 <nav>
                 <button onclick="window.location.href='reservation.php'" type="button" href="reservation.php" class="glow-on-hover" alt="Reservation">Reservation</button>              
@@ -20,5 +15,4 @@
                 <button onclick="window.location.href='impressum.php'" type="button" href="impressum.php" class="glow-on-hover" alt="Impressum">Impressum</button>
                 <!-- Weitere Navigationslinks für angemeldete Benutzer -->
                 </nav>
-                </header>                
-        <?php endif; ?>
+                </header>    

@@ -10,13 +10,15 @@ session_start();
         <div class="icon-container">
         <main>
             <h1 class="blackcolor">Welcome to Serenity Haven!</h1>
-            <hr>
-            <br>
-            <form enctype="multipart/form-data" method="post" action="fileupload.php">
-                <input type="file" name="fileToUpload"  id="fileToUpload">
-                <input type="submit" value="Hochladen" name ="submit">
-            </form>
-            <br>
+            <?php if(isset($_SESSION['loggedin']) && $_SESSION['role'] == "admin"): ?>
+                <hr>
+                <br>
+                <form enctype="multipart/form-data" method="post" action="fileupload.php">
+                    <input type="file" name="fileToUpload"  id="fileToUpload">
+                    <input type="submit" value="Hochladen" name ="submit">
+                </form>
+                <br>
+            <?php endif; ?> 
             <hr>
             <div class ="card">
                 <img class="cardimg" src="img/rose_wine.jpg">
