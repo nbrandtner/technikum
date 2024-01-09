@@ -20,26 +20,21 @@ session_start();
                 <br>
             <?php endif; ?> 
             <hr>
-            <div class ="card">
-                <img class="cardimg" src="img/rose_wine.jpg">
-                <div class="cardcontainer">
-                    <h4>Book your room hourly!</h4>
-                    <p>Ab jetzt können Sie unsere Zimmer auch stündlich buchen.</p>
-                </div>
-            </div></br>
-            <div class ="card">
-                <img class="cardimg" src="img/massage.png">
-                <div class="cardcontainer">
-                    <h4>Enjoy our aroma oil massage!</h4>
-                    <p>Im SPA bereich können sie sich von augebildenen Masseuren verwöhnen lassen. Dieses Service ist ab einem Aufenthalt von 2 Nächten inklusive.</p>
-                </div>
-            </div></br>
-            <div class ="card">
-                <img class="cardimg" src="img/whirlpool.jpg">
-                <div class="cardcontainer">
-                    <h4>New whirlpool in our honeymoon suits!</h4>
-                </div>
-            </div>
+
+            
+            <?php
+            //Schleife zum einfügen der Hochgeladenen Bilder
+                $dir = opendir("img_uploads");
+                $extensions = array("jpg", "bmp", "gif", "jpeg", "png"); 
+
+                while(($file = readdir($dir)) !== false){
+                    if(in_array(pathinfo($file, PATHINFO_EXTENSION), $extensions)){
+                    echo "<div class ='card'><img class='cardimg' src='img_uploads/".$file."'><div class='cardcontainer'></div></div><br>";
+                    }
+                }
+
+            ?>
+          
         </main>
         <footer>
             <p>&copy; <?php echo date("Y"); ?> Hotel Website</p>
