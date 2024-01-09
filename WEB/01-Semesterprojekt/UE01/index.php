@@ -13,12 +13,13 @@ session_start();
             <?php if(isset($_SESSION['loggedin']) && $_SESSION['role'] == "admin"): ?>
                 <hr>
                 <br>
-                <form enctype="multipart/form-data" method="post" action="fileupload.php">
+                <form enctype="multipart/form-data" method="post" action="index.php">
                     <input type="file" name="fileToUpload"  id="fileToUpload">
                     <input type="submit" value="Hochladen" name ="submit">
                 </form>
                 <br>
             <?php endif; ?> 
+            <?php include 'fileupload.php'; ?>
             <hr>
 
             
