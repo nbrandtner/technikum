@@ -9,9 +9,9 @@ if (!isset($_SESSION['loggedin'])) {
 }
 
 // User's data for this example
-$password = $_SESSION['password'];
-$role = $_SESSION['role'];
-$username = $_SESSION['username'];
+$password = $_SESSION['u_pw'];
+$role = $_SESSION['u_role'];
+$username = $_SESSION['u_username'];
 
 // Include the users.php file
 include 'users.php';

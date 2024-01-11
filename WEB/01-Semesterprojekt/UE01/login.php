@@ -1,24 +1,44 @@
-<!-- Modal für Anmeldung -->
 <?php
 session_start();
-include 'users.php';
+include 'db_config.php';  // Include your database connection file
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Loop through the users array and check if the credentials match
-    foreach ($users as $user) {
-        if ($username == $user["username"] && $password == $user["password"]) {
-            // Credentials are correct, set the session variables
-            $_SESSION['loggedin'] = true;
-            $_SESSION['username'] = $username;
-            $_SESSION['password'] = $password;
-            $_SESSION['role'] = $user["role"];
-            break;
+    // Assuming your database table is named 'user'
+    $query = "SELECT * FROM user WHERE u_username = ? AND u_pw = ?";
+    
+    // Use prepared statements to prevent SQL injection
+    $stmt = $mysqli->prepare($query);
+    $stmt->bind_param("ss", $username, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows == 1) {
+        // Credentials are correct, set the session variables
+        $user = $result->fetch_assoc();
+        $_SESSION['loggedin'] = true;
+        $_SESSION['u_username'] = $user['u_username'];
+        $_SESSION['u_pw'] = $user['u_pw'];
+        $_SESSION['u_role'] = $user['u_role'];
+    
+        $stmt->close();
+        $mysqli->close();
+    
+        // Redirect to a new page based on the user role
+        if ($_SESSION["u_role"] == "user") {
+            header("Location: index.php");
+            exit;
+        } else if ($_SESSION["u_role"] == "admin") {
+            header("Location: index.php");
+            exit;
         }
+    } else {
+        // Credentials are incorrect, show an error message
+        $_SESSION['message'] = 'Login failed';
     }
 
-    // Check if the session variables are set
     if (isset($_SESSION["loggedin"]) && isset($_SESSION["username"]) && isset($_SESSION["role"])) {
         // Redirect to a new page based on the user role
         if ($_SESSION["role"] == "user") {
@@ -27,11 +47,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: index.php");
         }
         exit;
-    } else {
-        // Credentials are incorrect, show an error message
-        $_SESSION['message'] = 'Login failed';
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,6 +78,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <button type="submit" name="submit" class="btn btn-primary">Login</button><br>
                                 <button onclick="window.location.href='index.php'" type="button" href="index.php"class="btn btn-primary">Close</button>
                             </form>
+                            <!-- Display error message if set -->
+                            <?php
+                            if (isset($_SESSION['message'])) {
+                                echo '<div class="error-message alert alert-danger" role="alert">' . $_SESSION['message'] . '</div>';
+                                unset($_SESSION['message']); // Clear the message after displaying
+                            }
+                            ?>
                         </div>
                     </div>
                 </main>

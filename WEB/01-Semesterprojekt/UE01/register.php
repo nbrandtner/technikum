@@ -8,29 +8,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fname = test_input($_POST["fname"]);
     $lname = test_input($_POST["lname"]);
     $email = test_input($_POST["email"]);
+    $username = test_input($_POST["username"]);
     $password = test_input($_POST["password"]);
     $password_repeat = test_input($_POST["password_repeat"]);
 
     // Check if all fields are filled
     if(empty($fname) || empty($lname) || empty($email) || empty($gender) || empty($password) || empty($password_repeat)) {
-        echo "All fields must be filled out";
+        $_SESSION['message'] = 'All fields must be filled out';
+        echo '<div class="error-message alert alert-danger" role="alert">' . $_SESSION['message'] . '</div>';
+        unset($_SESSION['message']);
     } else {
         // Check if passwords match
         if($password != $password_repeat) {
-            echo "Passwords do not match";
+            $_SESSION['message'] = 'Passwords do not match';
         } else {
             // Check if email is valid
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                echo "Invalid email format";
-            } else {
+                $_SESSION['message'] = 'Invalid email format';
+            } else {    
                 // Check if username is unique
                 // This requires a connection to your database and a query to check the username
                 // This is just a placeholder. Replace it with your actual database query.
                 $username_exists = false; // replace this with your actual check
                 if($username_exists) {
-                    echo "Username already exists";
+                    $_SESSION['message'] = 'Username already exists';
                 } else {
-                    echo "Registration successful";
+                    $_SESSION['message'] = 'Registration successful';
                     // Here you can add the code to insert the new user into your database
                 }
             }
@@ -60,6 +63,17 @@ function test_input($data) {
                     <div class="row justify-content-center">
                         <div class="col-md-10">
                             <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
+                            <?php
+                                if(isset($_SESSION['message'])) {
+                                    if($_SESSION['message'] == 'Registration successful') {
+                                        echo '<div class="success-message alert alert-success" role="alert">' . $_SESSION['message'] . '</div>';
+                                        unset($_SESSION['message']);
+                                    } else {
+                                        echo '<div class="error-message alert alert-danger" role="alert">' . $_SESSION['message'] . '</div>';
+                                        unset($_SESSION['message']);
+                                    }
+                                }
+                            ?>
                                 <h2 style="color:white;">Register</h2>
                                 <div class="form-group">
                                 <label style="color:white;" class="form-label">Gender:</label> 
@@ -76,25 +90,25 @@ function test_input($data) {
                                         <label style="color:white; class="form-check-label" for="diverse" alt="diverse">Diverse</label>
                                     </div>
                                 </div>
-                                <div class="form-group"> 
+                                <div class="form-group form-margin"> 
                                     <input type="text" class="form-control" id="fname" name="fname" placeholder="Firstname" alt="Please enter your firstname" required>
-                                    <br>
-                                    <input type="text" class="form-control" id="lname" name="lname" placeholder="Surname" alt="Please enter your surname"required>
-                                </div><br>
-                                <div class="form-group">
+                                </div>
+                                <div class="form-group form-margin">
+                                <input type="text" class="form-control" id="lname" name="lname" placeholder="Surname" alt="Please enter your surname"required>
+                                </div>
+                                <div class="form-group form-margin">
                                     <input type="email" class="form-control" id="email" name="email" placeholder="E-Mail" alt="Please enter your E-Mail" required>
-                                </div><br>
-                                <div class="form-group">
+                                </div>
+                                <div class="form-group form-margin">
                                     <input type="text" class="form-control" id="username" name="username" placeholder="Username" alt="Please enter your Username" required>
-                                </div><br>
-                                <div class="form-group">
+                                </div>
+                                <div class="form-group form-margin">
                                     <input type="password" class="form-control" id="password" name="password" placeholder="Password" alt="Please enter your password" required>
-                                </div><br>
-                                <div class="form-group">
+                                </div>
+                                <div class="form-group form-margin">
                                     <input type="password" class="form-control" id="password_repeat" name="password_repeat" placeholder="Confirm Password" alt="Please confirm your password" required>
                                 </div>
-                                <button type="submit" name="submit" class="btn btn-primary">Registrieren</button><br>
-                                <button onclick="window.location.href='index.php'" type="button" href="index.php"class="btn btn-primary">Close</button>
+                                <button type="submit" name="submit" class="btn btn-primary btn-margin">Registrieren</button>    
                             </form>
                         </div>
                     </div>
