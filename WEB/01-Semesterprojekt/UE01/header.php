@@ -15,7 +15,7 @@
                 <button onclick="window.location.href='impressum.php'" type="button" href="impressum.php" class="glow-on-hover" alt="Impressum">Impressum</button>
                 <!-- Weitere Navigationslinks für angemeldete Benutzer -->
                 <?php if(isset($_SESSION['loggedin'])): ?>
-                        <button onclick="window.location.href='reservationlist.php'" type="button" href="reservation.php" class="glow-on-hover" alt="Reservation">Reservations</button>              
+                        <button onclick="window.location.href='reservation_list.php'" type="button" href="reservation.php" class="glow-on-hover" alt="Reservation">Reservations</button>              
                 <?php endif; ?>
         </nav>
 </header>    
