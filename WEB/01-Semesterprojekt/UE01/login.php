@@ -31,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['u_email'] = $user['u_email'];
             $_SESSION['u_title'] = $user['u_title'];    
             $_SESSION['u_gender'] = $user['u_gender'];
-
             $_SESSION['u_id'] = $user['u_id'];
 
             $stmt->close();

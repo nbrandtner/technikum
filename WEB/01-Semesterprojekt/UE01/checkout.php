@@ -14,9 +14,6 @@ $booked = date('Y-m-d h:i', time());
 $user = $_SESSION['u_id'];
 $img = $_SESSION['img'];
 
-
-// Include the users.php file
-include 'users.php';
 include 'db_config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
