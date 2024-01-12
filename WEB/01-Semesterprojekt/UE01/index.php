@@ -10,7 +10,7 @@ session_start();
         <div class="icon-container">
         <main>
             <h1 class="blackcolor">Welcome to Serenity Haven!</h1>
-            <?php if(isset($_SESSION['loggedin']) && $_SESSION['role'] == "admin"): ?>
+            <?php if(isset($_SESSION['loggedin']) && $_SESSION['u_role'] == "admin"): ?>
                 <hr>
                 <br>
                 <form enctype="multipart/form-data" method="post" action="index.php">

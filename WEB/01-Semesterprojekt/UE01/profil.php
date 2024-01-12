@@ -25,16 +25,16 @@ include 'users.php';
         <div class="icon-container">
             <main>
                 <div class="row justify-content-center">
-                    <div class="col-md-6" style="color:white">
+                    <div class="col-md-6" style="color:white">  
                         <div class="about">
-                            <h2>Welcome <?php echo $username;?>!</h2><br>
+                            <h2>Welcome <?php echo $_SESSION['u_title'] . ' ' . $username; ?>!</h2>
                             <p>Role: <?php echo $role; ?></p>
                             <!-- Add more user data here -->
                             <form action="logout.php" method="post">
                                 <button style="width:15vw" type="submit button" value="Logout" class="glow-on-hover">Logout</button>
                             </form>
                             <br>
-                            <button style="width:15vw" onclick="window.location.href='index.php'" type="button" class="glow-on-hover" alt="Homepage">Home</button>
+                            <button style="width:15vw" onclick="window.location.href='index.php'" type="button" class="glow-on-hover" alt="Homepage">Edit Profile</button>
                         </div>
                     </div>
                 </div>
