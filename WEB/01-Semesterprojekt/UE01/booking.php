@@ -122,7 +122,7 @@ function test_input($data)
                             <img class='cardimg' src="img/penthouse-suite.jpg">
                             <div class='cardcontainer'>
                                 <div class="form-check form-check-inline">
-                                    <input type="radio" name="rooms" id="penthouse" class="form-check-input input" value="Penthouse" checked="">
+                                    <input type="radio" name="rooms" id="penthouse" class="form-check-input input" value="Penthouse">
                                     <label  for="penthouse" class="form-check-label mr-3">Penthouse Suite - 429,00 € / Nacht</label>
                                 </div>
                             </div>
@@ -161,7 +161,9 @@ function test_input($data)
                             <label for="pet" class="form-check-label mr-3">Haustiere mitnehmen - 20,00€ / Nacht</label><br>
                         </div>
                     </div>
-                    <button type="submit" name="submit" class="btn btn-primary">Book -> Checkout</button><br>
+                    <button type="submit" name="submit" class="btn btn-primary">Weiter -> Checkout</button>
+                    <button onclick="window.location.href='index.php'" type="button" href="reservation.php"class="btn btn-primary"> x Close</button><br>
+                            
                 </form>
             <?php else: ?>
                 <p>Du bist nicht <a onclick="window.location.href='login.php'" class="glow-on-hover">angemeldet</a>. Bitter melde dich an oder <a onclick="window.location.href='register.php'" class="glow-on-hover">erstelle ein Konto</a> um einen Raum zu reservieren.</p>
