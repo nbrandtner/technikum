@@ -1,8 +1,82 @@
 <?php
 // Start the session
+
+include 'db_config.php';
+
+// define variables and set to empty values
+$room = $pet = $food = $parking = $price = "";
+
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $room = test_input($_POST["rooms"]);
+    $pet =  check_checkbox("pet");
+    $food =  check_checkbox("food");
+    $parking =  check_checkbox("parking");
+
+    // Check if all fields are filled (date inputs)
+    if(empty($_POST["from"]) ||empty($_POST["to"])){
+        $_SESSION['message'] = 'All fields must be filled out';
+    }else{
+        //Berechnung des Preises
+        $price = 0.00;
+
+        //Zimmerpreis berechnen
+        if($room == "Delux"){
+            $price += 229.00;
+            $_SESSION['img'] = 'deluxe.jpg';
+        }
+        elseif($room == "Junior"){
+            $price += 279.00;
+            $_SESSION['img'] = 'junior-suite.png';
+        } 
+        elseif($room == "Master"){ 
+            $price += 329.00;
+            $_SESSION['img'] = 'mastersuite.jpg';
+        }
+        elseif($room == "Penthouse"){
+            $price += 429.00;
+            $_SESSION['img'] = 'penthouse-suite.jpg';
+        }
+
+        //Extras berechnen
+        if($pet==1) $price+=20.00;
+        if($food==1) $price+=30.00;
+        if($parking==1) $price+=20.00;
+
+        //Preis mit dauer multiplizieren
+        $from = new DateTime($_POST['from']);
+        $to = new DateTime($_POST['to']);
+        $days = $to->diff($from)->format('%a');
+        $price = $price *$days;
+
+        $_SESSION['price'] = $price;
+        $_SESSION['room'] = $room;
+        $_SESSION['from'] = $_POST["from"];
+        $_SESSION['days'] = $days;
+        $_SESSION['to'] = $_POST["to"];
+        header("Location: checkout.php");
+    }
+}
+
+//Gibt den Wert der Checkboxen zurück
+function check_checkbox($data){
+    if(isset($_POST[$data])){
+        $_SESSION[$data] = 1;
+        return 1;
+    } else{
+        $_SESSION[$data] = 0;
+        return 0;
+    }
     
+}
+
+function test_input($data)
+{
+    global $mysqli;
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
 }
 ?>
 <!DOCTYPE html>
@@ -12,7 +86,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php
           include 'header.php';
         ?>
-        <div class="icon-container">
         <main>
             <h1 class="blackcolor">Book your room</h1>
             <?php if(isset($_SESSION['loggedin'])): ?>
@@ -22,8 +95,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <img class='cardimg' src='img/deluxe.jpg'>
                             <div class='cardcontainer'>
                                 <div class="form-check form-check-inline">
-                                    <input type="radio" name="rooms" id="delux" class="form-check-input input" value="delux" checked="">
-                                    <label  for="delux" class="form-check-label mr-3">Deluxe Room</label>
+                                    <input type="radio" name="rooms" id="delux" class="form-check-input input" value="Delux" checked="">
+                                    <label  for="delux" class="form-check-label mr-3">Deluxe Suite - 229,00 € / Nacht</label>
                                 </div>
                             </div>
                         </div><br>
@@ -31,8 +104,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <img class='cardimg' src="img/junior-suite.png">
                             <div class='cardcontainer'>
                                 <div class="form-check form-check-inline">
-                                    <input type="radio" name="rooms" id="junior" class="form-check-input input" value="junior" checked="">
-                                    <label  for="junior" class="form-check-label mr-3">Junior Suite</label>
+                                    <input type="radio" name="rooms" id="junior" class="form-check-input input" value="Junior" checked="">
+                                    <label  for="junior" class="form-check-label mr-3">Junior Suite - 279,00 € / Nacht</label>
                                 </div>
                             </div>
                         </div><br>
@@ -40,8 +113,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <img class='cardimg' src="img/mastersuite.jpg">
                             <div class='cardcontainer'>
                                 <div class="form-check form-check-inline">
-                                    <input type="radio" name="rooms" id="master" class="form-check-input input" value="master" checked="">
-                                    <label  for="master" class="form-check-label mr-3">Master Suite</label>
+                                    <input type="radio" name="rooms" id="master" class="form-check-input input" value="Master" checked="">
+                                    <label  for="master" class="form-check-label mr-3">Master Suite - 329,00 € / Nacht</label>
                                 </div>
                             </div>
                         </div><br>
@@ -49,32 +122,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <img class='cardimg' src="img/penthouse-suite.jpg">
                             <div class='cardcontainer'>
                                 <div class="form-check form-check-inline">
-                                    <input type="radio" name="rooms" id="pent" class="form-check-input input" value="pent" checked="">
-                                    <label  for="pent" class="form-check-label mr-3">Penthouse Suite</label>
+                                    <input type="radio" name="rooms" id="penthouse" class="form-check-input input" value="Penthouse" checked="">
+                                    <label  for="penthouse" class="form-check-label mr-3">Penthouse Suite - 429,00 € / Nacht</label>
                                 </div>
                             </div>
                         </div><br>
                     </div><hr><br>
+                    <?php
+                                if(isset($_SESSION['message'])) {
+                                    if($_SESSION['message'] == 'Registration successful') {
+                                        echo '<div class="success-message alert alert-success" role="alert">' . $_SESSION['message'] . '</div>';
+                                        unset($_SESSION['message']);
+                                    } else {
+                                        echo '<div class="error-message alert alert-danger" role="alert">' . $_SESSION['message'] . '</div>';
+                                        unset($_SESSION['message']);
+                                    }
+                                }
+                                ?>
                     <div>
                         <h5>In welchem Zeitraum willst du das Zimmer buchen?</h5>
-                            <label for="from" >Von</label>
-                            <input type="date" id="from"  placeholder="from">
-                            <label for="to" >Bis</label>
-                            <input type="date" id="to"  placeholder="to">
-                    </div><br><hr><br>
+                        <label for="from"  >Von</label>
+                        <input type="date" name="from" id="from" require>
+                        <label for="to" >Bis</label>
+                        <input type="date" name="to" id="to" require>
+                    </div><br><br><hr><br>
                     <div>
                         <h5>Extra options:</h5 >
                         <div class="form-check form-check-inline">
-                            <input type="checkbox" id="food" class="form-check-input input" placeholder="Frühstück">
-                            <label for="food" class="form-check-label mr-3">Frühstück</label><br>
+                            <input type="checkbox" id="food" name="food" class="form-check-input input" placeholder="Frühstück">
+                            <label for="food" class="form-check-label mr-3">Frühstück - 30,00 € / Nacht</label><br>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="checkbox" id="parking" class="form-check-input input" placeholder="Parkplatz">
-                            <label for="parking" class="form-check-label mr-3">Parkplatz</label><br>
+                            <input type="checkbox" id="parking" name="parking" class="form-check-input input" placeholder="Parkplatz">
+                            <label for="parking" class="form-check-label mr-3">Parkplatz - 20,00 € / Nacht</label><br>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="checkbox" id="pet" class="form-check-input input" placeholder="Haustiere">
-                            <label for="pet" class="form-check-label mr-3">Haustiere mitnehmen</label><br>
+                            <input type="checkbox" id="pet" name="pet" class="form-check-input input" placeholder="Haustiere">
+                            <label for="pet" class="form-check-label mr-3">Haustiere mitnehmen - 20,00€ / Nacht</label><br>
                         </div>
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary">Book -> Checkout</button><br>

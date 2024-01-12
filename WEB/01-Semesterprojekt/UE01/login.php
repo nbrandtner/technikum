@@ -26,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['loggedin'] = true;
             $_SESSION['u_username'] = $user['u_username'];
             $_SESSION['u_role'] = $user['u_role'];
+            $_SESSION['u_id'] = $user['u_id'];
 
             $stmt->close();
             $mysqli->close();
