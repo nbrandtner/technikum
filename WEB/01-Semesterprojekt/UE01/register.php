@@ -1,7 +1,9 @@
 <?php
 session_start();
+include 'db_config.php';
+
 // define variables and set to empty values
-$gender = $fname = $lname = $email = $password = $password_repeat = "";
+$gender = $fname = $lname = $email = $username = $password = $password_repeat = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $gender = test_input($_POST["gender"]);
@@ -13,48 +15,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password_repeat = test_input($_POST["password_repeat"]);
 
     // Check if all fields are filled
-    if(empty($fname) || empty($lname) || empty($email) || empty($gender) || empty($password) || empty($password_repeat)) {
+    if (empty($fname) || empty($lname) || empty($email) || empty($gender) || empty($password) || empty($password_repeat) || empty($username)) {
         $_SESSION['message'] = 'All fields must be filled out';
-        echo '<div class="error-message alert alert-danger" role="alert">' . $_SESSION['message'] . '</div>';
-        unset($_SESSION['message']);
     } else {
         // Check if passwords match
-        if($password != $password_repeat) {
+        if ($password != $password_repeat) {
             $_SESSION['message'] = 'Passwords do not match';
         } else {
             // Check if email is valid
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $_SESSION['message'] = 'Invalid email format';
-            } else {    
-                // Check if username is unique
-                // This requires a connection to your database and a query to check the username
-                // This is just a placeholder. Replace it with your actual database query.
-                $username_exists = false; // replace this with your actual check
-                if($username_exists) {
-                    $_SESSION['message'] = 'Username already exists';
+            } else {
+                // Check if both username and email are unique
+                $stmt = $mysqli->prepare("SELECT * FROM user WHERE u_username = ? OR u_email = ?");
+                $stmt->bind_param("ss", $username, $email);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $stmt->close();
+
+                if ($result->num_rows > 0) {
+                    $_SESSION['message'] = 'Username or Email already exists';
                 } else {
+                    // Insert the new user into the database with hashed password
+                    if ($gender == "male") {
+                        $title = "Mr.";
+                    } elseif ($gender == "female") {
+                        $title = "Mrs.";
+                    } elseif ($gender == "diverse") {
+                        $title = "Mx.";
+                    }
+
+                    $stmt = $mysqli->prepare("INSERT INTO user (u_firstname, u_lastname, u_role, u_pw, u_gender, u_status, u_title, u_email, u_username) VALUES (?, ?, 'user', ?, ?, 1, ?, ?, ?)");
+                    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+                    $stmt->bind_param("sssssss", $fname, $lname, $hashed_password, $gender, $title, $email, $username);
+                    $stmt->execute();
+                    $stmt->close();
+
                     $_SESSION['message'] = 'Registration successful';
-                    // Here you can add the code to insert the new user into your database
                 }
             }
         }
     }
+    $mysqli->close(); // Close the database connection
 }
 
-function test_input($data) {
+function test_input($data)
+{
+    global $mysqli;
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <?php include 'htmlhead.php'; ?>
     <body>
         <nav class="top-nav">
-            <button type="button" onclick="window.location.href='register.php'" href="register.php"class="glow-on-hover upper-corner">Register</button>
-            <button type="button" onclick="window.location.href='login.php'" href="login.php"class="glow-on-hover upper-corner">Login</button>
+            <button type="button" onclick="window.location.href='register.php'" href="register.php" class="glow-on-hover upper-corner">Register</button>
+            <button type="button" onclick="window.location.href='login.php'" href="login.php" class="glow-on-hover upper-corner">Login</button>
         </nav>
         <header>
         <a href="index.php"><img src="img/logo-transparent.png" width="330px"></a>
@@ -63,7 +85,7 @@ function test_input($data) {
                     <div class="row justify-content-center">
                         <div class="col-md-10">
                             <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
-                            <?php
+                                <?php
                                 if(isset($_SESSION['message'])) {
                                     if($_SESSION['message'] == 'Registration successful') {
                                         echo '<div class="success-message alert alert-success" role="alert">' . $_SESSION['message'] . '</div>';
@@ -73,28 +95,28 @@ function test_input($data) {
                                         unset($_SESSION['message']);
                                     }
                                 }
-                            ?>
+                                ?>
                                 <h2 style="color:white;">Register</h2>
                                 <div class="form-group">
-                                <label style="color:white;" class="form-label">Gender:</label> 
+                                    <label style="color:white;" class="form-label">Gender:</label> 
                                     <div class="form-check form-check-inline">
                                         <input type="radio" name="gender" id="male" class="form-check-input input" value="male" checked="">
-                                        <label style="color:white; class="form-check-label mr-3" for="male" alt="male">Male</label>
+                                        <label style="color:white;" class="form-check-label mr-3" for="male" alt="male">Male</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input type="radio" name="gender" id="female" class="form-check-input input" value="female">
-                                        <label style="color:white; class="form-check-label mr-3" for="female" alt="female">Female</label>
+                                        <label style="color:white;" class="form-check-label mr-3" for="female" alt="female">Female</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input type="radio" name="gender" id="diverse" class="form-check-input input" value="diverse">
-                                        <label style="color:white; class="form-check-label" for="diverse" alt="diverse">Diverse</label>
+                                        <label style="color:white;" class="form-check-label" for="diverse" alt="diverse">Diverse</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-margin"> 
                                     <input type="text" class="form-control" id="fname" name="fname" placeholder="Firstname" alt="Please enter your firstname" required>
                                 </div>
                                 <div class="form-group form-margin">
-                                <input type="text" class="form-control" id="lname" name="lname" placeholder="Surname" alt="Please enter your surname"required>
+                                    <input type="text" class="form-control" id="lname" name="lname" placeholder="Surname" alt="Please enter your surname"required>
                                 </div>
                                 <div class="form-group form-margin">
                                     <input type="email" class="form-control" id="email" name="email" placeholder="E-Mail" alt="Please enter your E-Mail" required>
