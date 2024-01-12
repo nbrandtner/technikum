@@ -17,57 +17,12 @@ session_start();
             <?php if(isset($_SESSION['loggedin'])): ?>
                 <h2 class="blackcolor" style="text-align:left;">Your Reservations</h2>
                 <p>Wir haben leider keine aktuellen Room Reservations gefunden. Wir freuen uns auf deinen nächsten Besuch bei Serenity Haven!</p> </br>
+                <button type="button" class="btn btn-primary" onclick="window.location.href='booking.php'" data-bs-dismiss="modal">Book your room</button>
                 <hr>
                 </br>
             <?php else: ?>
-                <p>Du bist nicht angemeldet. Bitter melde dich an oder erstelle ein Konto um einen Raum zu reservieren.</p>
+                <p>Du bist nicht <a onclick="window.location.href='login.php'" class="glow-on-hover" >angemeldet</a>. Bitter melde dich an oder <a onclick="window.location.href='register.php'" class="glow-on-hover" >erstelle ein Konto</a> um einen Raum zu reservieren.</p>
             <?php endif; ?>
-            <h2 class="blackcolor" >Unsere Zimmeroptionen</h2>
-            </br>
-            <div class ="card">
-                <img class="cardimg" src="img/deluxe.jpg">
-                <div class="cardcontainer">
-                    <h4>Deluxe Room</h4>
-                    <?php if(isset($_SESSION['loggedin'])): ?>
-                        <button type="button" class="btn btn-primary" style="margin-left: 90%;" data-bs-dismiss="modal">Book</button>
-                    <?php else: ?>
-                        <button type="button" class="btn btn-primary" style="margin-left: 90%;" data-bs-dismiss="modal" disabled>Book</button>
-                    <?php endif; ?> 
-                </div>
-            </div></br>
-            <div class ="card">
-                <img class="cardimg" src="img/junior-suite.png">
-                <div class="cardcontainer">
-                    <h4>Junior Suite</h4>
-                    <?php if(isset($_SESSION['loggedin'])): ?>
-                        <button type="button" class="btn btn-primary" style="margin-left: 90%;" data-bs-dismiss="modal">Book</button>
-                    <?php else: ?>
-                        <button type="button" class="btn btn-primary" style="margin-left: 90%;" data-bs-dismiss="modal" disabled>Book</button>
-                    <?php endif; ?>   
-                 </div>
-            </div></br>
-            <div class ="card">
-                <img class="cardimg" src="img/mastersuite.jpg">
-                <div class="cardcontainer">
-                    <h4>Master Suite</h4>
-                    <?php if(isset($_SESSION['loggedin'])): ?>
-                        <button type="button" class="btn btn-primary" style="margin-left: 90%;" data-bs-dismiss="modal">Book</button>
-                    <?php else: ?>
-                        <button type="button" class="btn btn-primary" style="margin-left: 90%;" data-bs-dismiss="modal" disabled>Book</button>
-                    <?php endif; ?>   
-                </div>
-            </div></br>
-            <div class ="card">
-                <img class="cardimg" src="img/penthouse-suite.jpg">
-                <div class="cardcontainer">
-                    <h4>Penthouse Suite</h4>
-                    <?php if(isset($_SESSION['loggedin'])): ?>
-                        <button type="button" class="btn btn-primary" style="margin-left: 90%;" data-bs-dismiss="modal">Book</button>
-                    <?php else: ?>
-                        <button type="button" class="btn btn-primary" style="margin-left: 90%;" data-bs-dismiss="modal" disabled>Book</button>
-                    <?php endif; ?> 
-                </div>
-            </div>
         </main>
         <footer>
             <p>&copy; <?php echo date("Y"); ?> Hotel Webseite</p>

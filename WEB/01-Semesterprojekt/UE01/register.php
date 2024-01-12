@@ -65,15 +65,15 @@ function test_input($data) {
                                 <label style="color:white;" class="form-label">Gender:</label> 
                                     <div class="form-check form-check-inline">
                                         <input type="radio" name="gender" id="male" class="form-check-input input" value="male" checked="">
-                                        <label style="color:white; class="form-check-label mr-3" for="male" alt="male">Male</label>
+                                        <label style="color:white;" class="form-check-label mr-3" for="male" alt="male">Male</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input type="radio" name="gender" id="female" class="form-check-input input" value="female">
-                                        <label style="color:white; class="form-check-label mr-3" for="female" alt="female">Female</label>
+                                        <label style="color:white;" class="form-check-label mr-3" for="female" alt="female">Female</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input type="radio" name="gender" id="diverse" class="form-check-input input" value="diverse">
-                                        <label style="color:white; class="form-check-label" for="diverse" alt="diverse">Diverse</label>
+                                        <label style="color:white;" class="form-check-label" for="diverse" alt="diverse">Diverse</label>
                                     </div>
                                 </div>
                                 <div class="form-group"> 
