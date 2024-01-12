@@ -9,9 +9,9 @@ if (!isset($_SESSION['loggedin'])) {
 }
 
 // User's data for this example
-$password = $_SESSION['password'];
-$role = $_SESSION['role'];
-$username = $_SESSION['username'];
+$password = $_SESSION['u_pw'];
+$role = $_SESSION['u_role'];
+$username = $_SESSION['u_username'];
 
 // Include the users.php file
 include 'users.php';
@@ -29,12 +29,13 @@ include 'users.php';
                     <div class="col-md-6" style="color:white">
                         <div class="about">
                             <h2>Welcome <?php echo $username;?>!</h2><br>
-                            <p>Password: <?php echo $password; ?></p>
                             <p>Role: <?php echo $role; ?></p>
                             <!-- Add more user data here -->
                             <form action="logout.php" method="post">
-                                <input type="submit" value="Logout">
+                                <button style="width:15vw" onclick="document.getElementById('logoutForm').submit();" type="button" class="glow-on-hover">Logout</button>
                             </form>
+                            <br>
+                            <button style="width:15vw" onclick="window.location.href='index.php'" type="button" class="glow-on-hover" alt="Homepage">Home</button>
                         </div>
                     </div>
                 </div>
