@@ -30,6 +30,14 @@ $username = $_SESSION['u_username'];
                             <p>Hier kannst du die Daten deines Profils einsehen und bearbeiten oder dein Passwort ändern:</p>
                             <button style="max-width:30mv" onclick="window.location.href='editProfil.php'" type="button" class="btn btn-outline-primary" alt="Edit Profile">Edit Profile</button>
                             <button style="maxwidth:30mv" onclick="window.location.href='changePw.php'" type="button" class="btn btn-outline-primary" alt="Change Password">Change Password</button>
+                            <?php
+                            //if the $role is admin an additional button for the user_list.php should be displayed
+                            if ($role == 'admin') {
+                                echo '<div class="col mb-6">';
+                                echo '<button style="width:10vw" onclick="window.location.href=\'user_list.php\'" type="button" class="btn btn-primary" alt="User List">User List</button>';
+                                echo '</div>';
+                            }                                
+                            ?>
                             <br><br>
                             <form action="logout.php" method="post"> 
                             <button type="submit" value="Logout" class="btn btn-outline-danger ">Logout</button>

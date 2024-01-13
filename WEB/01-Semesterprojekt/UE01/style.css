@@ -473,3 +473,25 @@ h4 {
       clear: both;
       display: table;
     } 
+
+    .table-custom {
+      border: 2px solid #333;
+      border-collapse: collapse;
+      width: 100%;
+  }
+  
+  .table-custom th, .table-custom td {
+    background-color: rgba(0, 0, 0, 0.05);
+      border: 2px solid #333;
+      padding: 8px;
+      text-align: center;
+  }
+  
+  .table-custom th {
+      background-color: #333;
+      color: #fff;
+  }
+  
+  .table-custom tbody tr:nth-child(even) {
+      background-color: #f2f2f2;
+  }
