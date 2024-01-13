@@ -32,7 +32,7 @@ USE `mydb`;
 DROP TABLE IF EXISTS `news`;
 CREATE TABLE `news` (
   `n_id` int(11) NOT NULL,
-  `n_path` varchar(45) NOT NULL,
+  `n_path` varchar(100) NOT NULL,
   `n_date` datetime NOT NULL,
   `n_title` varchar(45) DEFAULT NULL,
   `n_text` varchar(200) DEFAULT NULL
