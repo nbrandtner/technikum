@@ -5,9 +5,9 @@ session_start();
 //Datenbank download der Resverierungen
 include 'db_config.php';
 //Admin soll alle Reservierungen sehen
-if($_SESSION['u_role']=='admin') $stmt = $mysqli->prepare("SELECT * FROM reservation");
+if($_SESSION['u_role']=='admin') $stmt = $mysqli->prepare("SELECT * FROM reservation ORDER BY r_booked desc");
 else {
-    $stmt = $mysqli->prepare("SELECT * FROM reservation WHERE r_user = ?");
+    $stmt = $mysqli->prepare("SELECT * FROM reservation WHERE r_user = ? ORDER BY r_booked desc");
     $stmt->bind_param("s", $_SESSION['u_id']);
 }
 $stmt->execute();
@@ -63,12 +63,12 @@ function check_checkbox($data){
                      while($row = $result->fetch_array(MYSQLI_NUM)){
                         //foreach($row as $r) echo($r);
                         if($_SESSION['u_role']=='admin'){
-                            echo("<div class ='card'><div class='cardcontainer'> <div class='form-check form-check-inline'>");
+                            echo("<div class ='card'><div class='cardcontainer'> <div class='form-check form-check-inline'><p>Reserviert am ".$row[3]."</p>");
                             echo("<h5> User ".$row[6]." - ".$row[1]." Suite</h5><br><p>Vom ".$row[4]." bis zum ".$row[5]." - ".$row[10]."€</p></div></div></div><br>"); 
                         }
                         else{
                             echo("<div class ='card'><img class='cardimg' src='img/".check_checkbox($row[1])."'><div class='cardcontainer'> <div class='form-check form-check-inline'>");
-                            echo("<h5>".$row[1]." Suite</h5><br><p>Vom ".$row[4]." bis zum ".$row[5]."</p><p>".$row[10]."€</p><br></div></div></div><br>");
+                            echo("<h5>".$row[1]." Suite</h5><br><p>Vom ".$row[4]." bis zum ".$row[5]."</p><p>".$row[10]."€</p><br><p>Reserviert am ".$row[3]."</p></div></div></div><br>");
                         }
                     }
                     ?>
