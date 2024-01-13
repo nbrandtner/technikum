@@ -21,25 +21,36 @@ $username = $_SESSION['u_username'];
           include 'header.php';
         ?>
         <main>
-                <div class="row justify-content-center">
-                    <div class ='card'>
-                        <div class='cardcontainer'>
-                            <h1 class="blackcolor">Welcome <?php echo $_SESSION['u_title'] . ' ' . $username; ?>!</h1><hr><br>
-                            <p>Deine Role ist : '<?php echo $role; ?>'</p>
-                            <p>Dein Username ist : '<?php echo $username; ?>'</p>
-                            <p>Hier kannst du die Daten deines Profils einsehen und bearbeiten oder dein Passwort ändern:</p>
-                            <div class="row mb-3">
-                                    <button style="width:15vw"  onclick="window.location.href='editProfil.php'" type="button" class="btn btn-primary" alt="Edit Profile">Edit Profile</button>
-                                    <br> <br>
-                                    <button style="width:15vw" onclick="window.location.href='changePw.php'" type="button" class="btn btn-primary" alt="Change Password">Change Password</button>
+            <div class="row justify-content-center">
+                <div class ='card'>
+                    <div class='cardcontainer'>
+                        <h1 class="blackcolor">Welcome <?php echo $_SESSION['u_title'] . ' ' . $username; ?>!</h1><hr><br>
+                        <p>Deine Rolle ist: '<?php echo $role; ?>'</p>
+                        <p>Dein Username ist: '<?php echo $username; ?>'</p>
+                        <p>Hier kannst du die Daten deines Profils einsehen und bearbeiten oder dein Passwort ändern:</p>
+                        <div class="row mb-6">
+                            <div class="col mb-6">
+                                <button style="width:10vw"  onclick="window.location.href='editProfil.php'" type="button" class="btn btn-primary" alt="Edit Profile">Edit Profile</button>
                             </div>
-                            <form action="logout.php" method="post"> 
-                            <button style="width:15vw" type="submit" value="Logout" class="btn btn-primary ">Logout</button><br>
-                            </form>
-                            <p>Und hier kannst du dich ausloggen:</p> 
+                            <div class="col mb-6">
+                                <button style="width:10vw" onclick="window.location.href='changePw.php'" type="button" class="btn btn-primary" alt="Change Password">Change Password</button>
                             </div>
-                    </div>
+                            <?php
+                            //if the $role is admin an additional button for the user_list.php should be displayed
+                            if ($role == 'admin') {
+                                echo '<div class="col mb-6">';
+                                echo '<button style="width:10vw" onclick="window.location.href=\'user_list.php\'" type="button" class="btn btn-primary" alt="User List">User List</button>';
+                                echo '</div>';
+                            }                                
+                            ?>
+                        </div>
+                        <form action="logout.php" method="post"> 
+                        <button style="width:15vw" type="submit" value="Logout" class="btn btn-primary ">Logout</button><br>
+                        </form>
+                        <p>Und hier kannst du dich ausloggen:</p> 
+                        </div>
                 </div>
+            </div>
         </main>
         <footer>
             <p>&copy; <?php echo date("Y"); ?> Hotel Website</p>
