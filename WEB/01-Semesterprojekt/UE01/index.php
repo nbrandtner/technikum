@@ -1,6 +1,12 @@
 <?php
 // Start the session
 session_start();
+include 'db_config.php';
+//News infos aus der Datenbank holen
+$stmt = $mysqli->prepare("SELECT * FROM news ORDER BY n_date desc");
+$stmt->execute();
+$result = $stmt->get_result();
+$stmt->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,26 +21,38 @@ session_start();
                 <br>
                 <form enctype="multipart/form-data" method="post" action="index.php">
                     <input type="file" name="fileToUpload"  id="fileToUpload">
+                    <input type="text" name="title" id=title placeholder="Titel">
                     <input type="submit" value="Hochladen" name ="submit">
                 </form>
                 <br>
             <?php endif; ?> 
+            <?php
+                    if(isset($_SESSION['message'])) {
+                         if($_SESSION['message'] == 'Upload successful') {
+                            echo '<div class="success-message alert alert-success" role="alert">' . $_SESSION['message'] . '</div>';
+                            unset($_SESSION['message']);
+                        } else {
+                            echo '<div class="error-message alert alert-danger" role="alert">' . $_SESSION['message'] . '</div>';
+                            unset($_SESSION['message']);
+                            }
+                        }
+                ?>
             <?php include 'fileupload.php'; ?>
             <hr>
 
             
-            <?php
-            //Schleife zum einfügen der Hochgeladenen Bilder
-                $dir = opendir("img_uploads");
-                $extensions = array("jpg", "bmp", "gif", "jpeg", "png"); 
-
-                while(($file = readdir($dir)) !== false){
-                    if(in_array(pathinfo($file, PATHINFO_EXTENSION), $extensions)){
-                    echo "<div class ='card'><img class='cardimg' src='img_uploads/".$file."'><div class='cardcontainer'></div></div><br>";
+            <?php if($result->num_rows > 0):?>
+                    <?php 
+                    //Ausgabe der News beiträge 
+                     while($row = $result->fetch_array(MYSQLI_NUM)){
+                        //foreach($row as $r) echo($r);
+                        echo("<div class ='card'><img class='cardimg' src='img/".$row[1]."'><div class='cardcontainer'> <div class='form-check form-check-inline'>");
+                        echo("<h5>".$row[3]."</h5><br><p>Vom ".$row[2]."</p><br></div></div></div><br>");
                     }
-                }
-
-            ?>
+                    ?>
+            <?php else: ?>
+                    <p>Gerade gibt es noch keine News Beiträge.</p> </br>
+            <?php endif; ?>
           
         </main>
         <footer>

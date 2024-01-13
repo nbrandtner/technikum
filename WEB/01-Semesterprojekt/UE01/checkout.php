@@ -17,7 +17,7 @@ $img = $_SESSION['img'];
 include 'db_config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Check if both username and email are unique
+    // Database conection insert reservation
     $stmt = $mysqli->prepare("INSERT INTO reservation (r_room, r_status, r_booked, r_from, r_to, r_user, r_food, r_pet, r_parking, r_price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssssssss", $room, $status, $booked, $from, $to, $user, $food, $pet, $parking, $price);
     $stmt->execute();
