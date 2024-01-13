@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'htmlhead.php'; ?>
+<?php include 'htmlhead.php'; 
+// Start the session
+        session_start();
+        ?>
 <body>
     <?php
         include 'header.php';

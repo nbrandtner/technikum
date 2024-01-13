@@ -5,14 +5,17 @@ session_start();
 //Datenbank download der Resverierungen
 include 'db_config.php';
 //Admin soll alle Reservierungen sehen
-if($_SESSION['u_role']=='admin') $stmt = $mysqli->prepare("SELECT * FROM reservation ORDER BY r_booked desc");
-else {
-    $stmt = $mysqli->prepare("SELECT * FROM reservation WHERE r_user = ? ORDER BY r_booked desc");
-    $stmt->bind_param("s", $_SESSION['u_id']);
+if(isset($_SESSION['loggedin'])){
+    if($_SESSION['u_role']=='admin') $stmt = $mysqli->prepare("SELECT * FROM reservation ORDER BY r_booked desc");
+    else {
+        $stmt = $mysqli->prepare("SELECT * FROM reservation WHERE r_user = ? ORDER BY r_booked desc");
+        $stmt->bind_param("s", $_SESSION['u_id']);
+    }
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $stmt->close();
 }
-$stmt->execute();
-$result = $stmt->get_result();
-$stmt->close();
+
 
 
 //Zimmerbildpfad holen
@@ -39,12 +42,12 @@ function check_checkbox($data){
         ?>
         <div class="icon-container">
         <main>
-            <?php if($_SESSION['u_role']=='user'):?>
-                <button type="submit" class="btn btn-primary" onclick="window.location.href='booking.php'" >Book your room</button><br>
-            <?php endif ?>
-            <h1 class="blackcolor" >Your Reservations</h1>
-            <hr>
-            </br>
+            <?php if(isset($_SESSION['loggedin'])): ?>
+                <?php if($_SESSION['u_role']=='user'):?>
+                    <button type="submit" class="btn btn-primary" onclick="window.location.href='booking.php'" >Book your room</button><br>
+                <?php endif ?>
+            <?php endif ?>    
+            <h1 class="blackcolor" >Your Reservations</h1><hr></br>
             <?php if(isset($_SESSION['loggedin'])): ?>
                 <?php
                     if(isset($_SESSION['message'])) {

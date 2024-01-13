@@ -35,7 +35,7 @@ CREATE TABLE `news` (
   `n_path` varchar(45) NOT NULL,
   `n_date` datetime NOT NULL,
   `n_title` varchar(45) DEFAULT NULL,
-  `n_text` varchar(45) DEFAULT NULL
+  `n_text` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --

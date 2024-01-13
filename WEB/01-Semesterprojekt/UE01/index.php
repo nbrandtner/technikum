@@ -20,8 +20,10 @@ $stmt->close();
                 <hr>
                 <br>
                 <form enctype="multipart/form-data" method="post" action="index.php">
-                    <input type="file" name="fileToUpload"  id="fileToUpload">
-                    <input type="text" name="title" id=title placeholder="Titel">
+                    <h2>News Upload</h2><br>
+                    <input type="file" name="fileToUpload"  id="fileToUpload"><br><br>
+                    <input type="text" name="title" id=title placeholder="Titel"><br><br>
+                    <input type="text" name="text" id=text placeholder="Text für den Beitrag"><br><br>
                     <input type="submit" value="Hochladen" name ="submit">
                 </form>
                 <br>
@@ -46,8 +48,9 @@ $stmt->close();
                     //Ausgabe der News beiträge 
                      while($row = $result->fetch_array(MYSQLI_NUM)){
                         //foreach($row as $r) echo($r);
-                        echo("<div class ='card'><img class='cardimg' src='img/".$row[1]."'><div class='cardcontainer'> <div class='form-check form-check-inline'>");
-                        echo("<h5>".$row[3]."</h5><br><p>Vom ".$row[2]."</p><br></div></div></div><br>");
+                        //Rezising of picture
+                        echo("<div class ='card'><img class='cardimg' src='img_uploads/".$row[1]."'><div class='cardcontainer'> <div class='form-check form-check-inline'>");
+                        echo("<h5>".$row[3]."</h5><br><p>".$row[4]."</p><p>Vom ".$row[2]."</p><br></div></div></div><br>");
                     }
                     ?>
             <?php else: ?>

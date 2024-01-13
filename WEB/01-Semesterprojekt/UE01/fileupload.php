@@ -48,9 +48,10 @@ if(isset($_POST["submit"])) {
       include 'db_config.php';
       $file = $_FILES["fileToUpload"]["name"];
       $date = date('Y-m-d h:i', time());
+      $text = $_POST["text"];
       $title = $_POST["title"];
-      $stmt = $mysqli->prepare("INSERT INTO news (n_path, n_date, n_title) VALUES (?, ?, ?)");
-      $stmt->bind_param("sss", $file, $date, $title);
+      $stmt = $mysqli->prepare("INSERT INTO news (n_path, n_date, n_title, n_text) VALUES (?, ?, ?,?)");
+      $stmt->bind_param("ssss", $file, $date, $title, $text);
       $stmt->execute();
       $stmt->close();
 
