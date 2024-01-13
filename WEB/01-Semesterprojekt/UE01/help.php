@@ -17,7 +17,7 @@
                 <div class="accordion" id="faqAccordion">
                     <div class="faq-item">
                         <div class="faq-question-box accordion-item">
-                            <h2 class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            <h2 class="faq-question accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
                                 Wie kann ich meine Buchung einsehen?
                             </h2>
                         </div>
@@ -29,19 +29,19 @@
                     </div>
                     <div class="faq-item">
                         <div class="faq-question-box accordion-item">
-                            <h2 class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            <h2 class="faq-question accordion-button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="true" aria-controls="faq2">
                                 Gibt es Parkmöglichkeiten am Hotel?
                             </h2>
                         </div>
                         <div id="faq2" class="collapse faq-answer-box">
-                            <div class="faq-answer">
+                            <div class="faq-answer ">
                                 <p>Ja, unser Hotel verfügt über Parkplätze für Gäste welche beim Buchen dazubestellt werden können.</p>
                             </div>
                         </div>
                     </div>
                     <div class="faq-item">
                         <div class="faq-question-box accordion-item">
-                            <h2 class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            <h2 class="faq-question accordion-button" data-bs-toggle="collapse" data-bs-target="#faq3"aria-expanded="true" aria-controls="faq3">
                                 Wie kann ich mein Passwort ändern?
                             </h2>
                         </div>
