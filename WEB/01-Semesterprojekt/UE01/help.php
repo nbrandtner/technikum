@@ -41,7 +41,6 @@
                                 </div>
                             </div>
                         </div>
-<<<<<<< HEAD
                         <div class="faq-item">
                             <div class="accordion-item">
                                 <h2 class="faq-question accordion-button" data-bs-toggle="collapse" data-bs-target="#faq3"aria-expanded="true" aria-controls="faq3">
@@ -52,11 +51,6 @@
                                 <div class="faq-answer">
                                     <p>Sie können ihr Passwort sowie andere Kontodaten in Ihrem Profil ändern</p>
                                 </div>
-=======
-                        <div id="faq3" class="collapse faq-answer-box">
-                            <div class="faq-answer ">
-                                <p>Sie können ihr Passwort sowie andere Kontodaten in Ihrem Profil ändern</p>
->>>>>>> 40d51b2feb50eec0efcaa24e1a81ec59d64fb3cb
                             </div>
                         </div>
                     </div>
