@@ -76,13 +76,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
     <?php include 'htmlhead.php'; ?>
     <body>
-    <header>
-        <a href="index.php"><img src="img/logo-transparent.png" width="330px"></a>
-        <div class="icon-container">
-            <main>
+    <?php
+          include 'header.php';
+        ?>
+        <main>
                 <div class="row justify-content-center">
-                    <div class="col-md-6" style="color:white">  
-                        <div class="about">
+                    <div class ='card'>
+                        <div class='cardcontainer'>
                             <form action="changePw.php" method="post">
                                 <?php
                                     if(isset($_SESSION['message'])) {
@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         }
                                     }
                                 ?>
-                                <h3 style="color:white;">Edit Profile</h3>
+                                <h1 class="blackcolor">Change Password</h1><hr><br>
                                 
                                 <div class="form-group form-margin">
                                     <input type="password" class="form-control" id="oldpassword" name="oldpassword" placeholder="Old Password" alt="Please enter your old password" required><br>
@@ -107,20 +107,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder="Repeat New Password" alt="Please repeat your new password" required><br>
                                 </div>
                                 <br>
-                                <div class="form-group form-margin">
-                                    <button style="width:12vw" name="submit" type="submit button" class="glow-on-hover" alt="Back to Homepage">Submit</button>
-                                </div>
+                                <button name="submit" type="submit" class="btn btn-primary" alt="Back to Homepage">Submit</button>
                                 <br>
-                                <div class="form-group form-margin">
-                                    <button style="width:12vw" onclick="window.location.href='index.php'" type="button" class="glow-on-hover" alt="Back to Homepage">Back to Homepage</button>
-                                </div>
                             </form>
                         </div>
                     </div>
                 </div>
-            </main>
-        </div>
-        </header>
+        </main>
         <footer>
             <p>&copy; <?php echo date("Y"); ?> Hotel Website</p>
         </footer>

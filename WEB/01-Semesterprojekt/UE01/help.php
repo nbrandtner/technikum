@@ -2,94 +2,12 @@
 <html lang="en">
 
 <?php include 'htmlhead.php'; ?>
-
-<head>
-<style>
-
-    .icon-container {
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    .faq-section {
-        margin-top: 20px;
-    }
-
-    .faq-item {
-        margin-bottom: 20px;
-        position: relative;
-    }
-
-    .faq-question-box {
-        background-color: rgba(255, 255, 255, 0.5);
-        padding: 15px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        max-width: 500px; /* Set the maximum width */
-        margin: 0 auto; /* Center the box horizontally */
-        position: relative;
-    }
-
-    .faq-question-box::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        right: 15px;
-        transform: translateY(-50%) rotate(-45deg);
-        border: solid #333;
-        border-width: 0 2px 2px 0;
-        display: inline-block;
-        padding: 3px;
-        transition: transform 0.3s ease;
-    }
-
-    .faq-question-box.collapsed::before {
-        transform: translateY(-50%) rotate(45deg);
-    }
-
-    .faq-question {
-        margin: 0;
-        color: #333;
-        font-size: 18px;
-    }
-
-    .faq-answer-box {
-        padding: 15px;
-        background-color: rgba(255, 255, 255, 0.6);
-        border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        max-width: 500px; /* Set the maximum width */
-        margin: 0 auto; /* Center the box horizontally */
-    }
-
-    .faq-answer {
-        margin: 0;
-        color: #333;
-        line-height: 1.6;
-    }
-
-    .accordion-item {
-        border: 1px solid #ddd;
-        border-radius: 12px;
-        overflow: hidden;
-        transition: background-color 0.2s ease;
-    }
-
-    .accordion-item:hover,
-    .accordion-item:focus {
-        background-color: #e0e0e0;
-    }
-</style>
-
-</head>
-
 <body>
-    <header>
-        <a href="index.php"><img src="img/logo-transparent.png" alt="Logo" width="330px"></a>
-        <div class="icon-container">
-            <h1>Hilfe / FAQs</h1>
+    <?php
+        include 'header.php';
+    ?>
+    <main>
+            <h1 class="blackcolor">Hilfe / FAQs</h1>
             <hr>
             <br>
             <section class="faq-section">
@@ -132,8 +50,7 @@
                     </div>
                 </div>
             </section>
-        </div>
-    </header>
+    </main>
     <footer>
         <p>&copy; <?php echo date("Y"); ?> Hotel Webseite</p>
     </footer>

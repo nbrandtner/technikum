@@ -92,68 +92,59 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
     <?php include 'htmlhead.php'; ?>
     <body>
-    <header>
-        <a href="index.php"><img src="img/logo-transparent.png" width="330px"></a>
-        <div class="icon-container">
-            <main>
-                <div class="row justify-content-center">
-                    <div class="col-md-10" style="color:white">  
-                        <div class="about">
+        <?php
+          include 'header.php';
+        ?>
+        <main>
+            <div class="row justify-content-center">
+                <div class ='card'>
+                        <div class='cardcontainer'>
                             <form action="editProfil.php" method="post">
-                                <h3 style="color:white;">Edit Profile</h3>
+                                <h1 class="blackcolor">Edit Profile</h1><hr><br>
                                 
                                 <div class="form-group">
-                                    <label style="color:white;" class="form-label">Gender:</label> 
+                                    <label class="form-label">Gender:</label> 
                                     <div class="form-check form-check-inline">
                                         <input type="radio" name="gender" id="male" class="form-check-input input" value="male" <?php echo ($gender === 'male') ? 'checked' : ''; ?>>
-                                        <label style="color:white;" class="form-check-label mr-3" for="male" alt="male">Male</label>
+                                        <label class="form-check-label mr-3" for="male" alt="male">Male</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input type="radio" name="gender" id="female" class="form-check-input input" value="female" <?php echo ($gender === 'female') ? 'checked' : ''; ?>>
-                                        <label style="color:white;" class="form-check-label mr-3" for="female" alt="female">Female</label>
+                                        <label class="form-check-label mr-3" for="female" alt="female">Female</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input type="radio" name="gender" id="diverse" class="form-check-input input" value="diverse" <?php echo ($gender === 'diverse') ? 'checked' : ''; ?>>
-                                        <label style="color:white;" class="form-check-label" for="diverse" alt="diverse">Diverse</label>
+                                        <label class="form-check-label" for="diverse" alt="diverse">Diverse</label>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <label style="color:white;" class="form-label" for="fname">First Name:</label>
+                                        <label class="form-label" for="fname">First Name:</label>
                                         <input type="text" class="form-control" id="fname" name="fname" placeholder="Firstname" alt="Please enter your firstname" value="<?php echo $fname; ?>" required>
                                     </div>
                                     <div class="col-md-6">
-                                        <label style="color:white;" class="form-label" for="lname">Last Name:</label>
+                                        <label class="form-label" for="lname">Last Name:</label>
                                         <input type="text" class="form-control" id="lname" name="lname" placeholder="Surname" alt="Please enter your surname" value="<?php echo $lname; ?>" required>
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <label style="color:white;" class="form-label" for="email">Email:</label>
+                                        <label class="form-label" for="email">Email:</label>
                                         <input type="email" class="form-control" id="email" name="email" placeholder="E-Mail" alt="Please enter your E-Mail" value="<?php echo $email; ?>" required>
                                     </div>
                                     <div class="col-md-6">
-                                        <label style="color:white;" class="form-label" for="username">Username:</label>
+                                        <label class="form-label" for="username">Username:</label>
                                         <input type="text" class="form-control" id="username" name="username" placeholder="Username" alt="Please enter your Username" value="<?php echo $username; ?>" required>
                                     </div>
                                 </div>
                                 <br>
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <button style="width:12vw" onclick="window.location.href='index.php'" type="button" class="glow-on-hover" alt="Back to Homepage">Back to Homepage</button>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <button style="width:12vw" name="submit" type="submit button" class="glow-on-hover" alt="Back to Homepage">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                                <button name="submit" type="submit" class="btn btn-primary" alt="submit">Submit</button><br>
+                        </form>
                     </div>
                 </div>
-            </main>
-        </div>
-        </header>
+            </div>
+        </main>
         <footer>
             <p>&copy; <?php echo date("Y"); ?> Hotel Website</p>
         </footer>

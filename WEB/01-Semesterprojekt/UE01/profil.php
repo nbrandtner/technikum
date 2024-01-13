@@ -17,42 +17,30 @@ $username = $_SESSION['u_username'];
 <html lang="en">
     <?php include 'htmlhead.php'; ?>
     <body>
-        <header>
-            <a href="index.php"><img src="img/logo-transparent.png" width="330px"></a>
-            <div class="icon-container">
-                <main>
-                    <div class="row justify-content-center">
-                        <div class="col-md-6" style="color:white">  
-                            <div class="about">
-                                <?php
-                                    if(isset($_SESSION['message'])) {
-                                        if($_SESSION['message'] == 'Password changed successfully') {
-                                            echo '<div class="success-message alert alert-success" role="alert">' . $_SESSION['message'] . '</div>';
-                                            unset($_SESSION['message']);
-                                        } else {
-                                            echo '<div class="error-message alert alert-danger" role="alert">' . $_SESSION['message'] . '</div>';
-                                            unset($_SESSION['message']);
-                                        }
-                                    }
-                                ?>
-                                <h2>Welcome <?php echo $_SESSION['u_title'] . ' ' . $username; ?>!</h2>
-                                <h6>Role: '<?php echo $role; ?>'</h6>
-                                <br>
-                                <!-- Add more user data here -->
-                                <form action="logout.php" method="post">
-                                    <button style="width:15vw" type="submit button" value="Logout" class="glow-on-hover">Logout</button>
-                                </form>
-                                <br>
-                                <button style="width:15vw" onclick="window.location.href='editProfil.php'" type="button" class="glow-on-hover" alt="Edit Profile">Edit Profile</button>
-                                <br>
-                                <br>
-                                <button style="width:15vw" onclick="window.location.href='changePw.php'" type="button" class="glow-on-hover" alt="Change Password">Change Password</button>
+        <?php
+          include 'header.php';
+        ?>
+        <main>
+                <div class="row justify-content-center">
+                    <div class ='card'>
+                        <div class='cardcontainer'>
+                            <h1 class="blackcolor">Welcome <?php echo $_SESSION['u_title'] . ' ' . $username; ?>!</h1><hr><br>
+                            <p>Deine Role ist : '<?php echo $role; ?>'</p>
+                            <p>Dein Username ist : '<?php echo $username; ?>'</p>
+                            <p>Hier kannst du die Daten deines Profils einsehen und bearbeiten oder dein Passwort ändern:</p>
+                            <div class="row mb-3">
+                                    <button style="width:18vw"  onclick="window.location.href='editProfil.php'" type="button" class="btn btn-primary" alt="Edit Profile">Edit Profile</button>
+                                    <br> <br>
+                                    <button style="width:18vw" onclick="window.location.href='changePw.php'" type="button" class="btn btn-primary" alt="Change Password">Change Password</button>
                             </div>
-                        </div>
+                            <form action="logout.php" method="post"> 
+                            <button style="width:18vw" type="submit" value="Logout" class="btn btn-primary ">Logout</button><br>
+                            </form>
+                            <p>Und hier kannst du dich ausloggen:</p> 
+                            </div>
                     </div>
-                </main>
-            </div>
-        </header>
+                </div>
+        </main>
         <footer>
             <p>&copy; <?php echo date("Y"); ?> Hotel Website</p>
         </footer>

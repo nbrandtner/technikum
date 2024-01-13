@@ -73,16 +73,14 @@ function test_input($data)
 <html lang="en">
     <?php include 'htmlhead.php'; ?>
     <body>
-        <nav class="top-nav">
-            <button type="button" onclick="window.location.href='register.php'" href="register.php" class="glow-on-hover upper-corner">Register</button>
-            <button type="button" onclick="window.location.href='login.php'" href="login.php" class="glow-on-hover upper-corner">Login</button>
-        </nav>
-        <header>
-        <a href="index.php"><img src="img/logo-transparent.png" width="330px"></a>
-            <div class="icon-container">
+        <?php
+          include 'header.php';
+        ?>
                 <main>
                     <div class="row justify-content-center">
-                        <div class="col-md-10">
+                        <h1 class="blackcolor">Register</h1>
+                        <hr>
+                        </br>
                             <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
                                 <?php
                                 if(isset($_SESSION['message'])) {
@@ -95,20 +93,19 @@ function test_input($data)
                                     }
                                 }
                                 ?>
-                                <h2 style="color:white;">Register</h2>
                                 <div class="form-group">
-                                    <label style="color:white;" class="form-label">Gender:</label> 
+                                    <label  class="form-label">Gender:</label> 
                                     <div class="form-check form-check-inline">
                                         <input type="radio" name="gender" id="male" class="form-check-input input" value="male" checked="">
-                                        <label style="color:white;" class="form-check-label mr-3" for="male" alt="male">Male</label>
+                                        <label class="form-check-label mr-3" for="male" alt="male">Male</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input type="radio" name="gender" id="female" class="form-check-input input" value="female">
-                                        <label style="color:white;" class="form-check-label mr-3" for="female" alt="female">Female</label>
+                                        <label class="form-check-label mr-3" for="female" alt="female">Female</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input type="radio" name="gender" id="diverse" class="form-check-input input" value="diverse">
-                                        <label style="color:white;" class="form-check-label" for="diverse" alt="diverse">Diverse</label>
+                                        <label class="form-check-label" for="diverse" alt="diverse">Diverse</label>
                                     </div>
                                 </div>
                                 <div class="form-margin form-group"> 
@@ -130,20 +127,10 @@ function test_input($data)
                                     <input type="password" class="form-control" id="password_repeat" name="password_repeat" placeholder="Confirm Password" alt="Please confirm your password" required>
                                 </div>
                                 <br>
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <button style="width:12vw" onclick="window.location.href='index.php'" type="button" class="glow-on-hover" alt="Back to Homepage">Back to Homepage</button>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <button style="width:12vw" name="submit" type="submit button" class="glow-on-hover" alt="Back to Homepage">Registrieren</button>
-                                    </div>
-                                </div>
+                                <button name="submit" type="submit" class="btn btn-primary" alt="Back to Homepage">Registrieren</button>
                             </form>
-                        </div>
                     </div>
                 </main>
-            </div>
-        </header>
         <footer>
             <p>&copy; <?php echo date("Y"); ?> Hotel Website</p>
         </footer>

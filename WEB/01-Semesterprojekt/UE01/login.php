@@ -69,49 +69,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
     <?php include 'htmlhead.php'; ?>
     <body>
-        <nav class="top-nav">
-            <button type="button" onclick="window.location.href='register.php'" href="register.php"class="glow-on-hover upper-corner" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
-            <button type="button" onclick="window.location.href='login.php'" href="login.php"class="glow-on-hover upper-corner" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-        </nav>
-        <header>
-        <a href="index.php"><img src="img/logo-transparent.png" width="330px"></a>
-            <div class="icon-container">
-                <main>
-                    <div class="row justify-content-center">
-                        <div class="col-md-6">
-                        <form class="credentials" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                        <!-- Display error message if set -->
-                                <h2 style="color:white;">Login</h2><br>
-                                <?php
-                                if (isset($_SESSION['message'])) {
-                                    echo '<div class="error-message alert alert-danger" role="alert">' . $_SESSION['message'] . '</div>';
-                                    unset($_SESSION['message']); // Clear the message after displaying
-                                }
-                                ?>
+        <?php
+          include 'header.php';
+        ?>
+        <main>
+            <div class="row justify-content-center">
+                    <form  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <!-- Display error message if set -->
+                        <h1 class="blackcolor">Login</h1><hr><br>
+                        <?php
+                            if (isset($_SESSION['message'])) {
+                                echo '<div class="error-message alert alert-danger" role="alert">' . $_SESSION['message'] . '</div>';
+                                unset($_SESSION['message']); // Clear the message after displaying
+                            }
+                        ?>
+                        <div class ='card'>
+                            <div class='cardcontainer'>
                                 <div class="form-group form-margin">
-                                    <label style="color:white;" for="username">Username</label>
+                                    <label for="username">Username</label>
                                     <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
                                 </div>
                                 <div class="form-group form-margin">
-                                    <label style="color:white;" for="password">Password</label>
+                                    <label for="password">Password</label>
                                     <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                                 </div>
                                 <br>
-                                <br>
                                 <div class="form-group form-margin">
-                                    <button style="width:12vw" name="submit" type="submit button" class="glow-on-hover" alt="Back to Homepage">Submit</button>
+                                    <button type="submit" name="submit" class="btn btn-primary">Login</button>
                                 </div>
                                 <br>
-                                <div class="form-group form-margin">
-                                    <button style="width:12vw" onclick="window.location.href='index.php'" type="button" class="glow-on-hover" alt="Back to Homepage">Back to Homepage</button>
-                                </div>
-                            </form>
-                            
+                            </div>
                         </div>
-                    </div>
-                </main>
+                    </form>  
             </div>
-        </header>
+        </main>
         <footer>
             <p>&copy; <?php echo date("Y"); ?> Hotel Website</p>
         </footer>

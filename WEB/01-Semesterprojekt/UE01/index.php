@@ -38,7 +38,7 @@ $stmt->close();
                         }
                 ?>
             <?php include 'fileupload.php'; ?>
-            <hr>
+            <hr><br>
 
             
             <?php if($result->num_rows > 0):?>
