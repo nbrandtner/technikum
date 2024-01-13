@@ -96,7 +96,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <label style="color:white;" for="password">Password</label>
                                     <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                                 </div>
-                                <button type="submit" name="submit" class="btn btn-primary">Login</button>
+                                <br>
+                                <br>
+                                <div class="form-group form-margin">
+                                    <button style="width:12vw" name="submit" type="submit button" class="glow-on-hover" alt="Back to Homepage">Submit</button>
+                                </div>
+                                <br>
+                                <div class="form-group form-margin">
+                                    <button style="width:12vw" onclick="window.location.href='index.php'" type="button" class="glow-on-hover" alt="Back to Homepage">Back to Homepage</button>
+                                </div>
                             </form>
                             
                         </div>

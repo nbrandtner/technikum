@@ -111,7 +111,7 @@ function test_input($data)
                                         <label style="color:white;" class="form-check-label" for="diverse" alt="diverse">Diverse</label>
                                     </div>
                                 </div>
-                                <div class="form-group form-margin"> 
+                                <div class="form-margin form-group"> 
                                     <input type="text" class="form-control" id="fname" name="fname" placeholder="Firstname" alt="Please enter your firstname" required>
                                 </div>
                                 <div class="form-group form-margin">
@@ -129,7 +129,15 @@ function test_input($data)
                                 <div class="form-group form-margin">
                                     <input type="password" class="form-control" id="password_repeat" name="password_repeat" placeholder="Confirm Password" alt="Please confirm your password" required>
                                 </div>
-                                <button type="submit" name="submit" class="btn btn-primary btn-margin">Registrieren</button>    
+                                <br>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <button style="width:12vw" onclick="window.location.href='index.php'" type="button" class="glow-on-hover" alt="Back to Homepage">Back to Homepage</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button style="width:12vw" name="submit" type="submit button" class="glow-on-hover" alt="Back to Homepage">Registrieren</button>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
