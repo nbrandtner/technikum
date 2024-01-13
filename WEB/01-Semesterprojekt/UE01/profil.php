@@ -12,9 +12,6 @@ if (!isset($_SESSION['loggedin'])) {
 $role = $_SESSION['u_role'];
 $username = $_SESSION['u_username'];
 
-// Include the users.php file
-include 'users.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,13 +25,14 @@ include 'users.php';
                     <div class="col-md-6" style="color:white">  
                         <div class="about">
                             <h2>Welcome <?php echo $_SESSION['u_title'] . ' ' . $username; ?>!</h2>
-                            <p>Role: <?php echo $role; ?></p>
+                            <p>Role: '<?php echo $role; ?>'</p>
                             <!-- Add more user data here -->
                             <form action="logout.php" method="post">
                                 <button style="width:15vw" type="submit button" value="Logout" class="glow-on-hover">Logout</button>
                             </form>
                             <br>
-                            <button style="width:15vw" onclick="window.location.href='index.php'" type="button" class="glow-on-hover" alt="Homepage">Edit Profile</button>
+                            <button style="width:15vw" onclick="window.location.href='editProfil.php'" type="button" class="glow-on-hover" alt="Edit Profile">Edit Profile</button>
+                            <button style="width:15vw" onclick="window.location.href='changePw.php'" type="button" class="glow-on-hover" alt="Change Password">Change Password</button>
                         </div>
                     </div>
                 </div>
