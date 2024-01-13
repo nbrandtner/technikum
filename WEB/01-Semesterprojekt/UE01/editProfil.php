@@ -7,9 +7,9 @@ if (!isset($_SESSION['loggedin'])) {
     header('Location: login.php');
     exit;
 }
+include 'db_config.php';
 
 // User's data for this example
-$role = $_SESSION['u_role'];
 $username = $_SESSION['u_username'];
 $fname = $_SESSION['u_firstname'];
 $lname = $_SESSION['u_lastname'];
@@ -20,18 +20,72 @@ $id = $_SESSION['u_id'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Update the user's data based on the form inputs
+    $username = $_POST['username'];
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $email = $_POST['email'];
-    $title = $_POST['title'];
     $gender = $_POST['gender'];
 
-    // Perform validation and update database or session data as needed
-    // ...
+    // Check if the new email is already taken
+    $checkEmailStmt = $mysqli->prepare("SELECT * FROM user WHERE u_email = ? AND u_id != ?");
+    $checkEmailStmt->bind_param("si", $email, $id);
+    $checkEmailStmt->execute();
+    $checkEmailStmt->store_result();
 
-    // Optionally, redirect the user to a different page after successful update
-    header('Location: profil.php');
-    exit;
+    if ($checkEmailStmt->num_rows > 0) {
+        // Email is already taken
+        $checkEmailStmt->close();
+        echo "Email is already taken. Choose a different one.";
+        exit;
+    }
+
+    $checkEmailStmt->close();
+
+    // Check if the new username is already taken
+    $checkUsernameStmt = $mysqli->prepare("SELECT * FROM user WHERE u_username = ? AND u_id != ?");
+    $checkUsernameStmt->bind_param("si", $username, $id);
+    $checkUsernameStmt->execute();
+    $checkUsernameStmt->store_result();
+
+    if ($checkUsernameStmt->num_rows > 0) {
+        // Username is already taken
+        $checkUsernameStmt->close();
+        echo "Username is already taken. Choose a different one.";
+        exit;
+    }
+
+    $checkUsernameStmt->close();
+
+    if ($gender == "male") {
+        $title = "Mr.";
+    } elseif ($gender == "female") {
+        $title = "Mrs.";
+    } elseif ($gender == "diverse") {
+        $title = "Mx.";
+    }
+    // Prepare and execute the update query
+    $stmt = $mysqli->prepare("UPDATE user SET u_username=?, u_firstname=?, u_lastname=?, u_email=?, u_title=?, u_gender=? WHERE u_id=?");
+    $stmt->bind_param("ssssssi", $username, $fname, $lname, $email, $title, $gender, $id);
+
+    // Execute the update
+    if ($stmt->execute()) {
+        // Set all Session Variables to the new values
+        $_SESSION['u_username'] = $username;
+        $_SESSION['u_firstname'] = $fname;
+        $_SESSION['u_lastname'] = $lname;
+        $_SESSION['u_email'] = $email;
+        $_SESSION['u_title'] = $title;
+        $_SESSION['u_gender'] = $gender;
+        // Optionally, redirect the user to a different page after successful update
+        header('Location: profil.php');
+        exit;
+    } else {
+        // Handle the error, if any
+        echo "Error updating user: " . $mysqli->error;
+    }
+
+    $stmt->close();
+    $mysqli->close(); // Close the database connection
 }
 ?>
 <!DOCTYPE html>
@@ -84,7 +138,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         <input type="text" class="form-control" id="username" name="username" placeholder="Username" alt="Please enter your Username" value="<?php echo $username; ?>" required>
                                     </div>
                                 </div>
-                                <button type="submit" name="submit" class="btn btn-primary btn-margin">Confirm</button>    
+                                <br>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <button style="width:12vw" onclick="window.location.href='index.php'" type="button" class="glow-on-hover" alt="Back to Homepage">Back to Homepage</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button style="width:12vw" name="submit" type="submit button" class="glow-on-hover" alt="Back to Homepage">Submit</button>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>

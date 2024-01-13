@@ -7,31 +7,69 @@ if (!isset($_SESSION['loggedin'])) {
     header('Location: login.php');
     exit;
 }
+include 'db_config.php';
 
 // User's data for this example
-$role = $_SESSION['u_role'];
-$username = $_SESSION['u_username'];
-$fname = $_SESSION['u_firstname'];
-$lname = $_SESSION['u_lastname'];
-$email = $_SESSION['u_email'];
-$title = $_SESSION['u_title'];
-$gender = $_SESSION['u_gender'];
 $id = $_SESSION['u_id'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Update the user's data based on the form inputs
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $email = $_POST['email'];
-    $title = $_POST['title'];
-    $gender = $_POST['gender'];
+    $oldpassword = $_POST['oldpassword'];
+    $newpassword = $_POST['newpassword'];
+    $confirmpassword = $_POST['confirmpassword'];
 
-    // Perform validation and update database or session data as needed
-    // ...
+    // Check if old password is correct
+    $checkPasswordStmt = $mysqli->prepare("SELECT * FROM user WHERE u_id = ?");
+    $checkPasswordStmt->bind_param("i", $id);
+    $checkPasswordStmt->execute();
+    $result = $checkPasswordStmt->get_result();
+    $user = $result->fetch_assoc();
+    $hashed_password = $user['u_pw'];
 
-    // Optionally, redirect the user to a different page after successful update
-    header('Location: profil.php');
-    exit;
+    // Verify the entered password against the hashed password
+    if (!password_verify($oldpassword, $hashed_password)) {
+        // Passwords don't match, show an error message
+        $_SESSION['message'] = 'Old password is incorrect';
+        header('Location: changePw.php');
+        exit;
+    }
+    
+    // check the new password isn't the same as the old one
+    if (($newpassword==$oldpassword)) {
+        // Passwords don't match, show an error message
+        $_SESSION['message'] = 'New password must be different from old password';
+        header('Location: changePw.php');
+        exit;
+    }
+
+    $checkPasswordStmt->close();
+
+    if ($newpassword != $confirmpassword) {
+        $_SESSION['message'] = 'Passwords do not match';
+        header('Location: changePw.php');
+        exit;
+    }
+    // Hash the new password
+    $hashed_password = password_hash($newpassword, PASSWORD_DEFAULT);
+
+    // Prepare and execute the update query
+    $stmt = $mysqli->prepare("UPDATE user SET u_pw = ? WHERE u_id = ?");
+    $stmt->bind_param("si", $hashed_password, $id);
+
+    // Execute the update
+    if ($stmt->execute()) {
+        // Optionally, redirect the user to a different page after successful update
+        $_SESSION['u_id']= $id;
+        $_SESSION['message'] = 'Password changed successfully';
+        header('Location: profil.php');
+        exit;
+    } else {
+        // Handle the error, if any
+        $_SESSION['message'] = 'Could not update password' . $mysqli->error;
+    }
+
+    $stmt->close();
+    $mysqli->close(); // Close the database connection
 }
 ?>
 <!DOCTYPE html>
@@ -43,23 +81,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="icon-container">
             <main>
                 <div class="row justify-content-center">
-                    <div class="col-md-10" style="color:white">  
+                    <div class="col-md-6" style="color:white">  
                         <div class="about">
-                            <form action="editProfil.php" method="post">
+                            <form action="changePw.php" method="post">
+                                <?php
+                                    if(isset($_SESSION['message'])) {
+                                        if($_SESSION['message'] == 'Password changed successfully') {
+                                            echo '<div class="success-message alert alert-success" role="alert">' . $_SESSION['message'] . '</div>';
+                                            unset($_SESSION['message']);
+                                        } else {
+                                            echo '<div class="error-message alert alert-danger" role="alert">' . $_SESSION['message'] . '</div>';
+                                            unset($_SESSION['message']);
+                                        }
+                                    }
+                                ?>
                                 <h3 style="color:white;">Edit Profile</h3>
                                 
-                                <div class="form-group">
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <label style="color:white;" class="form-label" for="email">Email:</label>
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="E-Mail" alt="Please enter your E-Mail" value="<?php echo $email; ?>" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label style="color:white;" class="form-label" for="username">Username:</label>
-                                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" alt="Please enter your Username" value="<?php echo $username; ?>" required>
-                                    </div>
+                                <div class="form-group form-margin">
+                                    <input type="password" class="form-control" id="oldpassword" name="oldpassword" placeholder="Old Password" alt="Please enter your old password" required><br>
                                 </div>
-                                <button type="submit" name="submit" class="btn btn-primary btn-margin">Confirm</button>    
+                                <div class="form-group form-margin">
+                                    <input type="password" class="form-control" id="newpassword" name="newpassword" placeholder="New Password" alt="Please enter your new password" required><br>
+                                </div>
+                                <div class="form-group form-margin">
+                                    <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder="Repeat New Password" alt="Please repeat your new password" required><br>
+                                </div>
+                                <br>
+                                <div class="form-group form-margin">
+                                    <button style="width:12vw" name="submit" type="submit button" class="glow-on-hover" alt="Back to Homepage">Submit</button>
+                                </div>
+                                <br>
+                                <div class="form-group form-margin">
+                                    <button style="width:12vw" onclick="window.location.href='index.php'" type="button" class="glow-on-hover" alt="Back to Homepage">Back to Homepage</button>
+                                </div>
                             </form>
                         </div>
                     </div>

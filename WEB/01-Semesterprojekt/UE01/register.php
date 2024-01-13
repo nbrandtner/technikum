@@ -36,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($result->num_rows > 0) {
                     $_SESSION['message'] = 'Username or Email already exists';
                 } else {
-                    // Insert the new user into the database with hashed password
                     if ($gender == "male") {
                         $title = "Mr.";
                     } elseif ($gender == "female") {

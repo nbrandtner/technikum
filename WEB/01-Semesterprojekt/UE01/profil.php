@@ -24,14 +24,28 @@ $username = $_SESSION['u_username'];
                 <div class="row justify-content-center">
                     <div class="col-md-6" style="color:white">  
                         <div class="about">
+                            <?php
+                                if(isset($_SESSION['message'])) {
+                                    if($_SESSION['message'] == 'Password changed successfully') {
+                                        echo '<div class="success-message alert alert-success" role="alert">' . $_SESSION['message'] . '</div>';
+                                        unset($_SESSION['message']);
+                                    } else {
+                                        echo '<div class="error-message alert alert-danger" role="alert">' . $_SESSION['message'] . '</div>';
+                                        unset($_SESSION['message']);
+                                    }
+                                }
+                            ?>
                             <h2>Welcome <?php echo $_SESSION['u_title'] . ' ' . $username; ?>!</h2>
-                            <p>Role: '<?php echo $role; ?>'</p>
+                            <h6>Role: '<?php echo $role; ?>'</h6>
+                            <br>
                             <!-- Add more user data here -->
                             <form action="logout.php" method="post">
                                 <button style="width:15vw" type="submit button" value="Logout" class="glow-on-hover">Logout</button>
                             </form>
                             <br>
                             <button style="width:15vw" onclick="window.location.href='editProfil.php'" type="button" class="glow-on-hover" alt="Edit Profile">Edit Profile</button>
+                            <br>
+                            <br>
                             <button style="width:15vw" onclick="window.location.href='changePw.php'" type="button" class="glow-on-hover" alt="Change Password">Change Password</button>
                         </div>
                     </div>
