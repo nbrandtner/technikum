@@ -33,9 +33,7 @@ $username = $_SESSION['u_username'];
                             <?php
                             //if the $role is admin an additional button for the user_list.php should be displayed
                             if ($role == 'admin') {
-                                echo '<div class="col mb-6">';
-                                echo '<button style="width:10vw" onclick="window.location.href=\'user_list.php\'" type="button" class="btn btn-primary" alt="User List">User List</button>';
-                                echo '</div>';
+                                echo '<button style="maxwidth:30mv" onclick="window.location.href=\'user_list.php\'" type="button" class="btn btn-outline-primary" alt="User List">User List</button>';
                             }                                
                             ?>
                             <br><br>

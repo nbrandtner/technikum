@@ -182,7 +182,7 @@ if (isset($_POST['submit'])) {
 									</div>
 								</td>
 								<td>
-									<button type="submit" name="submit" class="btn btn-primary">Save</button>
+									<button type="submit" name="submit" class="btn btn-outline-primary">Save</button>
 								</td>
 							</form>
 						</tr>
