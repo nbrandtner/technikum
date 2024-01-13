@@ -46,7 +46,7 @@
                             </h2>
                         </div>
                         <div id="faq3" class="collapse faq-answer-box">
-                            <div class="faq-answer">
+                            <div class="faq-answer ">
                                 <p>Sie können ihr Passwort sowie andere Kontodaten in Ihrem Profil ändern</p>
                             </div>
                         </div>
