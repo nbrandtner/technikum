@@ -28,13 +28,11 @@ $username = $_SESSION['u_username'];
                             <p>Deine Role ist : '<?php echo $role; ?>'</p>
                             <p>Dein Username ist : '<?php echo $username; ?>'</p>
                             <p>Hier kannst du die Daten deines Profils einsehen und bearbeiten oder dein Passwort ändern:</p>
-                            <div class="row mb-3">
-                                    <button style="width:15vw"  onclick="window.location.href='editProfil.php'" type="button" class="btn btn-primary" alt="Edit Profile">Edit Profile</button>
-                                    <br> <br>
-                                    <button style="width:15vw" onclick="window.location.href='changePw.php'" type="button" class="btn btn-primary" alt="Change Password">Change Password</button>
-                            </div>
+                            <button style="max-width:30mv" onclick="window.location.href='editProfil.php'" type="button" class="btn btn-outline-primary" alt="Edit Profile">Edit Profile</button>
+                            <button style="maxwidth:30mv" onclick="window.location.href='changePw.php'" type="button" class="btn btn-outline-primary" alt="Change Password">Change Password</button>
+                            <br><br>
                             <form action="logout.php" method="post"> 
-                            <button style="width:15vw" type="submit" value="Logout" class="btn btn-primary ">Logout</button><br>
+                            <button type="submit" value="Logout" class="btn btn-outline-danger ">Logout</button>
                             </form>
                             <p>Und hier kannst du dich ausloggen:</p> 
                             </div>

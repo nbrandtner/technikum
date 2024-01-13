@@ -36,12 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           include 'header.php';
         ?>
         <main>
-            <h1 class="blackcolor">Checkout</h1>
-            <br><hr><br>
+            <h1 class="blackcolor">Checkout</h1><hr><br>
             <div>
             <?php if(isset($_SESSION['loggedin'])): ?>
             <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" class="col-md-12">
-                <button onclick="window.location.href='booking.php'" type="button" href="booking.php"class="btn btn-primary"> <- Back</button><br>
+                <button onclick="window.location.href='booking.php'" type="button" href="booking.php"class="btn btn-outline-primary"> <- Back</button><br><br>
                 <div class ='card'>
                         <img class='cardimg' src="img/<?php echo $img; ?>">
                         <div class='cardcontainer'>
@@ -55,8 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                 </div><br>
 
-                <button type="submit" name="submit" class="btn btn-primary">Zahlungspflichtig buchen</button><br>
-                <button onclick="window.location.href='index.php'" type="button" href="reservation.php"class="btn btn-primary"> x Close</button><br>
+                <button type="submit" name="submit" class="btn btn-outline-primary">Zahlungspflichtig buchen</button>
+                <button onclick="window.location.href='index.php'" type="button" href="reservation.php"class="btn btn-outline-danger"> x Close</button><br>
             </form>
 
             </div>

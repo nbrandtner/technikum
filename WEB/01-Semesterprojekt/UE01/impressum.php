@@ -28,10 +28,23 @@ session_start();
             <hr>
             <h3>Projektteam</h3>
             <p>Beteiligte Studierende am Projekt:</p>
-            <ul>
-                <li>Elaine Fink</li>
-                <li>Niklas Brandtner</li>
-            </ul>
+            <div class="row">
+                <div class="column">
+                    <div class ='card ' >
+                        <img  src='img/elaine.png'>
+                        <div class='cardcontainer'>
+                            <h5>Elaine Fink</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                <div class ='card' >
+                    <img  src='img/niklas.png'>
+                    <div class='cardcontainer'>
+                        <h5>Niklas Brandtner</h5>
+                    </div>
+                </div>
+            </div>
         </main>
         <footer>
             <p>&copy; <?php echo date("Y"); ?> Hotel Webseite</p>

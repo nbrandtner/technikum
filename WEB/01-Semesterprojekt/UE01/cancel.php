@@ -9,5 +9,4 @@ session_start();
     $stmt->close();
     $_SESSION['message'] = 'Stonierung successful';
     header("Location: reservation.php");
-    
 ?>

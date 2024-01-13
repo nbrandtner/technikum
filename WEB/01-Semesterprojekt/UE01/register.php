@@ -127,7 +127,7 @@ function test_input($data)
                                     <input type="password" class="form-control" id="password_repeat" name="password_repeat" placeholder="Confirm Password" alt="Please confirm your password" required>
                                 </div>
                                 <br>
-                                <button name="submit" type="submit" class="btn btn-primary" alt="Back to Homepage">Registrieren</button>
+                                <button name="submit" type="submit" class="btn btn-outline-primary" alt="Back to Homepage">Registrieren</button>
                             </form>
                     </div>
                 </main>

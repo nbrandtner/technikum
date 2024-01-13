@@ -161,8 +161,8 @@ function test_input($data)
                             <label for="pet" class="form-check-label mr-3">Haustiere mitnehmen - 20,00€ / Nacht</label><br>
                         </div>
                     </div>
-                    <button type="submit" name="submit" class="btn btn-primary">Weiter -> Checkout</button>
-                    <button onclick="window.location.href='index.php'" type="button" href="reservation.php"class="btn btn-primary"> x Close</button><br>
+                    <button type="submit" name="submit" class="btn btn btn-outline-primary">Weiter -> Checkout</button>
+                    <button onclick="window.location.href='index.php'" type="button" href="reservation.php"class="btn btn-outline-danger"> x Close</button><br>
                             
                 </form>
             <?php else: ?>

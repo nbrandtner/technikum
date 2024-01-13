@@ -157,22 +157,14 @@ button.active{
 }
 
 
-
+.btn{
+  min-width:12vw;
+}
 
 /* Submit button */
 button[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 12px;
   cursor: pointer;
-  margin-top: 20px;
   float:right;
-}
-
-button[type=submit]:hover {
-  background-color: #45a049;
 }
 
 
@@ -350,6 +342,14 @@ button[type=submit]:hover {
   margin-left: 16%;
   max-width: 90%;
 }
+.cardpng {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  margin-right: 16%;
+  margin-left: 16%;
+  width: 40%;
+  max-width:300px;
+}
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {
@@ -364,10 +364,6 @@ button[type=submit]:hover {
 .cardimg {
   width: 100%;
   height: 250px;
-}
-.cardimgsmall {
-  width: 100%;
-  height: 100px;
 }
 h4 {
   font-family: 'Georgia';
@@ -463,3 +459,17 @@ h4 {
     .accordion-item:focus {
         background-color: #e0e0e0;
     }
+
+     /* Three image containers (use 25% for four, and 50% for two, etc) */
+    .column {
+      float: left;
+      width: 50%;
+      padding: 5px;
+    }
+
+    /* Clear floats after image containers */
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    } 

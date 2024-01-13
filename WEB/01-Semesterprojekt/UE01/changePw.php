@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder="Repeat New Password" alt="Please repeat your new password" required><br>
                                 </div>
                                 <br>
-                                <button name="submit" type="submit" class="btn btn-primary" alt="Back to Homepage">Submit</button>
+                                <button name="submit" type="submit" class="btn btn-outline-primary" alt="Back to Homepage">Submit</button>
                                 <br>
                             </form>
                         </div>
