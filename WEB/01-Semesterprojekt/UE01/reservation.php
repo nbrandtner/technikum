@@ -67,10 +67,10 @@ function check_checkbox($data){
                             if($row[7] == 1 && $row[8] == 0 && $row[9] == 0) $extras = "Frühstück";
                             if($row[7] == 0 && $row[8] == 0 && $row[9] == 1) $extras = "Parkplatz";
                             if($row[7] == 0 && $row[8] == 1 && $row[9] == 0) $extras = "Haustiere mitnehemen";
-                            $forms = "<form class='form-group mb-2' method='POST' action='cancel.php'> <input type='hidden' id='r_id' name='r_id' value=".$row[0]." /><button  type='submit' class='btn btn-outline-danger' alt='Stonieren'>Stonieren</button></form>";
+                            $forms = "<form class='form-group mb-2' method='POST' action='cancel.php'> <input type='hidden' id='r_id' name='r_id' value=".$row[0]." /><button  type='submit' class='btn btn-outline-danger' alt='Stornieren'>Stornieren</button></form>";
                             $formb = "<form class='form-group mb-2' method='POST' action='accept.php'> <input type='hidden' id='r_id' name='r_id' value=".$row[0]." /><button  type='submit' class='btn btn-outline-success' alt='Bestätigen'>Bestätigen</button></form>";
                             
-                            if($row[2] == 'stoniert') $forms = "<form class='form-group mb-2' method='POST' action='cancel.php'> <input type='hidden' id='r_id' name='r_id' value=".$row[0]." /><button type='submit' class='btn btn-outline-danger' alt='Stonieren' disabled>Stonieren</button></form>";
+                            if($row[2] == 'storniert') $forms = "<form class='form-group mb-2' method='POST' action='cancel.php'> <input type='hidden' id='r_id' name='r_id' value=".$row[0]." /><button type='submit' class='btn btn-outline-danger' alt='Stornieren' disabled>Stornieren</button></form>";
                             if($row[2] == 'bestätigt') $formb = "<form class='form-group mb-2' method='POST' action='accept.php'> <input type='hidden' id='r_id' name='r_id' value=".$row[0]." /><button type='submit' class='btn btn-outline-success' alt='Bestätigen' disabled>Bestätigen</button></form>";
                             
                             $actionbtn =$forms.$formb;

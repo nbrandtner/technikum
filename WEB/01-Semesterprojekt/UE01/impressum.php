@@ -28,20 +28,21 @@ session_start();
             <hr>
             <h3>Projektteam</h3>
             <p>Beteiligte Studierende am Projekt:</p>
-            <div class="row">
-                <div class="column">
-                    <div class ='card ' >
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class ='card' >
                         <img  src='img/elaine.png'>
                         <div class='cardcontainer'>
                             <h5>Elaine Fink</h5>
                         </div>
                     </div>
                 </div>
-                <div class="column">
-                <div class ='card' >
-                    <img  src='img/niklas.png'>
-                    <div class='cardcontainer'>
-                        <h5>Niklas Brandtner</h5>
+                <div class="col-md-6">
+                    <div class ='card' >
+                        <img  src='img/niklas.png'>
+                        <div class='cardcontainer'>
+                            <h5>Niklas Brandtner</h5>
+                        </div>
                     </div>
                 </div>
             </div>
