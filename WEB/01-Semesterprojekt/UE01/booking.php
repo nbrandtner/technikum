@@ -1,12 +1,12 @@
 <?php
 // Start the session
+session_start();
 
 include 'db_config.php';
 
 // define variables and set to empty values
 $room = $pet = $food = $parking = $price = "";
 
-session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $room = test_input($_POST["rooms"]);
     $pet =  check_checkbox("pet");
@@ -17,44 +17,73 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(empty($_POST["from"]) ||empty($_POST["to"])){
         $_SESSION['message'] = 'All fields must be filled out';
     }else{
-        //Berechnung des Preises
-        $price = 0.00;
-
-        //Zimmerpreis berechnen
-        if($room == "Delux"){
-            $price += 229.00;
-            $_SESSION['img'] = 'deluxe.jpg';
-        }
-        elseif($room == "Junior"){
-            $price += 279.00;
-            $_SESSION['img'] = 'junior-suite.png';
-        } 
-        elseif($room == "Master"){ 
-            $price += 329.00;
-            $_SESSION['img'] = 'mastersuite.jpg';
-        }
-        elseif($room == "Penthouse"){
-            $price += 429.00;
-            $_SESSION['img'] = 'penthouse-suite.jpg';
-        }
-
-        //Extras berechnen
-        if($pet==1) $price+=20.00;
-        if($food==1) $price+=30.00;
-        if($parking==1) $price+=20.00;
-
-        //Preis mit dauer multiplizieren
         $from = new DateTime($_POST['from']);
         $to = new DateTime($_POST['to']);
-        $days = $to->diff($from)->format('%a');
-        $price = $price *$days;
+        $today = new DateTime(date('Y-m-d', time()));
+        $uploadOk = 1;
+        if($to<=$from){
+            $_SESSION['message'] = 'The "To" date cannot be before or at the same day as the "From" date';
+            $uploadOk = 0;
+        }
+        if($from <= $today){
+            $_SESSION['message'] = 'You can only book reservations in the future';
+            $uploadOk = 0;
+        }
+        //Reservationliste aus der Datenbank holen
+        //Alle Reservierungen mit dem selben Raum dürfen nicht überlappen
+        $stmt = $mysqli->prepare("SELECT * FROM reservation where r_room = ?");
+        $stmt->bind_param("s", $room);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        if($result->num_rows > 0){
+            //Überpfüfen nach überlappungen
+             while($row = $result->fetch_array(MYSQLI_NUM)){
+                if(($from <= new DateTime($row[5])) && ($to >= new DateTime($row[4]))){
+                    $uploadOk = 0;
+                    $_SESSION['message'] ="The dates overlap with another reservation of this room from ".$row[4]." to ".$row[5];
+                    break;
+                }
+             }
+        }
+        if ($uploadOk == 1){
+            //Berechnung des Preises
+            $price = 0.00;
 
-        $_SESSION['price'] = $price;
-        $_SESSION['room'] = $room;
-        $_SESSION['from'] = $_POST["from"];
-        $_SESSION['days'] = $days;
-        $_SESSION['to'] = $_POST["to"];
-        header("Location: checkout.php");
+            //Zimmerpreis berechnen
+            if($room == "Delux"){
+                $price += 229.00;
+                $_SESSION['img'] = 'deluxe.jpg';
+            }
+            elseif($room == "Junior"){
+                $price += 279.00;
+                $_SESSION['img'] = 'junior-suite.png';
+            } 
+            elseif($room == "Master"){ 
+                $price += 329.00;
+                $_SESSION['img'] = 'mastersuite.jpg';
+            }
+            elseif($room == "Penthouse"){
+                $price += 429.00;
+                $_SESSION['img'] = 'penthouse-suite.jpg';
+            }
+
+            //Extras berechnen
+            if($pet==1) $price+=20.00;
+            if($food==1) $price+=30.00;
+            if($parking==1) $price+=20.00;
+
+            //Preis mit dauer multiplizieren
+            $days = $to->diff($from)->format('%a');
+            $price = $price *$days;
+
+            $_SESSION['price'] = $price;
+            $_SESSION['room'] = $room;
+            $_SESSION['from'] = $_POST["from"];
+            $_SESSION['days'] = $days;
+            $_SESSION['to'] = $_POST["to"];
+            header("Location: checkout.php");
+        }
     }
 }
 
