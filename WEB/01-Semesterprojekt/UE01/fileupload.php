@@ -1,7 +1,7 @@
 <?php
 
 if(isset($_POST["submit"])) {
-  $target_dir = "img_uploads/";
+  $target_dir = "uploads/news/";
   $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
   $uploadOk = 1;
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -44,7 +44,7 @@ if(isset($_POST["submit"])) {
   } else{
     //Resize img to thumbnail size
     $width = 400; 
-    $height = 250; 
+    $height = 150; 
       
     // Get image dimensions 
     list($width_orig, $height_orig) = getimagesize($_FILES["fileToUpload"]["tmp_name"]); 
