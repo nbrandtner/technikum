@@ -365,6 +365,10 @@ button[type=submit] {
   width: 100%;
   height: 250px;
 }
+.newsimg {
+  width: 400px;
+  height: 250px;
+}
 h4 {
   font-family: 'Georgia';
   font-weight: 1000;

@@ -1,4 +1,5 @@
 <?php
+
 if(isset($_POST["submit"])) {
   $target_dir = "img_uploads/";
   $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -23,16 +24,15 @@ if(isset($_POST["submit"])) {
     $uploadOk = 0;
   }
 
-  // Check file size
+  /* Check file size
   if ($_FILES["fileToUpload"]["size"] > 500000) {
     echo "Sorry, your file is too large.<br>";
     $uploadOk = 0;
-  }
+  }*/
 
   // Allow certain file formats
-  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-  && $imageFileType != "gif" ) {
-    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.<br>";
+  if($imageFileType != "jpg"  && $imageFileType != "jpeg") {
+    echo "Sorry, only JPG, JPEG files are allowed.<br>";
     $uploadOk = 0;
   }
 
@@ -42,7 +42,18 @@ if(isset($_POST["submit"])) {
 
   // if everything is ok, try to upload file
   } else{
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+    //Resize img to thumbnail size
+    $width = 400; 
+    $height = 250; 
+      
+    // Get image dimensions 
+    list($width_orig, $height_orig) = getimagesize($_FILES["fileToUpload"]["tmp_name"]); 
+      
+    // Resample the image 
+    $image_p = imagecreatetruecolor($width, $height); 
+    $image = imagecreatefromjpeg($_FILES["fileToUpload"]["tmp_name"]); 
+    imagecopyresized($image_p, $image, 0, 0, 0, 0, $width, $height, $width_orig, $height_orig);  
+      if (imagejpeg($image_p, $target_file,100)) {
       echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.<br>";
       // Database insert news beiträge
       include 'db_config.php';

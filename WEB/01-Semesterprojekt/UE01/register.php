@@ -52,6 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $stmt->close();
 
                     $_SESSION['message'] = 'Registration successful';
+                    header("Location: index.php");
                 }
             }
         }
