@@ -4,11 +4,14 @@ function calc(operation) {
 	var ergebnis = 0;
 	// delete whitespaces and leading zeros
 	// https://stackoverflow.com/questions/6676488/remove-leading-zeros-from-a-number-in-javascript (solution to remove leading zeros)
-	zahl1 = zahl1.trim();
-	zahl1 = zahl1.replace(/^0+/, "");
-	zahl2 = zahl2.trim();
-	zahl2 = zahl2.replace(/^0+/, "");
-
+	if (zahl1.length > 1) {
+		zahl1 = zahl1.trim();
+		zahl1 = zahl1.replace(/^0+/, "");
+	}
+	if (zahl2.length > 1) {
+		zahl2 = zahl2.trim();
+		zahl2 = zahl2.replace(/^0+/, "");
+	}
 	// idk if i couldve used the operation directly (zahl1 + operation + zahl2) or smth like that so i used a switch-case instead
 	switch (operation) {
 		case "+":
@@ -34,5 +37,5 @@ function calc(operation) {
 		ergebnis = "To Infinity and beyond! (durch 0 teilen ist nicht erlaubt)";
 	}
 
-	document.getElementById("history").value = history + zahl1 + " " + operation + " " + zahl2 + " = " + ergebnis + "\n";
+	document.getElementById("history").value = zahl1 + " " + operation + " " + zahl2 + " = " + ergebnis + "\n" + history;
 }
