@@ -419,8 +419,10 @@ void GameWorld::moveEnemySmartly() {
 
 
 void GameWorld::printWorld(int x, int y, int enemyX, int enemyY) const {
+    cout << "_____________________\n";
     for(int i = 0; i < 5; i++){
         for(int j = 0; j < 5; j++){
+            cout << "| ";
             if(i == x && j == y){
                 cout << "\033[0;32mP\033[0m ";
             }else{
@@ -448,7 +450,7 @@ void GameWorld::printWorld(int x, int y, int enemyX, int enemyY) const {
                 }
             }
         }
-        cout << endl;
+        cout << "|\n|___|___|___|___|___|\n";
     }
     cout << endl;
 }
