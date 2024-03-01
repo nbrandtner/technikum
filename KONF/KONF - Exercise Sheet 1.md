@@ -107,25 +107,128 @@
 11. **Blobs**
     You have now created the first 2 blob objects in the repository Now create the first commit object. Which command do you use for it? What options does it offer? Where are commit objects stored?
 
+    - `git write-tree` to get tree-sha1 key
+    - `echo '<Your Message>' | git commit-tree <tree-sha1-key>` to commit a message onto the repository
+    - `git show <commit-sha1-key> ` to see changes on git
+    - ![image-20240228152933279](C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240228152933279.png)
+
 12. **History output**
     In order to be able to display the history on the screen, you must use this 
     Enter command: git log --graph --decorate --oneline -all
     Since we don't want to type this long command every time, we will configure ourselves an alias (git lol). What command do you enter for this?
 
+    - We can create an alias globally or locally (for the current git repo) with 
+
+    - ```basic
+      - git config --global alias.<alias-shortcut> <git command>
+      or
+      - git config alias.<alias-shortcut> "longer git command with --options"
+      ```
+
+    - ![image-20240228153857346](C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240228153857346.png)
+
 13. **History**
     With git lol we can now output the history at any time. What does the history look like?
+
+    - already shown above ^
+    - "1406498" which is the commit-sha1-hash
+    - "(HEAD -> master)" which means that the HEAD branch is currently pointing to the master branch, meaning we're currently working on the master branch
+    - "Add test.txt" which is the commit message of the commit
 
 14. **New file**
     Create another file and add it to the repository. Also create a new version of your repository.
 
+    - ![image-20240228161119821](C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240228161119821.png)
+    - Created a new text-file and added/committed it to the repository
+    - ![image-20240228161457450](C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240228161457450.png)
+    - I changed the content of test.txt and another_test.txt, added them and committed them to the repo, therefore creating a new version of the repository.
+
 15. **Commit object**
     Oops, now you have forgotten a file. Create a third text file and add this file to the repository. But make sure that this file still goes into the same version of the history. What command do you use to do this? Does git create a new commit object? If so, why?
+
+    - ![image-20240228162021956](C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240228162021956.png)
+    - We can use `git commit --amend` to add a forgotten file to a previous commit
+    - `--no-edit` tells Git not to open the commit message editor, keeping the commit message unchanged.
+
+    - By using `git commit --amend`, Git creates a new commit object, even though the changes are being added to the previous commit. This is because every commit in Git is immutable. When you amend a commit, you're effectively creating a new commit object with the updated changes, and Git updates the reference of the branch to point to this new commit object instead of the old one. 
 
 16. **Delete**
     Delete a file and then restore it. What command do you use for this? From where is the file restored?
 
+    - ![image-20240228162457190](C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240228162457190.png)
+    - Git retrieves the contents of the specified file from the latest commit (HEAD) and restores it to the working directory.
+
 17. **Modify files**
     Modify the contents of the first file. Display the status in Git. What does the output look like and how do you interpret it? How do you commit the changes? What happens in the repository?
 
+    - ![image-20240228163543256](C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240228163543256.png)
+    - The output indicates which files have been modified and staged for commit, and which files are untracked.
+    - committing the changes is just a `git add .` and `git commit -m "Commit Message"` again.
+    - In summary, by modifying a file, staging the changes, and committing them, you're updating the history of your Git repository. Each commit represents a snapshot of your project's state at a specific point in time, allowing you to track changes and collaborate with others effectively.
+
 18. **Checkout**
     Look at the history and try to go back to the penultimate version. Now look at the history again. What does HEAD mean? What is main/master? What other options does the command you just used offer?
+
+    - **HEAD**:
+
+      - `HEAD` is a reference to the current commit you have checked out.
+
+    - **Main/Master**:
+
+      - `main` or `master` is the default branch in a Git repository. It typically represents the main line of development.
+      - These branches serve as the starting point for development and typically contain the most stable version of the project.
+
+    - **Checkout**
+
+      - ![image-20240228173346942](C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240228173346942.png)
+      - Here we can see that the HEAD gets updated once we checkout an older commit. 
+
+    - Other Options of Checkout:
+
+      - **Create and switch to a new branch**:
+
+        ```bash
+        git checkout -b <new_branch>
+        ```
+
+        This option creates a new branch with the given name and immediately switches to it.
+
+      - **Restore files from the staging area**:
+
+        ```bash
+        git checkout -- <file_path>
+        ```
+
+        This option restores the specified file(s) from the staging area to your working directory, effectively undoing any changes made since the last commit.
+
+      - **Restore files from a specific commit**:
+
+        ```bash
+        git checkout <commit_hash> -- <file_path>
+        ```
+
+        This option restores the specified file(s) from the given commit to your working directory. It's useful for inspecting or reverting changes made in past commits.
+
+      - **Create a new branch from a specific commit**:
+
+        ```bash
+        git checkout -b <new_branch> <commit_hash>
+        ```
+
+        This option creates a new branch starting from the specified commit and switches to it. It's useful for creating branches to work on specific features or bug fixes.
+
+      - **Create a detached HEAD state**:
+
+        ```bash
+        git checkout <commit_hash>
+        ```
+
+        This option checks out a specific commit without creating or switching to a branch, leaving you in a "detached HEAD" state. It's useful for inspecting historical commits or testing changes without affecting existing branches.
+
+      - **Interactively restore changes with patch mode**:
+
+        ```bash
+        git checkout -p
+        ```
+
+        This option enters interactive mode, allowing you to selectively restore changes from the specified file(s) using the patch mode.

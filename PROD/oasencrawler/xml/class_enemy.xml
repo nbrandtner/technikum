@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_enemy" kind="class" language="C++" prot="public">
+    <compoundname>Enemy</compoundname>
+    <includes refid="game_8h" local="no">game.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_enemy_1addadfc678cfbc7ea8d9aaa80f18a0324" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Enemy::posX</definition>
+        <argsstring></argsstring>
+        <name>posX</name>
+        <qualifiedname>Enemy::posX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="76" column="9" bodyfile="oasencrawler/game.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_enemy_1adfea560f149222ce1ee8cb9f55694f88" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Enemy::posY</definition>
+        <argsstring></argsstring>
+        <name>posY</name>
+        <qualifiedname>Enemy::posY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="77" column="9" bodyfile="oasencrawler/game.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_enemy_1a94f30d348b6d2840fd71675472ba38dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Enemy::Enemy</definition>
+        <argsstring>()</argsstring>
+        <name>Enemy</name>
+        <qualifiedname>Enemy::Enemy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="80" column="5" bodyfile="oasencrawler/game.cpp" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_enemy_1a673678b7385ff5399d8664c514355fc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Enemy::setPosition</definition>
+        <argsstring>(int x, int y)</argsstring>
+        <name>setPosition</name>
+        <qualifiedname>Enemy::setPosition</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="81" column="10" bodyfile="oasencrawler/game.cpp" bodystart="78" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="class_enemy_1ada99aff9cfa87f3941e8ee675b706c5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Enemy::move</definition>
+        <argsstring>(int dx, int dy)</argsstring>
+        <name>move</name>
+        <qualifiedname>Enemy::move</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="82" column="10" bodyfile="oasencrawler/game.cpp" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="class_enemy_1a1536187429da4464004b93e19770502f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Enemy::getX</definition>
+        <argsstring>() const</argsstring>
+        <name>getX</name>
+        <qualifiedname>Enemy::getX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="83" column="9" bodyfile="oasencrawler/game.cpp" bodystart="88" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="class_enemy_1ac9cdab9c1102747c78baf9a4a30c6b01" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Enemy::getY</definition>
+        <argsstring>() const</argsstring>
+        <name>getY</name>
+        <qualifiedname>Enemy::getY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="84" column="9" bodyfile="oasencrawler/game.cpp" bodystart="92" bodyend="94"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="oasencrawler/game.h" line="74" column="1" bodyfile="oasencrawler/game.h" bodystart="74" bodyend="85"/>
+    <listofallmembers>
+      <member refid="class_enemy_1a94f30d348b6d2840fd71675472ba38dd" prot="public" virt="non-virtual"><scope>Enemy</scope><name>Enemy</name></member>
+      <member refid="class_enemy_1a1536187429da4464004b93e19770502f" prot="public" virt="non-virtual"><scope>Enemy</scope><name>getX</name></member>
+      <member refid="class_enemy_1ac9cdab9c1102747c78baf9a4a30c6b01" prot="public" virt="non-virtual"><scope>Enemy</scope><name>getY</name></member>
+      <member refid="class_enemy_1ada99aff9cfa87f3941e8ee675b706c5a" prot="public" virt="non-virtual"><scope>Enemy</scope><name>move</name></member>
+      <member refid="class_enemy_1addadfc678cfbc7ea8d9aaa80f18a0324" prot="private" virt="non-virtual"><scope>Enemy</scope><name>posX</name></member>
+      <member refid="class_enemy_1adfea560f149222ce1ee8cb9f55694f88" prot="private" virt="non-virtual"><scope>Enemy</scope><name>posY</name></member>
+      <member refid="class_enemy_1a673678b7385ff5399d8664c514355fc7" prot="public" virt="non-virtual"><scope>Enemy</scope><name>setPosition</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

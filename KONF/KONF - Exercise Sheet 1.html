@@ -1,0 +1,926 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    /**
+    * 系统变量
+    */
+    /*基础文字颜色*/
+    --text-color: #f5f6f7;
+    /*背景颜色*/
+    --bg-color: #18191a;
+    /*侧边栏宽度*/
+    --sidebar-width: 300px;
+    /*选择字体颜色*/
+    --select-text-font-color: #000000;
+    /*侧边栏颜色*/
+    --side-bar-bg-color: var(--bg-color);
+    /*代码块背景*/
+    --code-block-bg-color: rgb(40, 42, 54);
+    /*文件选中的背景*/
+    --active-file-bg-color: #4b4b4b;
+    /*latex背景*/
+    --rawblock-edit-panel-bd: var(--code-block-bg-color);
+
+    /**
+    * 自定义变量
+    */
+    /*基础字体*/
+    --as-font-family-base: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    /*等宽代码字体*/
+    --as-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    /*yaml块背景*/
+    --as-meta-block-bg-color: hsla(0, 0%, 100%, 0.05);
+    /*yaml块字体颜色*/
+    --as-meta-block-font-color: #dadde1;
+    /*行内代码颜色*/
+    --as-inline-code-color: #ff6e6e;
+    /*超链接颜色*/
+    --as-link-color: #00aeff;
+    /*标题颜色*/
+    --as-title-color: #e3f7ff;
+    /*右键菜单背景颜色*/
+    --as-dropdown-menu: #242526;
+    /*偏好设置背景颜色*/
+    --as-nav-group-item-bg-color: #4b4b4b;
+    /*引用边栏颜色*/
+    --as-blockquote-border-color: #606770;
+    /*引用字体颜色*/
+    --as-blockquote-font-color: #ebedf0;
+}
+
+html,
+body,
+#write {
+    background: var(--bg-color);
+    font: 100%/1.65 var(--as-font-family-base);
+    max-width: 950px;
+}
+
+
+/*标题*/
+#write h1,
+#write h2,
+#write h3,
+#write h4,
+#write h5,
+#write h6 {
+    color: var(--as-title-color);
+    font-family: var(--as-font-family-base);
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 0 1rem 0;
+}
+
+#write h1 {
+    font-size: 3rem;
+}
+
+#write h2 {
+    font-size: 1.6rem;
+}
+
+#write h3 {
+    font-size: 1.2rem;
+}
+
+#write h4 {
+    font-size: 1rem;
+}
+
+#write h5 {
+    font-size: 0.85rem;
+}
+
+#write h6 {
+    font-size: 0.8rem;
+}
+
+#write .md-heading:before {
+    color: var(--as-link-color);
+}
+
+/*表格*/
+#write table:not(.md-grid-board) {
+    background-color: var(--code-block-bg-color);
+    margin: 20px 0;
+    border-collapse: separate;
+    border-radius: 5px;
+}
+
+
+#write table:not(.md-grid-board) td {
+    padding: 12px 24px;
+    /*border-left: 1px dashed var(--text-color);*/
+    /*border-bottom: 1px dashed var(--text-color);*/
+}
+
+#write table:not(.md-grid-board) th {
+    padding: 12px 24px;
+    /*border-left: 1px solid var(--text-color);*/
+    /*border-bottom: 1px solid var(--text-color);*/
+}
+
+#write table tbody tr:nth-child(2n-1) {
+    background-color: var(--as-meta-block-bg-color);
+}
+
+#write table:not(.md-grid-board) td:hover, #write table:not(.md-grid-board) th:hover {
+    background-color: rgba(140, 140, 140, .2);
+}
+
+#write table:not(.md-grid-board) tr td:first-child, #write table:not(.md-grid-board) tr th:first-child {
+    border-left: 0;
+}
+
+#write table:not(.md-grid-board) tr:last-child td {
+    border-bottom: 0;
+}
+
+#write table:not(.md-grid-board) tr:first-child th:first-child {
+    border-top-left-radius: 5px;
+}
+
+#write table:not(.md-grid-board) tr:first-child th:last-child {
+    border-top-right-radius: 5px;
+}
+
+#write table:not(.md-grid-board) tr:last-child td:first-child {
+    border-bottom-left-radius: 5px;
+}
+
+#write table:not(.md-grid-board) tr:last-child td:last-child {
+    border-bottom-right-radius: 5px;
+}
+
+/*表格更多菜单, 其它的右键菜单*/
+.dropdown-menu:not(.megamenu-menu-list) {
+    border-radius: 5px;
+    /*border: 1px solid var(--text-color);*/
+    background: var(--as-dropdown-menu);
+}
+
+/*表格编辑栏*/
+#write .ty-table-edit {
+    background: var(--code-block-bg-color);
+    border-radius: 5px;
+}
+
+#write .popover {
+    background: var(--code-block-bg-color);
+}
+
+#write .arrow::after {
+    border-bottom-color: var(--as-meta-block-bg-color) !important;
+}
+
+#write .popover-title {
+    padding: 0;
+}
+
+#md-resize-grid {
+
+    display: block !important;
+    margin-left: 40px !important;
+}
+
+/*段落*/
+#write > p, #write > pre, #write > ul {
+    margin-bottom: 1.25rem;
+}
+
+/*mark 高亮*/
+mark {
+    background: var(--as-inline-code-color) !important;
+    border-radius: 4px !important;
+    padding: 1px 4px;
+    font-weight: 700;
+}
+
+/*行内代码*/
+#write :not(pre) > code {
+    color: var(--as-inline-code-color);
+    padding: 0 4px;
+}
+
+#write code {
+    background-color: var(--code-block-bg-color);
+    border: .1rem solid rgba(0, 0, 0, .1);
+    border-radius: 0.4rem;
+    font-family: var(--as-font-family-monospace);
+    font-size: 0.95rem;
+    padding: 0.1rem;
+}
+
+/*Latex*/
+.md-hover-tip .md-arrow:after {
+    background: var(--code-block-bg-color);
+
+}
+
+.md-hover-tip .code-tooltip-content {
+    background: var(--code-block-bg-color);
+}
+
+/*角标*/
+sup.md-footnote {
+    background: transparent;
+    color: var(--as-link-color);
+}
+
+/*目录*/
+.md-toc {
+    font-size: 0.95rem;
+}
+
+/*Mac 的内容*/
+#toc-dropmenu.open {
+    background: var(--code-block-bg-color);
+}
+
+/*引用*/
+blockquote {
+    border: 0 solid var(--as-blockquote-border-color);
+    border-left: 2px solid var(--as-blockquote-border-color);
+    color: var(--as-blockquote-font-color);
+    padding: 0 1rem;
+}
+
+/*checkbox*/
+input {
+    /*position: relative !important;*/
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 8px;
+    box-sizing: content-box;
+    overflow: hidden;
+}
+
+input:before {
+    content: '';
+    display: block;
+    box-sizing: content-box;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--as-title-color);
+    transition: 0.2s border-color ease;
+}
+
+input:checked:before {
+    border-color: var(--as-link-color);
+    transition: 0.5s border-color ease;
+}
+
+input:disabled:before {
+    border-color: #ccc;
+    background-color: #ccc;
+}
+
+input:after {
+    content: '';
+    display: block;
+    position: absolute;
+    box-sizing: content-box;
+    top: 50%;
+    left: 50%;
+    transform-origin: 50% 50%;
+    background-color: var(--as-link-color);
+    width: 16px;
+    height: 16px;
+    border-radius: 100vh;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+input[type="checkbox"]:before {
+    border-radius: 4px;
+}
+
+input[type="checkbox"] + * {
+    margin-left: 10px;
+}
+
+input[type="checkbox"]:after {
+    width: 9px;
+    height: 16px;
+    border-radius: 0;
+    transform: translate(-50%, -85%) scale(0) rotate(45deg);
+    background-color: transparent;
+    box-shadow: 4px 4px 0 0 var(--as-link-color);
+}
+
+input[type="checkbox"]:checked:after {
+    -webkit-animation: toggleOnCheckbox 0.2s ease forwards;
+    animation: toggleOnCheckbox 0.2s ease forwards;
+}
+
+input[type="radio"]:before {
+    border-radius: 100vh;
+}
+
+input[type="radio"]:after {
+    width: 16px;
+    height: 16px;
+    border-radius: 100vh;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+input[type="radio"]:checked:after {
+    -webkit-animation: toggleOnRadio 0.2s ease forwards;
+    animation: toggleOnRadio 0.2s ease forwards;
+}
+
+@-webkit-keyframes toggleOnCheckbox {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -85%) scale(0) rotate(45deg);
+    }
+    70% {
+        opacity: 1;
+        transform: translate(-50%, -85%) scale(0.9) rotate(45deg);
+    }
+    100% {
+        transform: translate(-50%, -85%) scale(0.8) rotate(45deg);
+    }
+}
+
+@keyframes toggleOnCheckbox {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -85%) scale(0) rotate(45deg);
+    }
+    70% {
+        opacity: 1;
+        transform: translate(-50%, -85%) scale(0.9) rotate(45deg);
+    }
+    100% {
+        transform: translate(-50%, -85%) scale(0.8) rotate(45deg);
+    }
+}
+
+@-webkit-keyframes toggleOnRadio {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    70% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+}
+
+@keyframes toggleOnRadio {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    70% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+}
+
+/*链接*/
+a {
+    font-weight: 700;
+    color: var(--as-link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--as-link-color);
+    text-decoration: underline;
+}
+
+pre {
+    font-family: var(--as-font-family-monospace);
+    border-radius: 0.4rem;
+    font-size: 0.95rem !important;
+    padding: 1rem;
+}
+
+/*yaml标签*/
+.md-meta-block {
+    background: var(--as-meta-block-bg-color) !important;
+    color: var(--as-meta-block-font-color);
+    margin: 1rem 0;
+    overflow: auto;
+}
+
+/*悬浮窗*/
+.modal-content {
+    background: var(--code-block-bg-color);
+}
+
+/*提示窗*/
+#md-notification {
+    background: var(--as-blockquote-border-color);
+}
+
+/*侧边栏列表*/
+#file-library-search-input {
+    background: transparent;
+}
+
+.pin-outline #outline-content .outline-active strong, .pin-outline .outline-active {
+    color: var(--as-link-color);
+}
+
+#typora-sidebar,
+#switch-file-list-btn {
+    background: var(--code-block-bg-color);
+}
+
+.info-panel-tab-title:hover {
+    background-color: var(--as-meta-block-bg-color);
+}
+
+.active-tab-files #info-panel-tab-file .info-panel-tab-border, .active-tab-outline #info-panel-tab-outline .info-panel-tab-border {
+    background: var(--as-link-color);
+}
+
+/*退出源码模式*/
+.typora-sourceview-on #toggle-sourceview-btn {
+    background: transparent;
+}
+
+
+/*.fa-caret-right:before {*/
+/*    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="rgba(0,0,0,0.5)" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>') 50% / 2rem 2rem;*/
+/*    content: " ";*/
+/*    filter: invert(100%) sepia(94%) saturate(17%) hue-rotate(223deg) brightness(104%) contrast(98%);;*/
+/*    height: 1.25rem;*/
+/*    min-width: 1.25rem;*/
+/*    transform: rotate(180deg);*/
+/*    transition: transform 200ms linear;*/
+/*}*/
+/**
+* 菜单页面
+*/
+
+/*菜单右侧背景*/
+.megamenu-opened header {
+    background: var(--bg-color);
+}
+
+.megamenu-content {
+    background: var(--bg-color);
+}
+
+/*最近使用文件单数列表项*/
+.open > .dropdown-menu {
+    background: var(--code-block-bg-color);
+}
+
+#recent-file-panel-action-btn-container {
+    margin-top: 10px;
+}
+
+#recent-file-panel-action-btn {
+    background: transparent;
+}
+
+.megamenu-menu-panel .btn:hover {
+    color: var(--as-inline-code-color);
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: var(--code-block-bg-color);
+}
+
+/*偏好设置*/
+.nav-group-item.active {
+    background: var(--as-nav-group-item-bg-color) !important;
+}
+
+/*代码块*/
+.md-fences {
+    background-color: var(--code-block-bg-color);
+}
+
+.md-fences:hover::after {
+    content: attr(lang);
+    transition-duration: 200ms;
+    color: var(--text-color);
+    font-size: .8rem;
+    font-style: italic;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 5;
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    border-left: 1px solid var(--text-color) !important;
+}
+
+.cm-s-inner .CodeMirror-gutters {
+    color: #404b53;
+    background-color: transparent;
+    border: none
+}
+
+.cm-s-inner .CodeMirror-cursor {
+    border-left: solid thin #f8f8f0
+}
+
+.cm-s-inner .CodeMirror-linenumber {
+    color: #6d8a88
+}
+
+.cm-s-inner.CodeMirror-focused div.CodeMirror-selected {
+    background: rgba(255, 255, 255, .1)
+}
+
+.cm-s-inner .CodeMirror-line::selection, .cm-s-inner .CodeMirror-line > span::selection, .cm-s-inner .CodeMirror-line > span > span::selection {
+    background: rgba(255, 255, 255, .1)
+}
+
+.cm-s-inner .CodeMirror-line::-moz-selection, .cm-s-inner .CodeMirror-line > span::-moz-selection, .cm-s-inner .CodeMirror-line > span > span::-moz-selection {
+    background: rgba(255, 255, 255, .1)
+}
+
+.cm-s-inner span.cm-comment {
+    color: #41535b
+}
+
+.cm-s-inner span.cm-string, .cm-s-inner span.cm-string-2 {
+    color: #55b5db
+}
+
+.cm-s-inner span.cm-number {
+    color: #cd3f45
+}
+
+.cm-s-inner span.cm-variable {
+    color: #55b5db
+}
+
+.cm-s-inner span.cm-variable-2 {
+    color: #a074c4
+}
+
+.cm-s-inner span.cm-def {
+    color: #55b5db
+}
+
+.cm-s-inner span.cm-keyword {
+    color: #ff79c6
+}
+
+.cm-s-inner span.cm-operator {
+    color: #9fca56
+}
+
+.cm-s-inner span.cm-keyword {
+    color: #e6cd69
+}
+
+.cm-s-inner span.cm-atom {
+    color: #cd3f45
+}
+
+.cm-s-inner span.cm-meta {
+    color: #55b5db
+}
+
+.cm-s-inner span.cm-tag {
+    color: #55b5db
+}
+
+.cm-s-inner span.cm-attribute {
+    color: #9fca56
+}
+
+.cm-s-inner span.cm-qualifier {
+    color: #9fca56
+}
+
+.cm-s-inner span.cm-property {
+    color: #a074c4
+}
+
+.cm-s-inner span.cm-type, .cm-s-inner span.cm-variable-3 {
+    color: #9fca56
+}
+
+.cm-s-inner span.cm-builtin {
+    color: #9fca56
+}
+
+
+
+</style><title>KONF - Exercise Sheet 1</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='konf---exercise-sheet-1'><span>KONF - Exercise Sheet 1</span></h1><h4 id='by-niklas-brandtner-26022024'><span>by Niklas Brandtner 26.02.2024</span></h4><h2 id='instructions'><span>Instructions:</span></h2><ol start='' ><li><p><strong><span>Install the Git Bash</span></strong>
+<span>We are only working on the git bash to learn the commands. All GUI tools are handy and easy to use but without understanding what exactly is going on in the background, even the best tool won&#39;t help. For installation instructions, see Moodle.</span></p><ul><li><span>Git Bash was already installed but usually go to Git Website -&gt; Download Setup -&gt; Go Through Setup -&gt; add </span><code>C:\Program Files\Git\cmd</code><span> to PATH in environment variables </span>✔️</li></ul></li><li><p><strong><span>The first repository</span></strong>
+<span>Create the first repository in a folder of your choice. What is the command for it? What are the options? What exactly happens in the process?</span></p><ul><li><p><img src="C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240226012359924.png" referrerpolicy="no-referrer" alt="image-20240226012359924"></p></li><li><p><code>git init</code><span> A new Git Repository will be created in the specified folder (current active folder if not specified)</span></p></li><li><p><span>Options of </span><code>git init</code><span>:</span></p><ul><li><span>--quiet Only print error and warning messages; all other output will be suppressed.</span></li><li><span>--bare Create a bare repository. If </span><code>GIT_DIR</code><span> environment is not set, it is set to the current working directory</span></li></ul></li><li><p><span>Process of </span><code>git init</code><span>:</span></p><ul><li><span>Git checks for an existing </span><code>.git</code><span> directory. If found, it aborts to prevent overwriting.</span></li><li><span>If no </span><code>.git</code><span> directory exists, Git creates one.</span></li><li><span>Git initializes necessary configuration files within </span><code>.git</code><span>.</span></li><li><span>The specified folder becomes the repository&#39;s root directory.</span></li><li><span>The repository is ready for use; you can start managing files and commits.</span></li></ul></li></ul></li><li><p><strong><span>Global config</span></strong>
+<span>To set up your name and email address once, configure it via git config. What is the full command? What options are there? Where are global settings stored in Git?</span></p><ul><li><p><code>git config --global user.name &quot;Your Name&quot; --global user.email &quot;your.email@example.com&quot;</code><span> </span></p></li><li><p><span>Options:</span></p><ul><li><code>`--global</code><span>: sets the configuration globally. Without this, the configuration will only be set for the current repository.</span></li></ul></li><li><p><span>Where are global settings stored in Git?</span></p><ul><li><span>On Unix-like systems (such as Linux and macOS), the global configuration file is typically located at </span><code>~/.gitconfig</code><span> or </span><code>~/.config/git/config</code><span>.</span></li><li><span>On Windows, it&#39;s usually located at </span><code>C:\Users\YourUsername\.gitconfig</code><span>.</span></li><li><span>or check the location with </span><code>git config --global --list --show-origin</code></li><li><img src="C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240226021538569.png" referrerpolicy="no-referrer" alt="image-20240226021538569"></li></ul></li></ul></li><li><p><strong><span>Text file</span></strong>
+<span>Create a text file and write into it.</span></p><ul><li><img src="C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240226021739955.png" referrerpolicy="no-referrer" alt="image-20240226021739955"></li></ul></li><li><p><strong><span>Status</span></strong>
+<span>On the Git Bash, check the status. What is the command for this? What result do you get and how do you interpret it?</span></p><ul><li><img src="C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240226021853171.png" referrerpolicy="no-referrer" alt="image-20240226021853171"></li><li><code>git status</code></li><li><span>Your branch and how it compares to its remote counterpart, if applicable.</span></li><li><span>Changes not staged for commit: Modified files that have been changed since they were last staged.</span></li><li><span>Changes to be committed: Files that are staged and ready to be committed.</span></li><li><span>Untracked files: Files that are in your working directory but not yet staged for commit.</span></li><li><span>Unmerged paths: Files with conflicts that need to be resolved due to merge conflicts.</span></li></ul></li><li><p><strong><span>Put file in the repository</span></strong>
+<span>Now add this file to your created repository. What are the commands for doing this? What steps are necessary and what results do you get? How do you interpret the output? Where does Git store the files?</span></p><ul><li><p><span>To add this file use </span><code>git add *file-name*</code><span> then </span><code>git commit -m &quot;Your commit message&quot;</code><span> to commit it to the repository</span></p></li><li><p><code>git add &lt;file_name&gt;</code><span>: This command stages the specified file for the next commit. You can also use </span><code>git add .</code><span> to stage all modified and new files in the current directory and its subdirectories.</span></p></li><li><p><code>git commit -m &quot;Your commit message&quot;</code><span>: This command commits the staged changes to the repository with a descriptive message explaining the changes made in this commit.</span></p></li><li><p><span>After executing these commands, Git stores the committed files and their snapshots in the repository&#39;s object database, which is located in the </span><code>.git</code><span> directory of your repository.</span></p><p><span>The output of these commands typically includes messages indicating the result of the operations:</span></p><ul><li><span>When you run </span><code>git add</code><span>, it doesn&#39;t produce any output unless there&#39;s an error.</span></li><li><span>When you run </span><code>git commit</code><span>, Git will display information about the commit, including the files changed, the number of insertions and deletions, and the commit message.</span></li></ul></li><li><p><img src="C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240226024511453.png" referrerpolicy="no-referrer" alt="image-20240226024511453"></p></li></ul></li><li><p><strong><span>SHA1</span></strong>
+<span>You have now created Git Objects. Which ones (according to the Data Model) and where are they located? How can you find the SHA1 key of the blob object? What is the command for this?</span></p><ul><li><p><strong><span>Blob objects</span></strong><span>: These represent the content of each file in the repository at the time of the commit. Blob objects are stored in the </span><code>.git/objects</code><span> directory, hashed based on their content, and identified by their SHA-1 hash.</span></p></li><li><p><strong><span>Tree objects</span></strong><span>: These represent the directory structure and the list of files and their corresponding blob object references at the time of the commit. Tree objects are also stored in the </span><code>.git/objects</code><span> directory and identified by their SHA-1 hash.</span></p></li><li><p><strong><span>Commit objects</span></strong><span>: These represent a snapshot of the repository at a given point in time, including a reference to a tree object that represents the top-level directory structure, parent commit(s) if applicable, author and committer information, and a commit message. Commit objects are stored in the </span><code>.git/objects</code><span> directory and identified by their SHA-1 hash.</span></p></li><li><p><span>To find the SHA-1 key of a blob object, you can use the following command:</span></p><ul><li><code>git hash-object &lt;file_name&gt;</code></li><li><span>This command calculates the SHA-1 hash of the content of the specified file without adding it to the repository. It&#39;s important to note that this command calculates the hash without considering any metadata such as filename or timestamp. It only calculates the hash of the content itself.</span></li><li><img src="C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240226025623085.png" referrerpolicy="no-referrer" alt="image-20240226025623085"></li></ul></li></ul></li><li><p><strong><span>Search and output via SHA1</span></strong>
+<span>How can you output the contents of the file only by specifying the SHA1 key? What is the command and what options does it provide?</span></p><ul><li><span>To output the contents of a file in Git by specifying its SHA-1 hash, you can use the following command:</span></li><li><code>git cat-file -p &lt;SHA-1&gt;</code><span> where SHA-1 is the hash of the object you want to output</span></li><li><code>-p</code><span>: This option tells Git to output the contents of the specified object.</span></li><li><span>By default, </span><code>git cat-file</code><span> interprets the specified SHA-1 as a commit object. However, you can specify the type of object explicitly using the </span><code>-t</code><span> option followed by the desired object type (so </span><code>-t blob</code><span> for blob objects).</span></li><li><img src="C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240226030333754.png" referrerpolicy="no-referrer" alt="image-20240226030333754"></li></ul></li><li><p><strong><span>SHA1 Hello World</span></strong>
+<span>What is the SHA1 key of the text &quot;Hello World!&quot;? Do not create a separate file for this! What is the command for this?</span></p><ul><li><span>We can find the SHA1 Key of the &quot;Hello World!&quot; text by using the following command: </span>
+<code>echo -n &quot;Hello World!&quot; | git hash-object --stdin</code></li><li><img src="C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240226030726331.png" referrerpolicy="no-referrer" alt="image-20240226030726331"></li></ul></li><li><p><strong><span>Save Hello World</span></strong>
+<span>Save the text &quot;Hello World!&quot; in the repository without creating a file for it.</span></p><ul><li><code>echo -n &quot;Hello World!&quot; | git hash-object -w --stdin</code></li><li><img src="C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240226031522038.png" referrerpolicy="no-referrer" alt="image-20240226031522038"></li><li><span>This stores the text in a blob object in the git repo and you can access the content with the hash it gives you. </span></li></ul></li><li><p><strong><span>Blobs</span></strong>
+<span>You have now created the first 2 blob objects in the repository Now create the first commit object. Which command do you use for it? What options does it offer? Where are commit objects stored?</span></p><ul><li><code>git write-tree</code><span> to get tree-sha1 key</span></li><li><code>echo &#39;&lt;Your Message&gt;&#39; | git commit-tree &lt;tree-sha1-key&gt;</code><span> to commit a message onto the repository</span></li><li><code>git show &lt;commit-sha1-key&gt;</code><span> to see changes on git</span></li><li><img src="C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240228152933279.png" referrerpolicy="no-referrer" alt="image-20240228152933279"></li></ul></li><li><p><strong><span>History output</span></strong>
+<span>In order to be able to display the history on the screen, you must use this </span>
+<span>Enter command: git log --graph --decorate --oneline -all</span>
+<span>Since we don&#39;t want to type this long command every time, we will configure ourselves an alias (git lol). What command do you enter for this?</span></p><ul><li><p><span>We can create an alias globally or locally (for the current git repo) with </span></p></li><li><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="basic"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="basic"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10.5px; left: 3.99741px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">-</span> <span class="cm-variable">git</span> <span class="cm-variable">config</span> <span class="cm-operator">--</span><span class="cm-variable">global</span> <span class="cm-variable">alias</span><span class="cm-error">.&lt;</span><span class="cm-variable">alias</span><span class="cm-operator">-</span><span class="cm-variable">shortcut</span><span class="cm-operator">&gt;</span> <span class="cm-operator">&lt;</span><span class="cm-variable">git</span> <span class="cm-variable">command</span><span class="cm-operator">&gt;</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">or</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">-</span> <span class="cm-variable">git</span> <span class="cm-variable">config</span> <span class="cm-variable">alias</span><span class="cm-error">.&lt;</span><span class="cm-variable">alias</span><span class="cm-operator">-</span><span class="cm-variable">shortcut</span><span class="cm-operator">&gt;</span> <span class="cm-string">"longer git command with --options"</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 75px;"></div><div class="CodeMirror-gutters" style="display: none; height: 75px;"></div></div></div></pre></li><li><p><img src="C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240228153857346.png" referrerpolicy="no-referrer" alt="image-20240228153857346"></p></li></ul></li><li><p><strong><span>History</span></strong>
+<span>With git lol we can now output the history at any time. What does the history look like?</span></p><ul><li><span>already shown above ^</span></li><li><span>&quot;1406498&quot; which is the commit-sha1-hash</span></li><li><span>&quot;(HEAD -&gt; master)&quot; which means that the HEAD branch is currently pointing to the master branch, meaning we&#39;re currently working on the master branch</span></li><li><span>&quot;Add test.txt&quot; which is the commit message of the commit</span></li></ul></li><li><p><strong><span>New file</span></strong>
+<span>Create another file and add it to the repository. Also create a new version of your repository.</span></p><ul><li><img src="C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240228161119821.png" referrerpolicy="no-referrer" alt="image-20240228161119821"></li><li><span>Created a new text-file and added/committed it to the repository</span></li><li><img src="C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240228161457450.png" referrerpolicy="no-referrer" alt="image-20240228161457450"></li><li><span>I changed the content of test.txt and another_test.txt, added them and committed them to the repo, therefore creating a new version of the repository.</span></li></ul></li><li><p><strong><span>Commit object</span></strong>
+<span>Oops, now you have forgotten a file. Create a third text file and add this file to the repository. But make sure that this file still goes into the same version of the history. What command do you use to do this? Does git create a new commit object? If so, why?</span></p><ul><li><img src="C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240228162021956.png" referrerpolicy="no-referrer" alt="image-20240228162021956"></li><li><span>We can use </span><code>git commit --amend</code><span> to add a forgotten file to a previous commit</span></li><li><code>--no-edit</code><span> tells Git not to open the commit message editor, keeping the commit message unchanged.</span></li></ul><ul><li><span>By using </span><code>git commit --amend</code><span>, Git creates a new commit object, even though the changes are being added to the previous commit. This is because every commit in Git is immutable. When you amend a commit, you&#39;re effectively creating a new commit object with the updated changes, and Git updates the reference of the branch to point to this new commit object instead of the old one. </span></li></ul></li><li><p><strong><span>Delete</span></strong>
+<span>Delete a file and then restore it. What command do you use for this? From where is the file restored?</span></p><ul><li><img src="C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240228162457190.png" referrerpolicy="no-referrer" alt="image-20240228162457190"></li><li><span>Git retrieves the contents of the specified file from the latest commit (HEAD) and restores it to the working directory.</span></li></ul></li><li><p><strong><span>Modify files</span></strong>
+<span>Modify the contents of the first file. Display the status in Git. What does the output look like and how do you interpret it? How do you commit the changes? What happens in the repository?</span></p><ul><li><img src="C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240228163543256.png" referrerpolicy="no-referrer" alt="image-20240228163543256"></li><li><span>The output indicates which files have been modified and staged for commit, and which files are untracked.</span></li><li><span>committing the changes is just a </span><code>git add .</code><span> and </span><code>git commit -m &quot;Commit Message&quot;</code><span> again.</span></li><li><span>In summary, by modifying a file, staging the changes, and committing them, you&#39;re updating the history of your Git repository. Each commit represents a snapshot of your project&#39;s state at a specific point in time, allowing you to track changes and collaborate with others effectively.</span></li></ul></li><li><p><strong><span>Checkout</span></strong>
+<span>Look at the history and try to go back to the penultimate version. Now look at the history again. What does HEAD mean? What is main/master? What other options does the command you just used offer?</span></p><ul><li><p><strong><span>HEAD</span></strong><span>:</span></p><ul><li><code>HEAD</code><span> is a reference to the current commit you have checked out.</span></li></ul></li><li><p><strong><span>Main/Master</span></strong><span>:</span></p><ul><li><code>main</code><span> or </span><code>master</code><span> is the default branch in a Git repository. It typically represents the main line of development.</span></li><li><span>These branches serve as the starting point for development and typically contain the most stable version of the project.</span></li></ul></li><li><p><strong><span>Checkout</span></strong></p><ul><li><img src="C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240228173346942.png" referrerpolicy="no-referrer" alt="image-20240228173346942"></li><li><span>Here we can see that the HEAD gets updated once we checkout an older commit. </span></li></ul></li><li><p><span>Other Options of Checkout:</span></p><ul><li><p><strong><span>Create and switch to a new branch</span></strong><span>:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10.5px; left: 3.99741px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> checkout <span class="cm-attribute">-b</span> &lt;new_branch&gt;</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 25px;"></div><div class="CodeMirror-gutters" style="display: none; height: 25px;"></div></div></div></pre><p><span>This option creates a new branch with the given name and immediately switches to it.</span></p></li><li><p><strong><span>Restore files from the staging area</span></strong><span>:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10.5px; left: 3.99741px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> checkout <span class="cm-attribute">--</span> &lt;file_path&gt;</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 25px;"></div><div class="CodeMirror-gutters" style="display: none; height: 25px;"></div></div></div></pre><p><span>This option restores the specified file(s) from the staging area to your working directory, effectively undoing any changes made since the last commit.</span></p></li><li><p><strong><span>Restore files from a specific commit</span></strong><span>:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10.5px; left: 3.99741px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> checkout &lt;commit_hash&gt; <span class="cm-attribute">--</span> &lt;file_path&gt;</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 25px;"></div><div class="CodeMirror-gutters" style="display: none; height: 25px;"></div></div></div></pre><p><span>This option restores the specified file(s) from the given commit to your working directory. It&#39;s useful for inspecting or reverting changes made in past commits.</span></p></li><li><p><strong><span>Create a new branch from a specific commit</span></strong><span>:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10.5px; left: 3.99741px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> checkout <span class="cm-attribute">-b</span> &lt;new_branch&gt; &lt;commit_hash&gt;</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 25px;"></div><div class="CodeMirror-gutters" style="display: none; height: 25px;"></div></div></div></pre><p><span>This option creates a new branch starting from the specified commit and switches to it. It&#39;s useful for creating branches to work on specific features or bug fixes.</span></p></li><li><p><strong><span>Create a detached HEAD state</span></strong><span>:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10.5px; left: 3.99741px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> checkout &lt;commit_hash&gt;</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 25px;"></div><div class="CodeMirror-gutters" style="display: none; height: 25px;"></div></div></div></pre><p><span>This option checks out a specific commit without creating or switching to a branch, leaving you in a &quot;detached HEAD&quot; state. It&#39;s useful for inspecting historical commits or testing changes without affecting existing branches.</span></p></li><li><p><strong><span>Interactively restore changes with patch mode</span></strong><span>:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10.5px; left: 3.99741px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> checkout <span class="cm-attribute">-p</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 25px;"></div><div class="CodeMirror-gutters" style="display: none; height: 25px;"></div></div></div></pre><p><span>This option enters interactive mode, allowing you to selectively restore changes from the specified file(s) using the patch mode.</span></p></li></ul></li></ul></li></ol></div></div>
+</body>
+</html>
