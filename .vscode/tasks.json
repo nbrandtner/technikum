@@ -3,8 +3,19 @@
 		{
 			"type": "cppbuild",
 			"label": "C/C++: g++.exe build active file",
-			"command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
-			"args": ["-fdiagnostics-color=always", "-g", "${file}", "-o", "${fileDirname}\\${fileBasenameNoExtension}.exe"],
+			"command": "C:\\Users\\nbran\\Documents\\Technikum\\PROD\\oasencrawler-gui\\mingw\\mingw32\\bin\\g++.exe",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"${file}",
+				"-o",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe",
+				"-IC:\\Users\\nbran\\Documents\\Technikum\\PROD\\oasencrawler-gui\\SFML\\SFML-2.6.1\\include",
+				"-LC:\\Users\\nbran\\Documents\\Technikum\\PROD\\oasencrawler-gui\\SFML\\SFML-2.6.1\\lib",
+				"-lsfml-graphics",
+				"-lsfml-window",
+				"-lsfml-system"
+			],
 			"options": {
 				"cwd": "${fileDirname}"
 			},
