@@ -7,5 +7,21 @@
 /dataSources/
 /dataSources.local.xml
 /misc.xml
-/PROD/oasencrawler-gui/mingw/
-/PROD/oasencrawler-gui/SFML/
+/.idea/.gitignore
+/.idea/discord.xml
+../PROD/Hello_World/bin/Debug/Hello_World.exe
+../PROD/Hello_World/main.exe
+../PROD/Hello_World/obj/Debug/main.o
+/.idea/modules.xml
+../PROD/UE04 Oktal/oktal.exe
+../PROD/UE04 Oktal/oktal.o
+../PROD/UE04 Oktal/pow-factorial.exe
+../PROD/UE04 Oktal/pow-factorial.o
+/.idea/Technikum.iml
+../PROD/UE04 Oktal/test.exe
+../PROD/UE04 Oktal/test.o
+/.idea/vcs.xml
+../PROD/*/*.exe
+../PROD/*/*.o
+../PROD/oasencrawler-gui/mingw/
+../PROD/oasencrawler-gui/SFML/
