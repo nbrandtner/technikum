@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_character" kind="class" language="C++" prot="public">
+    <compoundname>Character</compoundname>
+    <includes refid="game_8h" local="no">game.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_character_1a75878a929ff124220a2273a13f307408" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Character::attributes[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>attributes</name>
+        <qualifiedname>Character::attributes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="50" column="9" bodyfile="oasencrawler/game.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_character_1a983b9e4631b8545a830edae523b4caaf" prot="private" static="no" mutable="no">
+        <type>std::map&lt; <ref refid="game_8h_1a15b1b83081915ae5239f81050ae0f550" kindref="member">Attribute</ref>, int &gt;</type>
+        <definition>std::map&lt;Attribute, int&gt; Character::inventory</definition>
+        <argsstring></argsstring>
+        <name>inventory</name>
+        <qualifiedname>Character::inventory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="51" column="14" bodyfile="oasencrawler/game.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_character_1a754baa84948938aa6ea393a5f8094616" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Character::healthPoints</definition>
+        <argsstring></argsstring>
+        <name>healthPoints</name>
+        <qualifiedname>Character::healthPoints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="52" column="9" bodyfile="oasencrawler/game.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_character_1a5d0fd519a32fc0cfcc0db149982983bc" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Character::relicPoints</definition>
+        <argsstring></argsstring>
+        <name>relicPoints</name>
+        <qualifiedname>Character::relicPoints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="53" column="9" bodyfile="oasencrawler/game.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_character_1a5232c578e7a8bcf0a9fabefa0c133444" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Character::posX</definition>
+        <argsstring></argsstring>
+        <name>posX</name>
+        <qualifiedname>Character::posX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="54" column="9" bodyfile="oasencrawler/game.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_character_1a413bbf290c56180cc150567070d331c0" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Character::posY</definition>
+        <argsstring></argsstring>
+        <name>posY</name>
+        <qualifiedname>Character::posY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="55" column="9" bodyfile="oasencrawler/game.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_character_1adc27bdd255876169bad2ed0bae0cffb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Character::Character</definition>
+        <argsstring>()</argsstring>
+        <name>Character</name>
+        <qualifiedname>Character::Character</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="58" column="5" bodyfile="oasencrawler/game.cpp" bodystart="33" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1a58d2fc35d6272a0bea3e53fabd72c31b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Character::setPosition</definition>
+        <argsstring>(int x, int y)</argsstring>
+        <name>setPosition</name>
+        <qualifiedname>Character::setPosition</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="59" column="10" bodyfile="oasencrawler/game.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1a535e8fe3b7017b60d9c1ebd6ccb59440" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Character::move</definition>
+        <argsstring>(int dx, int dy)</argsstring>
+        <name>move</name>
+        <qualifiedname>Character::move</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="60" column="10" bodyfile="oasencrawler/game.cpp" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1aa56416d40a19f9e183a0e106cff79523" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Character::increaseHealth</definition>
+        <argsstring>()</argsstring>
+        <name>increaseHealth</name>
+        <qualifiedname>Character::increaseHealth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="61" column="10" bodyfile="oasencrawler/game.cpp" bodystart="50" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1ac6b080dd3990cc04cef234492f4007ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Character::increaseRelics</definition>
+        <argsstring>()</argsstring>
+        <name>increaseRelics</name>
+        <qualifiedname>Character::increaseRelics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="62" column="10" bodyfile="oasencrawler/game.cpp" bodystart="54" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1aa97e060f8dc69e68ad6eaca1f515ba54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Character::decreaseHealth</definition>
+        <argsstring>()</argsstring>
+        <name>decreaseHealth</name>
+        <qualifiedname>Character::decreaseHealth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="63" column="10" bodyfile="oasencrawler/game.cpp" bodystart="58" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1a39eeebcbdbc13cd4d1d274da5d051f85" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Character::getHealth</definition>
+        <argsstring>() const</argsstring>
+        <name>getHealth</name>
+        <qualifiedname>Character::getHealth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="64" column="9" bodyfile="oasencrawler/game.cpp" bodystart="62" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1a2de021177127659b68dad14dd5467906" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Character::getRelics</definition>
+        <argsstring>() const</argsstring>
+        <name>getRelics</name>
+        <qualifiedname>Character::getRelics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="65" column="9" bodyfile="oasencrawler/game.cpp" bodystart="66" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1ac6787a10f1637bd9896770c6a5736bcf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Character::getX</definition>
+        <argsstring>() const</argsstring>
+        <name>getX</name>
+        <qualifiedname>Character::getX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="66" column="9" bodyfile="oasencrawler/game.cpp" bodystart="70" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1a9cbe8b18ebe524b22dcb646e0de4666f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Character::getY</definition>
+        <argsstring>() const</argsstring>
+        <name>getY</name>
+        <qualifiedname>Character::getY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="67" column="9" bodyfile="oasencrawler/game.cpp" bodystart="74" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1a28c924bb57ac4ce1b6072121d66b0871" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Character::addItem</definition>
+        <argsstring>(Attribute attribute)</argsstring>
+        <name>addItem</name>
+        <qualifiedname>Character::addItem</qualifiedname>
+        <param>
+          <type><ref refid="game_8h_1a15b1b83081915ae5239f81050ae0f550" kindref="member">Attribute</ref></type>
+          <declname>attribute</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="68" column="10" bodyfile="oasencrawler/game.cpp" bodystart="132" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1a8c4cb5603b1e5a5a8dd951a8017cbcd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Character::useItem</definition>
+        <argsstring>(Attribute attribute)</argsstring>
+        <name>useItem</name>
+        <qualifiedname>Character::useItem</qualifiedname>
+        <param>
+          <type><ref refid="game_8h_1a15b1b83081915ae5239f81050ae0f550" kindref="member">Attribute</ref></type>
+          <declname>attribute</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="69" column="10" bodyfile="oasencrawler/game.cpp" bodystart="136" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1a5b8b1102543717dea2adfdd64aa0c005" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Character::getAttributeValue</definition>
+        <argsstring>(Attribute attribute) const</argsstring>
+        <name>getAttributeValue</name>
+        <qualifiedname>Character::getAttributeValue</qualifiedname>
+        <param>
+          <type><ref refid="game_8h_1a15b1b83081915ae5239f81050ae0f550" kindref="member">Attribute</ref></type>
+          <declname>attribute</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="70" column="9" bodyfile="oasencrawler/game.cpp" bodystart="144" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="class_character_1af56be21a681a7a2502c208f64c7c730c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Character::printAttributes</definition>
+        <argsstring>() const</argsstring>
+        <name>printAttributes</name>
+        <qualifiedname>Character::printAttributes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="oasencrawler/game.h" line="71" column="10" bodyfile="oasencrawler/game.cpp" bodystart="119" bodyend="130"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="oasencrawler/game.h" line="48" column="1" bodyfile="oasencrawler/game.h" bodystart="48" bodyend="72"/>
+    <listofallmembers>
+      <member refid="class_character_1a28c924bb57ac4ce1b6072121d66b0871" prot="public" virt="non-virtual"><scope>Character</scope><name>addItem</name></member>
+      <member refid="class_character_1a75878a929ff124220a2273a13f307408" prot="private" virt="non-virtual"><scope>Character</scope><name>attributes</name></member>
+      <member refid="class_character_1adc27bdd255876169bad2ed0bae0cffb5" prot="public" virt="non-virtual"><scope>Character</scope><name>Character</name></member>
+      <member refid="class_character_1aa97e060f8dc69e68ad6eaca1f515ba54" prot="public" virt="non-virtual"><scope>Character</scope><name>decreaseHealth</name></member>
+      <member refid="class_character_1a5b8b1102543717dea2adfdd64aa0c005" prot="public" virt="non-virtual"><scope>Character</scope><name>getAttributeValue</name></member>
+      <member refid="class_character_1a39eeebcbdbc13cd4d1d274da5d051f85" prot="public" virt="non-virtual"><scope>Character</scope><name>getHealth</name></member>
+      <member refid="class_character_1a2de021177127659b68dad14dd5467906" prot="public" virt="non-virtual"><scope>Character</scope><name>getRelics</name></member>
+      <member refid="class_character_1ac6787a10f1637bd9896770c6a5736bcf" prot="public" virt="non-virtual"><scope>Character</scope><name>getX</name></member>
+      <member refid="class_character_1a9cbe8b18ebe524b22dcb646e0de4666f" prot="public" virt="non-virtual"><scope>Character</scope><name>getY</name></member>
+      <member refid="class_character_1a754baa84948938aa6ea393a5f8094616" prot="private" virt="non-virtual"><scope>Character</scope><name>healthPoints</name></member>
+      <member refid="class_character_1aa56416d40a19f9e183a0e106cff79523" prot="public" virt="non-virtual"><scope>Character</scope><name>increaseHealth</name></member>
+      <member refid="class_character_1ac6b080dd3990cc04cef234492f4007ba" prot="public" virt="non-virtual"><scope>Character</scope><name>increaseRelics</name></member>
+      <member refid="class_character_1a983b9e4631b8545a830edae523b4caaf" prot="private" virt="non-virtual"><scope>Character</scope><name>inventory</name></member>
+      <member refid="class_character_1a535e8fe3b7017b60d9c1ebd6ccb59440" prot="public" virt="non-virtual"><scope>Character</scope><name>move</name></member>
+      <member refid="class_character_1a5232c578e7a8bcf0a9fabefa0c133444" prot="private" virt="non-virtual"><scope>Character</scope><name>posX</name></member>
+      <member refid="class_character_1a413bbf290c56180cc150567070d331c0" prot="private" virt="non-virtual"><scope>Character</scope><name>posY</name></member>
+      <member refid="class_character_1af56be21a681a7a2502c208f64c7c730c" prot="public" virt="non-virtual"><scope>Character</scope><name>printAttributes</name></member>
+      <member refid="class_character_1a5d0fd519a32fc0cfcc0db149982983bc" prot="private" virt="non-virtual"><scope>Character</scope><name>relicPoints</name></member>
+      <member refid="class_character_1a58d2fc35d6272a0bea3e53fabd72c31b" prot="public" virt="non-virtual"><scope>Character</scope><name>setPosition</name></member>
+      <member refid="class_character_1a8c4cb5603b1e5a5a8dd951a8017cbcd6" prot="public" virt="non-virtual"><scope>Character</scope><name>useItem</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

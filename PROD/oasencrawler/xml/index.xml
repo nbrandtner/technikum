@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.10.0" xml:lang="en-US">
+  <compound refid="class_character" kind="class"><name>Character</name>
+    <member refid="class_character_1a75878a929ff124220a2273a13f307408" kind="variable"><name>attributes</name></member>
+    <member refid="class_character_1a983b9e4631b8545a830edae523b4caaf" kind="variable"><name>inventory</name></member>
+    <member refid="class_character_1a754baa84948938aa6ea393a5f8094616" kind="variable"><name>healthPoints</name></member>
+    <member refid="class_character_1a5d0fd519a32fc0cfcc0db149982983bc" kind="variable"><name>relicPoints</name></member>
+    <member refid="class_character_1a5232c578e7a8bcf0a9fabefa0c133444" kind="variable"><name>posX</name></member>
+    <member refid="class_character_1a413bbf290c56180cc150567070d331c0" kind="variable"><name>posY</name></member>
+    <member refid="class_character_1adc27bdd255876169bad2ed0bae0cffb5" kind="function"><name>Character</name></member>
+    <member refid="class_character_1a58d2fc35d6272a0bea3e53fabd72c31b" kind="function"><name>setPosition</name></member>
+    <member refid="class_character_1a535e8fe3b7017b60d9c1ebd6ccb59440" kind="function"><name>move</name></member>
+    <member refid="class_character_1aa56416d40a19f9e183a0e106cff79523" kind="function"><name>increaseHealth</name></member>
+    <member refid="class_character_1ac6b080dd3990cc04cef234492f4007ba" kind="function"><name>increaseRelics</name></member>
+    <member refid="class_character_1aa97e060f8dc69e68ad6eaca1f515ba54" kind="function"><name>decreaseHealth</name></member>
+    <member refid="class_character_1a39eeebcbdbc13cd4d1d274da5d051f85" kind="function"><name>getHealth</name></member>
+    <member refid="class_character_1a2de021177127659b68dad14dd5467906" kind="function"><name>getRelics</name></member>
+    <member refid="class_character_1ac6787a10f1637bd9896770c6a5736bcf" kind="function"><name>getX</name></member>
+    <member refid="class_character_1a9cbe8b18ebe524b22dcb646e0de4666f" kind="function"><name>getY</name></member>
+    <member refid="class_character_1a28c924bb57ac4ce1b6072121d66b0871" kind="function"><name>addItem</name></member>
+    <member refid="class_character_1a8c4cb5603b1e5a5a8dd951a8017cbcd6" kind="function"><name>useItem</name></member>
+    <member refid="class_character_1a5b8b1102543717dea2adfdd64aa0c005" kind="function"><name>getAttributeValue</name></member>
+    <member refid="class_character_1af56be21a681a7a2502c208f64c7c730c" kind="function"><name>printAttributes</name></member>
+  </compound>
+  <compound refid="class_enemy" kind="class"><name>Enemy</name>
+    <member refid="class_enemy_1addadfc678cfbc7ea8d9aaa80f18a0324" kind="variable"><name>posX</name></member>
+    <member refid="class_enemy_1adfea560f149222ce1ee8cb9f55694f88" kind="variable"><name>posY</name></member>
+    <member refid="class_enemy_1a94f30d348b6d2840fd71675472ba38dd" kind="function"><name>Enemy</name></member>
+    <member refid="class_enemy_1a673678b7385ff5399d8664c514355fc7" kind="function"><name>setPosition</name></member>
+    <member refid="class_enemy_1ada99aff9cfa87f3941e8ee675b706c5a" kind="function"><name>move</name></member>
+    <member refid="class_enemy_1a1536187429da4464004b93e19770502f" kind="function"><name>getX</name></member>
+    <member refid="class_enemy_1ac9cdab9c1102747c78baf9a4a30c6b01" kind="function"><name>getY</name></member>
+  </compound>
+  <compound refid="class_game_world" kind="class"><name>GameWorld</name>
+    <member refid="class_game_world_1af92932df188b8a928f811578a2cebc7f" kind="variable"><name>world</name></member>
+    <member refid="class_game_world_1ae2ea7ff49c106cdab6249bf00b56c80d" kind="variable"><name>fieldVisited</name></member>
+    <member refid="class_game_world_1a6e3c2ae688a9a5ec860b68d3e8d36705" kind="variable"><name>player</name></member>
+    <member refid="class_game_world_1ab89d8e4a911cdc01206dc65035ed5172" kind="variable"><name>enemy</name></member>
+    <member refid="class_game_world_1aef6d14d6fc6a03941bebdd760b3ab9c5" kind="variable"><name>relicsRemaining</name></member>
+    <member refid="class_game_world_1a15071212801529a87cc3c636336048de" kind="function"><name>generateWorld</name></member>
+    <member refid="class_game_world_1aa750d628f425728b00cc4ac8044da43a" kind="function"><name>getRandomFieldType</name></member>
+    <member refid="class_game_world_1aff48d3eb1dc0947846a3b3d8736160bf" kind="function"><name>printWorld</name></member>
+    <member refid="class_game_world_1aa458ffffa1a628a60e9d0e5d6b0ba91e" kind="function"><name>handleFieldInteraction</name></member>
+    <member refid="class_game_world_1a6dc748c170ee674bc838d28397fb1271" kind="function"><name>moveEnemySmartly</name></member>
+    <member refid="class_game_world_1a95dc539a396f83ffff2c16ed2f4ad46e" kind="function"><name>getRandomAttribute</name></member>
+    <member refid="class_game_world_1a75eacbd610759fdfcd97be7c2b62f65d" kind="function"><name>attributeToString</name></member>
+    <member refid="class_game_world_1a6f9544580beec8e48a77488e05c6c890" kind="function"><name>GameWorld</name></member>
+    <member refid="class_game_world_1aaaa3bbfd74d56c6d0d176e2ad38f2b57" kind="function"><name>play</name></member>
+    <member refid="class_game_world_1a522631cd4ab9534c5b09af09d8a82c9b" kind="function"><name>~GameWorld</name></member>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="game_8cpp" kind="file"><name>game.cpp</name>
+    <member refid="game_8cpp_1a563c87e02155c0f59d961353512f8629" kind="variable"><name>launchGame</name></member>
+    <member refid="game_8cpp_1a2d9adcb23096bcec7726230204ea82b2" kind="variable"><name>gameRound</name></member>
+    <member refid="game_8cpp_1a7f6f6b24b435654f9dda802a30663684" kind="variable"><name>trackRelics</name></member>
+    <member refid="game_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="game_8h" kind="file"><name>game.h</name>
+    <member refid="game_8h_1aa01498a3ceb2fa74dc9536c16caef1da" kind="enum"><name>FieldType</name></member>
+    <member refid="game_8h_1aa01498a3ceb2fa74dc9536c16caef1daaba2b45bdc11e2a4a6e86aab2ac693cbb" kind="enumvalue"><name>EMPTY</name></member>
+    <member refid="game_8h_1aa01498a3ceb2fa74dc9536c16caef1daa707e893c1db5175432f341eb5d6d1ca7" kind="enumvalue"><name>DANGER</name></member>
+    <member refid="game_8h_1aa01498a3ceb2fa74dc9536c16caef1daa8d01676ad52c43fe0cb695ed248b9ce7" kind="enumvalue"><name>FOUNTAIN</name></member>
+    <member refid="game_8h_1aa01498a3ceb2fa74dc9536c16caef1daa62a15eeee54e263cd65b587e86f0004f" kind="enumvalue"><name>RELIC</name></member>
+    <member refid="game_8h_1a15b1b83081915ae5239f81050ae0f550" kind="enum"><name>Attribute</name></member>
+    <member refid="game_8h_1a15b1b83081915ae5239f81050ae0f550a3963049b60ddd6534b219d3767af0dfc" kind="enumvalue"><name>STRENGTH</name></member>
+    <member refid="game_8h_1a15b1b83081915ae5239f81050ae0f550a3d3df0024a4bc24e1f5ada7545ab2e2d" kind="enumvalue"><name>AGILITY</name></member>
+    <member refid="game_8h_1a15b1b83081915ae5239f81050ae0f550acbc4a7ccc74fbcbda6a01632c5e4656e" kind="enumvalue"><name>INTELLIGENCE</name></member>
+  </compound>
+  <compound refid="dir_18ce64665099b4fb1600d045244bf031" kind="dir"><name>oasencrawler</name>
+  </compound>
+</doxygenindex>
