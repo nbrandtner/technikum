@@ -6,7 +6,8 @@
 #include <ctime>
 #include <map>
 
-class Character;
+int play();
+bool waitForAnyKey(sf::RenderWindow& window);
 
 enum class FieldType {
     EMPTY,
@@ -21,12 +22,11 @@ enum class Attribute {
 };
 
 class Enemy;
+class Character;
 
 class GameWorld {
 private:
     FieldType world[5][5];
-    bool fieldVisited[5][5];
-
     Character* player;
     Enemy* enemy;
     int relicsRemaining;
@@ -34,16 +34,19 @@ private:
     void generateWorld();
     FieldType getRandomFieldType() const;
     void handleFieldInteraction(int x, int y);
-    void moveEnemySmartly();
+    void moveEnemySmartly(int x, int y);
     Attribute getRandomAttribute() const;
     const char* attributeToString(Attribute attribute) const;    
 
 public:
-    GameWorld(Character* player);
-    void play(sf::RenderWindow& window);
+    bool fieldVisited[5][5];
+    GameWorld(Character* player, Enemy* enemy);
+    std::string gameOver();
     ~GameWorld();
+    void update();
 };
     
+
 class Character {
 private:
     sf::Sprite pcSprite;
@@ -66,9 +69,10 @@ public:
     int getX() const;
     int getY() const;
     void setSprite(const char* path);
-    sf::Sprite getSprite() const;
+    sf::Sprite& getSprite();
     void addItem(Attribute attribute);
     bool useItem(Attribute attribute);
+    int getPotionCount(Attribute attribute) const;
     int getAttributeValue(Attribute attribute) const;
 };
 
@@ -82,7 +86,7 @@ public:
     Enemy();
     void setPosition(int x, int y);
     void setSprite(const char* path);
-    sf::Sprite getSprite() const;
+    sf::Sprite& getSprite();
     void move(int dx, int dy);
     int getX() const;
     int getY() const;

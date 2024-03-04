@@ -6,6 +6,23 @@
 #include "game.h"
 #include <conio.h>
 
+/*
+Player: \033[0;32m
+Enemy: \033[0;31m
+Health: \033[0;38;2;186;53;48m
+Relic: \033[1;38;2;212;175;55m
+Fountain: \033[1;38;2;139;197;247m
+Danger: \033[1;38;2;182;102;126m
+
+Reset: \033[0m
+
+Attributes: 
+Strength: \033[1;38;2;181;131;235m
+Agility: \033[1;38;2;139;197;247m
+Intelligence: \033[1;38;2;69;138;85m
+
+*/
+
 using namespace std;
 bool launchGame = true;
 int gameRound=1;
@@ -14,20 +31,24 @@ int main(){
     srand(time(nullptr));
     Character player;
     Enemy enemy;
+    launchGameText();
+    GameWorld game(&player);
+    game.play();
+    return 0;
+}
+
+void launchGameText(){
     if(launchGame){
         system("cls");
         std::cout << "\033[1;38;2;31;240;175mWelcome to OasenCrawler!\033[0m" << endl;
-        std::cout << "You are the green '\033[0;32mP\033[0m' and the enemy is the red '\033[0;31mE\033[0m'." << endl;
+        std::cout << "You are the green Player '\033[0;32mP\033[0m' and the Enemy is the red '\033[0;31mE\033[0m'." << endl;
         std::cout << "You can move up, down, left, or right using the W, A, S, and D keys." << endl;
-        std::cout << "You can collect relics ('\033[1;38;2;212;175;55mR\033[0m') and restore health at fountains ('\033[1;38;2;139;197;247mF\033[0m')." << endl;
-        std::cout << "Avoid dangers ('\033[1;38;2;182;102;126mX\033[0m') and the enemy!" << endl;
+        std::cout << "You can collect \033[1;38;2;212;175;55mRelics\033[0m ('\033[1;38;2;212;175;55mR\033[0m') and restore \033[0;38;2;186;53;48mHealth\033[0m at \033[1;38;2;139;197;247mFountains\033[0m ('\033[1;38;2;139;197;247mF\033[0m')." << endl;
+        std::cout << "Avoid \033[1;38;2;182;102;126mDangers\033[0m ('\033[1;38;2;182;102;126mX\033[0m') and the Enemy!" << endl;
         std::cout << "Press any key to start the game..." << endl;
         getch();
         launchGame = false;
     }
-    GameWorld game(&player);
-    game.play();
-    return 0;
 }
 
 Character::Character() : healthPoints(5), relicPoints(0), posX(0), posY(0) {
@@ -102,30 +123,42 @@ Attribute GameWorld::getRandomAttribute() const {
         return Attribute::INTELLIGENCE;
     }
 }
+int Character::getPotionCount(Attribute attribute) const {
+    auto it = inventory.find(attribute);
+    if (it != inventory.end()) {
+        return it->second;
+    }
+    return 0;
+}
 const char* GameWorld::attributeToString(Attribute attribute) const {
     switch (attribute) {
         case Attribute::STRENGTH:
-            return "\033[0;31mStrength\033[0m";
+            return "\033[0;38;2;181;131;235mStrength\033[0m";
             break;
         case Attribute::AGILITY:
             return "\033[1;38;2;139;197;247mAgility\033[0m";
             break;
         case Attribute::INTELLIGENCE:
-            return "\033[1;38;2;212;175;55mIntelligence\033[0m";
+            return "\033[1;38;2;69;138;85mIntelligence\033[0m";
             break;
     }
     return "";
 }
 void Character::printAttributes() const {
+    cout << "--------------------------------------------------" << endl;
     for(int i = 0; i < 3; i++){
         if(i == 0){
-            std::cout << "\033[0;31mStrength:\033[0m " << attributes[0] << std::endl;
+            std::cout << "|\033[0;38;2;181;131;235mStrength:\033[0m " << attributes[0] << "          | \033[0;38;2;181;131;235mPotion of Strength:\033[0m " << to_string(getPotionCount(Attribute::STRENGTH))+ "    |" << std::endl;
         }else if(i == 1){
-            std::cout << "\033[1;38;2;139;197;247mAgility:\033[0m " << attributes[1] << std::endl;
+            std::cout << "|\033[1;38;2;139;197;247mAgility:\033[0m " << attributes[1] << "           | \033[1;38;2;139;197;247mPotion of Agility:\033[0m " << to_string(getPotionCount(Attribute::AGILITY))+ "     |"<< std::endl;
         }else{
-            std::cout << "\033[1;38;2;212;175;55mIntelligence:\033[0m " << attributes[2] << std::endl;
+            std::cout << "|\033[1;38;2;69;138;85mIntelligence:\033[0m " << attributes[2] << "      | \033[1;38;2;69;138;85mPotion of Intelligence:\033[0m " << to_string(getPotionCount(Attribute::INTELLIGENCE))+ "|" << std::endl;
         }
-        std::cout << std::endl;
+        if(i<2){
+             std::cout << "|---------------------|--------------------------|" << std::endl;
+        }else{
+            cout<<"|------------------------------------------------|"<<endl;
+        }
     }
 }
 
@@ -158,6 +191,7 @@ GameWorld::GameWorld(Character* player) : player(player), enemy(new Enemy()), re
 GameWorld::~GameWorld() {
     delete enemy;
     delete player;
+    delete this;
 }
 
 void GameWorld::generateWorld() {
@@ -174,7 +208,7 @@ void GameWorld::generateWorld() {
     if(world[0][0] == FieldType::RELIC){
         relicsRemaining--;
     }
-    world[0][0] = FieldType::EMPTY; // Starting position
+    world[player->getX()][player->getY()] = FieldType::EMPTY; // Starting position
     if(!hasRelic){
         world[rand() % 5][rand() % 5] = FieldType::RELIC;
     }
@@ -214,17 +248,17 @@ void GameWorld::handleFieldInteraction(int x, int y) {
             cout << "You are safe." << endl;
             break;
         case FieldType::DANGER:
-            cout << "You encountered a danger! It requires " << attributeToString(dangerAttribute) << " " << difficulty << " to avoid." << endl;
+            cout << "You encountered a \033[1;38;2;182;102;126mDanger!\033[0m It requires " << attributeToString(dangerAttribute) << " " << difficulty << " to avoid." << endl;
             // Check if the character has an item that matches the danger's attribute
             if(player->getAttributeValue(dangerAttribute) < difficulty){
                 cout << "You don't have enough " << attributeToString(dangerAttribute) << " to avoid danger." << endl;
                 if (player->useItem(dangerAttribute)) {
                     cout << "You used a Potion of " << attributeToString(dangerAttribute) << " to avoid danger!" << endl;
                 } else {
-                    cout << "You got hurt by a danger!" << endl;
+                    cout << "You got hurt by a " << attributeToString(dangerAttribute) << " Type \033[1;38;2;182;102;126mDanger!\033[0m" << endl;
                     player->decreaseHealth();
                     if (player->getHealth() <= 0) {
-                        cout << "Game over! You lost all your health." << endl;
+                        cout << "//    ________                        ________                    ._.\n   /  _____/_____    _____   ____   \\_____  \\___  __ ___________| |\n  /   \\  ___\\__  \\  /     \\_/ __ \\   /   |   \\  \\/ // __ \\_  __ \\ |\n  \\    \\_\\  \\/ __ \\|  Y Y  \\  ___/  /    |    \\   /\\  ___/|  | \\/\\|\n   \\______  (____  /__|_|  /\\___  > \\_______  /\\_/  \\___  >__|   __\n          \\/     \\/      \\/     \\/          \\/          \\/       \\/ " << endl;
                         return;
                     }
                 }
@@ -233,27 +267,27 @@ void GameWorld::handleFieldInteraction(int x, int y) {
             }
             break;
         case FieldType::FOUNTAIN:
-            cout << "You found a fountain! Restoring health." << endl;
+            cout << "You found a \033[1;38;2;139;197;247mFountain!\033[0m Restoring \033[0;38;2;186;53;48mHealth\033[0m." << endl;
             player->increaseHealth();
             // Find an item at the fountain
             itemAtt=static_cast<Attribute>(rand() % 3);
             player->addItem(itemAtt);
-            cout << "You found an item of type: " << attributeToString(itemAtt) << " at the fountain." << endl;
+            cout << "You found a Potion of  " << attributeToString(itemAtt) << " at the \033[1;38;2;139;197;247mFountain\033[0m." << endl;
             break;
         case FieldType::RELIC:
-            cout << "You found a relic!" << endl;
+            cout << "You found a \033[1;38;2;212;175;55mRelic!\033[0m" << endl;
             trackRelics++;
             player->increaseRelics();
             relicsRemaining--;
-            cout << "Relics remaining: " << relicsRemaining << endl;
+            cout << "\033[1;38;2;212;175;55mRelics\033[0m remaining: " << relicsRemaining << endl;
             // Find an item at the relic
             itemAtt=static_cast<Attribute>(rand() % 3);
             player->addItem(itemAtt);
-            cout << "You found an item of type: " << attributeToString(itemAtt) << " at the relic." << endl;
+            cout << "You found a Potion of " << attributeToString(itemAtt) << " at the \033[1;38;2;212;175;55mRelic\033[0m." << endl;
             if (relicsRemaining == 0) {
-                cout << "Congratulations! You found all relics and won the game!" << endl;
+                cout << "Congratulations! You found all \033[1;38;2;212;175;55mRelics\033[0m and won the game!" << endl;
                 gameRound++;
-                cout << "You have " << player->getHealth() << " health and " << player->getRelics() << " relics." << endl;
+                cout << "You have " << player->getHealth() << " \033[0;38;2;186;53;48mHealth\033[0m and " << player->getRelics() << " \033[1;38;2;212;175;55mRelics\033[0m." << endl;
                 cout << "Generating new world..." << endl;
                 srand(time(nullptr));
                 generateWorld();
@@ -277,11 +311,13 @@ void GameWorld::play() {
 
 
         if(enemyX == x && enemyY == y){
-            cout << "You were caught by the enemy! Game over!" << endl;
+            cout << "You were caught by the enemy!" << endl;
+            cout << "    ________                        ________                    ._.\n   /  _____/_____    _____   ____   \\_____  \\___  __ ___________| |\n  /   \\  ___\\__  \\  /     \\_/ __ \\   /   |   \\  \\/ // __ \\_  __ \\ |\n  \\    \\_\\  \\/ __ \\|  Y Y  \\  ___/  /    |    \\   /\\  ___/|  | \\/\\|\n   \\______  (____  /__|_|  /\\___  > \\_______  /\\_/  \\___  >__|   __\n          \\/     \\/      \\/     \\/          \\/          \\/       \\/ " << endl;
             while(player->getHealth() > 0){
                 player->decreaseHealth();
             }
-            cout << "Relics collected: " << trackRelics << endl;
+            cout << "\n" << endl;
+            cout << "\033[1;38;2;212;175;55mRelics\033[0m collected: " << trackRelics << endl;
             cout << "Press any key to continue..." << endl;
             _getch();
             main();
@@ -290,9 +326,8 @@ void GameWorld::play() {
 
         handleFieldInteraction(x, y);
 
-        cout << "Health: " << player->getHealth() << endl;
-        cout << "Relics: " << player->getRelics() << endl;
-        cout << "Attribute values: " << endl;
+        cout << "\n\033[0;38;2;186;53;48mHealth:\033[0m " << player->getHealth() << endl;
+        cout << "\033[1;38;2;212;175;55mRelics:\033[0m " << player->getRelics() << endl;
         player->printAttributes();
         if (player->getHealth() <= 0){
             break;
@@ -349,7 +384,7 @@ void GameWorld::play() {
                     // end the game by pressing 0
                     system("cls");
                     cout << "Game ended." << endl;
-                    cout << "Relics collected: " << player->getRelics() << endl;
+                    cout << "\033[1;38;2;212;175;55mRelics\033[0m collected: " << player->getRelics() << endl;
                     cout << "Press any key to continue..." << endl;
                     _getch();
                     return;
@@ -379,7 +414,7 @@ void GameWorld::moveEnemySmartly() {
                 break;
             case 1:
                 if(enemyY > 0){
-                    enemy->move(0, -1); // move down
+                    enemy->move(0, -1); // move up
                 }else{
                     worked = false;
                 }
@@ -393,7 +428,7 @@ void GameWorld::moveEnemySmartly() {
                 break;
             case 3:
                 if(enemyY < 4){
-                    enemy->move(0, 1); // move up
+                    enemy->move(0, 1); // move down
                 }else{
                     worked = false;
                 }
@@ -419,7 +454,7 @@ void GameWorld::moveEnemySmartly() {
 
 
 void GameWorld::printWorld(int x, int y, int enemyX, int enemyY) const {
-    cout << "_____________________\n";
+    cout << "                            _____________________\n                            ";
     for(int i = 0; i < 5; i++){
         for(int j = 0; j < 5; j++){
             cout << "| ";
@@ -450,7 +485,7 @@ void GameWorld::printWorld(int x, int y, int enemyX, int enemyY) const {
                 }
             }
         }
-        cout << "|\n|___|___|___|___|___|\n";
+        cout << "|\n                            |___|___|___|___|___|\n                            ";
     }
     cout << endl;
 }

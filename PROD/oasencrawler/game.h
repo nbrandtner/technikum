@@ -7,6 +7,7 @@
 #include <map>
 
 class Character;
+void launchGameText();
 
 enum class FieldType {
     EMPTY,
@@ -67,6 +68,7 @@ public:
     int getY() const;
     void addItem(Attribute attribute);
     bool useItem(Attribute attribute);
+    int getPotionCount(Attribute attribute) const;
     int getAttributeValue(Attribute attribute) const;
     void printAttributes() const;
 };
