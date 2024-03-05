@@ -27,6 +27,7 @@ using namespace std;
 bool launchGame = true;
 int gameRound=1;
 int trackRelics = 0;
+
 int main(){
     srand(time(nullptr));
     Character player;
@@ -205,10 +206,15 @@ void GameWorld::generateWorld() {
                 }
         }
     }
-    if(world[0][0] == FieldType::RELIC){
+    if(world[player->getX()][player->getY()]==FieldType::RELIC){
+        hasRelic = false;
         relicsRemaining--;
     }
     world[player->getX()][player->getY()] = FieldType::EMPTY; // Starting position
+    if(world[0][0] == FieldType::RELIC){
+        relicsRemaining--;
+
+    }
     if(!hasRelic){
         world[rand() % 5][rand() % 5] = FieldType::RELIC;
     }
@@ -454,7 +460,7 @@ void GameWorld::moveEnemySmartly() {
 
 
 void GameWorld::printWorld(int x, int y, int enemyX, int enemyY) const {
-    cout << "                            _____________________\n                            ";
+    cout << "_____________________\n";
     for(int i = 0; i < 5; i++){
         for(int j = 0; j < 5; j++){
             cout << "| ";
@@ -485,7 +491,7 @@ void GameWorld::printWorld(int x, int y, int enemyX, int enemyY) const {
                 }
             }
         }
-        cout << "|\n                            |___|___|___|___|___|\n                            ";
+        cout << "|\n|___|___|___|___|___|\n";
     }
     cout << endl;
 }
