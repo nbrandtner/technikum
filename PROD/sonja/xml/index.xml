@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.10.0" xml:lang="en-US">
+  <compound refid="class_character" kind="class"><name>Character</name>
+    <member refid="class_character_1a03d37d245f17ffb4302f8b37141390bb" kind="variable"><name>x</name></member>
+    <member refid="class_character_1a3b64a782ef7f82581760ccaf68521be3" kind="variable"><name>y</name></member>
+    <member refid="class_character_1a5d67b59885aa532b80cecee4e5d79349" kind="variable"><name>life</name></member>
+    <member refid="class_character_1a63c34f3bff97003ece69e4b59b43c720" kind="variable"><name>relics</name></member>
+    <member refid="class_character_1ac012c439fd2c1c7ead8de81e7a61e71b" kind="variable"><name>relicCounter</name></member>
+    <member refid="class_character_1a7be8b06acf4bcc9c63bf73981675fc6b" kind="variable"><name>strength</name></member>
+    <member refid="class_character_1a71d5630988487aef65096b72c70213c4" kind="variable"><name>dexterity</name></member>
+    <member refid="class_character_1a1675b78de8c8dbe3d8ae304ba9c6613c" kind="variable"><name>wisdom</name></member>
+    <member refid="class_character_1af055f8a0fd183c527882e8063cc87809" kind="variable"><name>strengthPotion</name></member>
+    <member refid="class_character_1a028aa738a859820eccada31266067528" kind="variable"><name>dexterityPotion</name></member>
+    <member refid="class_character_1adb973509dc51a98bbc85a6c019a9b8d6" kind="variable"><name>wisdomPotion</name></member>
+    <member refid="class_character_1adc27bdd255876169bad2ed0bae0cffb5" kind="function"><name>Character</name></member>
+  </compound>
+  <compound refid="class_danger" kind="class"><name>Danger</name>
+    <member refid="class_danger_1a0b0b76278317af67ce5c67e39265732f" kind="enum"><name>Type</name></member>
+    <member refid="class_danger_1a0b0b76278317af67ce5c67e39265732fa4cd430173abeb2f76e620560e3c05656" kind="enumvalue"><name>ENEMY</name></member>
+    <member refid="class_danger_1a0b0b76278317af67ce5c67e39265732fab9c90e0a2a60d6a8beac5d9288933b1c" kind="enumvalue"><name>TRAP</name></member>
+    <member refid="class_danger_1a0b0b76278317af67ce5c67e39265732fa5b08c3b3e2ecaeafde2e885126b69b5f" kind="enumvalue"><name>RIDDLE</name></member>
+    <member refid="class_danger_1ad6a41b2e9610b7bf13d49574682d0758" kind="variable"><name>type</name></member>
+    <member refid="class_danger_1aa3583042c0e401fe15e76de60deea918" kind="variable"><name>difficulty</name></member>
+    <member refid="class_danger_1ad192c62a39fd2b5def3d55d144faf909" kind="function"><name>Danger</name></member>
+  </compound>
+  <compound refid="class_enemy" kind="class"><name>Enemy</name>
+    <member refid="class_enemy_1a3f489990c857f70c344988fe250effdf" kind="variable"><name>x</name></member>
+    <member refid="class_enemy_1ae6f21ae3cc9bbc056cdff18d2044cfdd" kind="variable"><name>y</name></member>
+    <member refid="class_enemy_1a94f30d348b6d2840fd71675472ba38dd" kind="function"><name>Enemy</name></member>
+  </compound>
+  <compound refid="class_game" kind="class"><name>Game</name>
+    <member refid="class_game_1a3ae695657840d1ee098300ace5f6099c" kind="function"><name>move_character</name></member>
+    <member refid="class_game_1ad261ddb79d20b595e183cdffc926c561" kind="function"><name>move_enemy</name></member>
+    <member refid="class_game_1aafae41694b7f521dcc5e124220fb3190" kind="function"><name>level_up</name></member>
+  </compound>
+  <compound refid="class_world" kind="class"><name>World</name>
+    <member refid="class_world_1a60618c164c42423b5c54b04ddb08a4a0" kind="variable"><name>world</name></member>
+    <member refid="class_world_1ace682ee751181a87a708e6e3a42ab3b0" kind="variable"><name>originalWorld</name></member>
+    <member refid="class_world_1af8cd7e671abc7e18c66df7ed11abb7d5" kind="variable"><name>visited</name></member>
+    <member refid="class_world_1aeb46ccf73035d813a5cac61b0eb867b9" kind="variable"><name>totalRelics</name></member>
+    <member refid="class_world_1afa39d4e6f714a7a3691ac0c656f5e8a8" kind="function"><name>World</name></member>
+    <member refid="class_world_1a861b29b539795f5202eb981b1edae9b0" kind="function"><name>getTotalRelics</name></member>
+    <member refid="class_world_1a408f214a03e288dfcc442250b7bfc73f" kind="function"><name>print_interface</name></member>
+    <member refid="class_world_1a1df35305fdcbc8dcfeef50c1964668ba" kind="function"><name>handle_field</name></member>
+  </compound>
+  <compound refid="game_8h" kind="file"><name>game.h</name>
+    <member refid="game_8h_1a70ed59adcb4159ac551058053e649640" kind="define"><name>SIZE</name></member>
+    <member refid="game_8h_1a2b7cf2a3641be7b89138615764d60ba3" kind="define"><name>EMPTY</name></member>
+    <member refid="game_8h_1a9b181cb50d0d9a45869aab00314bc3b5" kind="define"><name>DANGER</name></member>
+    <member refid="game_8h_1ab8618cb4e18a623a79ad8ff0044ff566" kind="define"><name>WELL</name></member>
+    <member refid="game_8h_1af4dad8acc0b6798970bc89ffcd123f52" kind="define"><name>RELIC</name></member>
+    <member refid="game_8h_1a68d2cad882652a398dff29a263cd2ec8" kind="variable"><name>levelCounter</name></member>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1a68d2cad882652a398dff29a263cd2ec8" kind="variable"><name>levelCounter</name></member>
+    <member refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_086571f4fa6e43159eaae320745e1f1b" kind="dir"><name>sonja</name>
+  </compound>
+</doxygenindex>

@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="main_8cpp" kind="file" language="C++">
+    <compoundname>main.cpp</compoundname>
+    <includes refid="game_8h" local="yes">game.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>game.h</label>
+        <link refid="game_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>sonja/main.cpp</label>
+        <link refid="main_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>cstdlib</label>
+      </node>
+      <node id="5">
+        <label>ctime</label>
+      </node>
+      <node id="6">
+        <label>iomanip</label>
+      </node>
+      <node id="3">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="main_8cpp_1a68d2cad882652a398dff29a263cd2ec8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int levelCounter</definition>
+        <argsstring></argsstring>
+        <name>levelCounter</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sonja/main.cpp" line="3" column="5" bodyfile="sonja/main.cpp" bodystart="3" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sonja/main.cpp" line="5" column="5" bodyfile="sonja/main.cpp" bodystart="5" bodyend="54"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="game_8h" kindref="compound">game.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="main_8cpp_1a68d2cad882652a398dff29a263cd2ec8" kindref="member">levelCounter</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kindref="member">main</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_world" kindref="compound">World</ref><sp/>world;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_character" kindref="compound">Character</ref><sp/>character;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_enemy" kindref="compound">Enemy</ref><sp/>enemy;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_game" kindref="compound">Game</ref><sp/>game;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(character.<ref refid="class_character_1a5d67b59885aa532b80cecee4e5d79349" kindref="member">life</ref><sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/>character.<ref refid="class_character_1ac012c439fd2c1c7ead8de81e7a61e71b" kindref="member">relicCounter</ref><sp/>&lt;<sp/>world.<ref refid="class_world_1a861b29b539795f5202eb981b1edae9b0" kindref="member">getTotalRelics</ref>()<sp/>&amp;&amp;<sp/>(character.<ref refid="class_character_1a03d37d245f17ffb4302f8b37141390bb" kindref="member">x</ref><sp/>!=<sp/>enemy.<ref refid="class_enemy_1a3f489990c857f70c344988fe250effdf" kindref="member">x</ref><sp/>||<sp/>character.<ref refid="class_character_1a3b64a782ef7f82581760ccaf68521be3" kindref="member">y</ref><sp/>!=<sp/>enemy.<ref refid="class_enemy_1ae6f21ae3cc9bbc056cdff18d2044cfdd" kindref="member">y</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>world.<ref refid="class_world_1a408f214a03e288dfcc442250b7bfc73f" kindref="member">print_interface</ref>(character,<sp/>enemy);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>game.<ref refid="class_game_1a3ae695657840d1ee098300ace5f6099c" kindref="member">move_character</ref>(character);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>game.<ref refid="class_game_1ad261ddb79d20b595e183cdffc926c561" kindref="member">move_enemy</ref>(enemy,<sp/>character);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>world.<ref refid="class_world_1a1df35305fdcbc8dcfeef50c1964668ba" kindref="member">handle_field</ref>(character);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(character.<ref refid="class_character_1a5d67b59885aa532b80cecee4e5d79349" kindref="member">life</ref><sp/>&lt;=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Out<sp/>of<sp/>Lives!\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>__<sp/><sp/><sp/>_______<sp/>_<sp/><sp/><sp/>_<sp/><sp/>______<sp/>_____<sp/>___________<sp/>_<sp/>\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>\\<sp/>\\<sp/>/<sp/>/<sp/><sp/>_<sp/><sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/><sp/>_<sp/><sp/>\\_<sp/><sp/><sp/>_|<sp/><sp/>___|<sp/><sp/>_<sp/><sp/>\\<sp/>|\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/>\\<sp/>V<sp/>/|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|__<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/><sp/>\\<sp/>/<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/><sp/>__||<sp/>|<sp/>|<sp/>|<sp/>|\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/><sp/>|<sp/>|<sp/>\\<sp/>\\_/<sp/>/<sp/>|_|<sp/>|<sp/>|<sp/>|/<sp/>/<sp/>_|<sp/>|_|<sp/>|___|<sp/>|/<sp/>/|_|\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/><sp/>\\_/<sp/><sp/>\\___/<sp/>\\___/<sp/><sp/>|___/<sp/><sp/>\\___/\\____/|___/<sp/>(_)\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(character.<ref refid="class_character_1a03d37d245f17ffb4302f8b37141390bb" kindref="member">x</ref><sp/>==<sp/>enemy.<ref refid="class_enemy_1a3f489990c857f70c344988fe250effdf" kindref="member">x</ref><sp/>&amp;&amp;<sp/>character.<ref refid="class_character_1a3b64a782ef7f82581760ccaf68521be3" kindref="member">y</ref><sp/>==<sp/>enemy.<ref refid="class_enemy_1ae6f21ae3cc9bbc056cdff18d2044cfdd" kindref="member">y</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>enemy<sp/>caught<sp/>you!\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/>_____<sp/><sp/><sp/>___<sp/><sp/>______<sp/>_____<sp/>_<sp/><sp/><sp/>_______<sp/>___________<sp/>_<sp/>\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>/<sp/><sp/>__<sp/>\\<sp/>/<sp/>_<sp/>\\<sp/>|<sp/>___<sp/>\\_<sp/><sp/><sp/>_|<sp/>|<sp/>|<sp/>|<sp/>___<sp/>\\<sp/><sp/>___|<sp/><sp/>_<sp/><sp/>\\<sp/>|\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>|<sp/>/<sp/><sp/>\\//<sp/>/_\\<sp/>\\|<sp/>|_/<sp/>/<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|_/<sp/>/<sp/>|__<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>|<sp/>|<sp/><sp/><sp/><sp/>|<sp/><sp/>_<sp/><sp/>||<sp/><sp/>__/<sp/><sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/><sp/><sp/><sp/>/|<sp/><sp/>__||<sp/>|<sp/>|<sp/>|<sp/>|\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>|<sp/>\\__/\\|<sp/>|<sp/>|<sp/>||<sp/>|<sp/><sp/><sp/><sp/><sp/>|<sp/>|<sp/>|<sp/>|_|<sp/>|<sp/>|\\<sp/>\\|<sp/>|___|<sp/>|/<sp/>/|_|\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/>\\____/\\_|<sp/>|_/\\_|<sp/><sp/><sp/><sp/><sp/>\\_/<sp/><sp/>\\___/\\_|<sp/>\\_\\____/|___/<sp/>(_)\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Level<sp/>complete!<sp/>Congrats!\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Reset<sp/>character<sp/>+<sp/>enemy<sp/>position<sp/>and<sp/>relic<sp/>counter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>character.<ref refid="class_character_1a03d37d245f17ffb4302f8b37141390bb" kindref="member">x</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>character.<ref refid="class_character_1a3b64a782ef7f82581760ccaf68521be3" kindref="member">y</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>enemy.<ref refid="class_enemy_1a3f489990c857f70c344988fe250effdf" kindref="member">x</ref><sp/>=<sp/>4;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>enemy.<ref refid="class_enemy_1ae6f21ae3cc9bbc056cdff18d2044cfdd" kindref="member">y</ref><sp/>=<sp/>4;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>character.<ref refid="class_character_1ac012c439fd2c1c7ead8de81e7a61e71b" kindref="member">relicCounter</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Generate<sp/>a<sp/>new<sp/>world</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>world<sp/>=<sp/><ref refid="class_world" kindref="compound">World</ref>();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Level<sp/>up</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>game.<ref refid="class_game_1aafae41694b7f521dcc5e124220fb3190" kindref="member">level_up</ref>(character);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="sonja/main.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_game" kind="class" language="C++" prot="public">
+    <compoundname>Game</compoundname>
+    <includes refid="game_8h" local="no">game.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_game_1a3ae695657840d1ee098300ace5f6099c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Game::move_character</definition>
+        <argsstring>(Character &amp;character)</argsstring>
+        <name>move_character</name>
+        <qualifiedname>Game::move_character</qualifiedname>
+        <param>
+          <type><ref refid="class_character" kindref="compound">Character</ref> &amp;</type>
+          <declname>character</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sonja/game.h" line="320" column="10" bodyfile="sonja/game.h" bodystart="320" bodyend="352"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_1ad261ddb79d20b595e183cdffc926c561" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Game::move_enemy</definition>
+        <argsstring>(Enemy &amp;enemy, Character &amp;character)</argsstring>
+        <name>move_enemy</name>
+        <qualifiedname>Game::move_enemy</qualifiedname>
+        <param>
+          <type><ref refid="class_enemy" kindref="compound">Enemy</ref> &amp;</type>
+          <declname>enemy</declname>
+        </param>
+        <param>
+          <type><ref refid="class_character" kindref="compound">Character</ref> &amp;</type>
+          <declname>character</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sonja/game.h" line="355" column="10" bodyfile="sonja/game.h" bodystart="355" bodyend="396"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_1aafae41694b7f521dcc5e124220fb3190" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Game::level_up</definition>
+        <argsstring>(Character &amp;character)</argsstring>
+        <name>level_up</name>
+        <qualifiedname>Game::level_up</qualifiedname>
+        <param>
+          <type><ref refid="class_character" kindref="compound">Character</ref> &amp;</type>
+          <declname>character</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sonja/game.h" line="399" column="10" bodyfile="sonja/game.h" bodystart="399" bodyend="409"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sonja/game.h" line="316" column="1" bodyfile="sonja/game.h" bodystart="316" bodyend="410"/>
+    <listofallmembers>
+      <member refid="class_game_1aafae41694b7f521dcc5e124220fb3190" prot="public" virt="non-virtual"><scope>Game</scope><name>level_up</name></member>
+      <member refid="class_game_1a3ae695657840d1ee098300ace5f6099c" prot="public" virt="non-virtual"><scope>Game</scope><name>move_character</name></member>
+      <member refid="class_game_1ad261ddb79d20b595e183cdffc926c561" prot="public" virt="non-virtual"><scope>Game</scope><name>move_enemy</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

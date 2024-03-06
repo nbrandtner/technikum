@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_enemy" kind="class" language="C++" prot="public">
+    <compoundname>Enemy</compoundname>
+    <includes refid="game_8h" local="no">game.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_enemy_1a3f489990c857f70c344988fe250effdf" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Enemy::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>Enemy::x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sonja/game.h" line="40" column="9" bodyfile="sonja/game.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_enemy_1ae6f21ae3cc9bbc056cdff18d2044cfdd" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Enemy::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>Enemy::y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sonja/game.h" line="41" column="9" bodyfile="sonja/game.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_enemy_1a94f30d348b6d2840fd71675472ba38dd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Enemy::Enemy</definition>
+        <argsstring>()</argsstring>
+        <name>Enemy</name>
+        <qualifiedname>Enemy::Enemy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sonja/game.h" line="43" column="5" bodyfile="sonja/game.h" bodystart="43" bodyend="43"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sonja/game.h" line="38" column="1" bodyfile="sonja/game.h" bodystart="38" bodyend="44"/>
+    <listofallmembers>
+      <member refid="class_enemy_1a94f30d348b6d2840fd71675472ba38dd" prot="public" virt="non-virtual"><scope>Enemy</scope><name>Enemy</name></member>
+      <member refid="class_enemy_1a3f489990c857f70c344988fe250effdf" prot="public" virt="non-virtual"><scope>Enemy</scope><name>x</name></member>
+      <member refid="class_enemy_1ae6f21ae3cc9bbc056cdff18d2044cfdd" prot="public" virt="non-virtual"><scope>Enemy</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

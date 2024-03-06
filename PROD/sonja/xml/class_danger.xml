@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_danger" kind="class" language="C++" prot="public">
+    <compoundname>Danger</compoundname>
+    <includes refid="game_8h" local="no">game.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_danger_1a0b0b76278317af67ce5c67e39265732f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Type</name>
+        <qualifiedname>Danger::Type</qualifiedname>
+        <enumvalue id="class_danger_1a0b0b76278317af67ce5c67e39265732fa4cd430173abeb2f76e620560e3c05656" prot="public">
+          <name>ENEMY</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_danger_1a0b0b76278317af67ce5c67e39265732fab9c90e0a2a60d6a8beac5d9288933b1c" prot="public">
+          <name>TRAP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_danger_1a0b0b76278317af67ce5c67e39265732fa5b08c3b3e2ecaeafde2e885126b69b5f" prot="public">
+          <name>RIDDLE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sonja/game.h" line="48" column="5" bodyfile="sonja/game.h" bodystart="48" bodyend="48"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_danger_1ad6a41b2e9610b7bf13d49574682d0758" prot="public" static="no" mutable="no">
+        <type><ref refid="class_danger_1a0b0b76278317af67ce5c67e39265732f" kindref="member">Type</ref></type>
+        <definition>Type Danger::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>Danger::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sonja/game.h" line="49" column="10" bodyfile="sonja/game.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_danger_1aa3583042c0e401fe15e76de60deea918" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Danger::difficulty</definition>
+        <argsstring></argsstring>
+        <name>difficulty</name>
+        <qualifiedname>Danger::difficulty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sonja/game.h" line="50" column="9" bodyfile="sonja/game.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_danger_1ad192c62a39fd2b5def3d55d144faf909" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Danger::Danger</definition>
+        <argsstring>()</argsstring>
+        <name>Danger</name>
+        <qualifiedname>Danger::Danger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sonja/game.h" line="52" column="5" bodyfile="sonja/game.h" bodystart="52" bodyend="63"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sonja/game.h" line="46" column="1" bodyfile="sonja/game.h" bodystart="46" bodyend="64"/>
+    <listofallmembers>
+      <member refid="class_danger_1ad192c62a39fd2b5def3d55d144faf909" prot="public" virt="non-virtual"><scope>Danger</scope><name>Danger</name></member>
+      <member refid="class_danger_1aa3583042c0e401fe15e76de60deea918" prot="public" virt="non-virtual"><scope>Danger</scope><name>difficulty</name></member>
+      <member refid="class_danger_1a0b0b76278317af67ce5c67e39265732fa4cd430173abeb2f76e620560e3c05656" prot="public" virt="non-virtual"><scope>Danger</scope><name>ENEMY</name></member>
+      <member refid="class_danger_1a0b0b76278317af67ce5c67e39265732fa5b08c3b3e2ecaeafde2e885126b69b5f" prot="public" virt="non-virtual"><scope>Danger</scope><name>RIDDLE</name></member>
+      <member refid="class_danger_1a0b0b76278317af67ce5c67e39265732fab9c90e0a2a60d6a8beac5d9288933b1c" prot="public" virt="non-virtual"><scope>Danger</scope><name>TRAP</name></member>
+      <member refid="class_danger_1a0b0b76278317af67ce5c67e39265732f" prot="public" virt="non-virtual"><scope>Danger</scope><name>Type</name></member>
+      <member refid="class_danger_1ad6a41b2e9610b7bf13d49574682d0758" prot="public" virt="non-virtual"><scope>Danger</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="class_world" kind="class" language="C++" prot="public">
+    <compoundname>World</compoundname>
+    <includes refid="game_8h" local="no">game.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_world_1a60618c164c42423b5c54b04ddb08a4a0" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int World::world[5][5]</definition>
+        <argsstring>[5][5]</argsstring>
+        <name>world</name>
+        <qualifiedname>World::world</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sonja/game.h" line="68" column="9" bodyfile="sonja/game.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_world_1ace682ee751181a87a708e6e3a42ab3b0" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int World::originalWorld[5][5]</definition>
+        <argsstring>[5][5]</argsstring>
+        <name>originalWorld</name>
+        <qualifiedname>World::originalWorld</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sonja/game.h" line="69" column="9" bodyfile="sonja/game.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_world_1af8cd7e671abc7e18c66df7ed11abb7d5" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool World::visited[5][5]</definition>
+        <argsstring>[5][5]</argsstring>
+        <name>visited</name>
+        <qualifiedname>World::visited</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sonja/game.h" line="70" column="10" bodyfile="sonja/game.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_world_1aeb46ccf73035d813a5cac61b0eb867b9" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int World::totalRelics</definition>
+        <argsstring></argsstring>
+        <name>totalRelics</name>
+        <qualifiedname>World::totalRelics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sonja/game.h" line="71" column="9" bodyfile="sonja/game.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_world_1afa39d4e6f714a7a3691ac0c656f5e8a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>World::World</definition>
+        <argsstring>()</argsstring>
+        <name>World</name>
+        <qualifiedname>World::World</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sonja/game.h" line="74" column="5" bodyfile="sonja/game.h" bodystart="74" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="class_world_1a861b29b539795f5202eb981b1edae9b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int World::getTotalRelics</definition>
+        <argsstring>()</argsstring>
+        <name>getTotalRelics</name>
+        <qualifiedname>World::getTotalRelics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sonja/game.h" line="125" column="9" bodyfile="sonja/game.h" bodystart="125" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="class_world_1a408f214a03e288dfcc442250b7bfc73f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void World::print_interface</definition>
+        <argsstring>(Character &amp;character, Enemy &amp;enemy)</argsstring>
+        <name>print_interface</name>
+        <qualifiedname>World::print_interface</qualifiedname>
+        <param>
+          <type><ref refid="class_character" kindref="compound">Character</ref> &amp;</type>
+          <declname>character</declname>
+        </param>
+        <param>
+          <type><ref refid="class_enemy" kindref="compound">Enemy</ref> &amp;</type>
+          <declname>enemy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sonja/game.h" line="130" column="10" bodyfile="sonja/game.h" bodystart="130" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="class_world_1a1df35305fdcbc8dcfeef50c1964668ba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void World::handle_field</definition>
+        <argsstring>(Character &amp;character)</argsstring>
+        <name>handle_field</name>
+        <qualifiedname>World::handle_field</qualifiedname>
+        <param>
+          <type><ref refid="class_character" kindref="compound">Character</ref> &amp;</type>
+          <declname>character</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="sonja/game.h" line="224" column="10" bodyfile="sonja/game.h" bodystart="224" bodyend="313"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="sonja/game.h" line="66" column="1" bodyfile="sonja/game.h" bodystart="66" bodyend="314"/>
+    <listofallmembers>
+      <member refid="class_world_1a861b29b539795f5202eb981b1edae9b0" prot="public" virt="non-virtual"><scope>World</scope><name>getTotalRelics</name></member>
+      <member refid="class_world_1a1df35305fdcbc8dcfeef50c1964668ba" prot="public" virt="non-virtual"><scope>World</scope><name>handle_field</name></member>
+      <member refid="class_world_1ace682ee751181a87a708e6e3a42ab3b0" prot="private" virt="non-virtual"><scope>World</scope><name>originalWorld</name></member>
+      <member refid="class_world_1a408f214a03e288dfcc442250b7bfc73f" prot="public" virt="non-virtual"><scope>World</scope><name>print_interface</name></member>
+      <member refid="class_world_1aeb46ccf73035d813a5cac61b0eb867b9" prot="private" virt="non-virtual"><scope>World</scope><name>totalRelics</name></member>
+      <member refid="class_world_1af8cd7e671abc7e18c66df7ed11abb7d5" prot="private" virt="non-virtual"><scope>World</scope><name>visited</name></member>
+      <member refid="class_world_1a60618c164c42423b5c54b04ddb08a4a0" prot="private" virt="non-virtual"><scope>World</scope><name>world</name></member>
+      <member refid="class_world_1afa39d4e6f714a7a3691ac0c656f5e8a8" prot="public" virt="non-virtual"><scope>World</scope><name>World</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
