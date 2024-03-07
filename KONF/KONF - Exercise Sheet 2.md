@@ -63,14 +63,16 @@
 9. **.git directory**
    Venture into the .git directory and browse a bit. What do you notice?
 
+   - either `ls -l`  or in explorer:
+   
    - ![image-20240306185803935](C:\Users\nbran\AppData\Roaming\Typora\typora-user-images\image-20240306185803935.png)
-   - .gitignore is hidden by default
+   - .git is hidden by default
    - HEAD contains a reference to the branch or commit that is currently being checked out
    - config holds your configurations for this repo
    - index stores staging area
    - the ref folder stores references to the branches, remotes and tags of the repo
    - objects stores all kinds of git objects
-
+   
 10. **Feature Branches**
     Imagine Customer A calls and urgently needs a feature A. You get right to work and create a feature branch "featureA", develop a file FeatureA and populate it. Commit the changes. What does the history look like now?
 
