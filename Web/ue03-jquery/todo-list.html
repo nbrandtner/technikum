@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://www.pngmart.com/files/8/Checklist-PNG-Transparent-Image.png" type="image/x-icon">
+    <title>To-Do List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: fantasy;
+            font-size: 1.2em;
+            background-color: #333;
+        }
+        .todo-container {
+            background-color: #555;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #444;
+            background-color: 888;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .todo-container h2 {
+            margin-bottom: 20px;
+            color: #c45050;
+            text-align: center;
+        }
+        #item {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #444;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .btn {
+            margin-right: 5px;
+            background-color: #ccc;
+            color: #333;
+            border: 1px solid #333;
+        }
+        .btn:hover {
+            background-color: #c45050;
+        }
+        .list-group-item {
+            cursor: pointer;
+            background-color: #ddd;
+            border: 2px solid #333;
+        }
+        .list-group-item:hover {
+            background-color: #e57c7c;
+            color: #fff;
+        }
+        .delete {
+            color: #dc3545;
+            float: right;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="todo-container">
+        <h2>To-Do List</h2>
+        <input type="text" id="item" class="form-control" placeholder="Add new item">
+        <div class="btn-group" role="group">
+            <button id="add" class="btn btn-primary"><i class="fas fa-plus"></i> Add</button>
+            <button id="hide" class="btn btn-secondary">Hide</button>
+            <button id="show" class="btn btn-secondary">Show</button>
+        </div>
+        <ol id="sortable" class="list-group mt-3"></ol>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#add").on("click", addItem);
+        $("#hide").on("click", hideList);
+        $("#show").on("click", showList);
+        $("#sortable").sortable();
+        $("#sortable").disableSelection();
+        $("ol").on("click", "li .delete", removeItem);
+
+        // Wenn Enter gedrückt wird, soll das Item hinzugefügt werden
+        $("#item").keypress(function(event) {
+            if (event.which === 13) {
+                addItem();
+            }
+        });
+    });
+
+    function addItem() {
+        var itemValue = $("#item").val().trim();
+        if (itemValue !== "") {
+            $("#sortable").append("<li class='list-group-item'>" + itemValue + " <span class='delete'><i class='fas fa-times'></i></span></li>");
+            $("#item").val(""); // Eingabefeld leeren
+            console.log("Element added");
+        }
+    }
+
+    function removeItem() {
+        $(this).parent().remove();
+        console.log("Element removed");
+    }
+
+    function hideList() {
+        $("#sortable").slideUp();
+        console.log("List hidden");
+    }
+
+    function showList() {
+        $("#sortable").slideDown();
+        console.log("List shown");
+    }
+</script>
+
+</body>
+</html>

@@ -63,6 +63,7 @@ function turncard(cardelement) {
 		}
 	}
 }
+parseInt(flippedCards[0])
 function sucess() {
 	turnedCards = 0;
 	foundPairs++;
