@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark text-white">
+    <div class="container">
+        <h1 class="text-center mt-5">Unit Converter</h1>
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <select id="conversionType" class="form-control mb-3">
+                    <option value="in-cm">Inch to Centimeter</option>
+                    <option value="cm-in">Centimeter to Inch</option>
+                    <option value="yd-m">Yard to Meter</option>
+                    <option value="m-yd">Meter to Yard</option>
+                </select>
+                <input id="input" type="number" class="form-control" placeholder="Enter value">
+                <button id="convertButton" class="btn btn-block mt-3">Convert</button>
+                <div id="output" class="mt-3">Please enter a value to convert</div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
