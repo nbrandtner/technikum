@@ -71,7 +71,7 @@ int readFile(string filename) {
     return 0;
 }
 
-void main() {
+int main() {
     //read filename from user
     string filename;
     cout << "Enter filename: ";
@@ -79,4 +79,5 @@ void main() {
     if(!filename.empty()){
         readFile(filename);
     }
+    return 0;
 }
