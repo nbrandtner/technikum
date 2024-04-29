@@ -27,3 +27,4 @@ PROD/*/*.o
 PROD/oasencrawler-gui/SFML/*
 PROD/oasencrawler-gui/SFML/*
 PROD/oasencrawler-gui/mingw/*
+ALGODAT/Algo_Hash
