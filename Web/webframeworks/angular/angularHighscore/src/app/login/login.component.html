@@ -1,0 +1,19 @@
+<form class="container mt-5">
+    <div class="mb-3">
+      <label for="email" class="form-label">E-Mail-Adresse</label>
+      <input [(ngModel)]="email" name="email" type="email" class="form-control" id="email" placeholder="Email eingeben" required>
+      <span>Email: {{email}}</span>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Passwort</label>
+      <input [(ngModel)]="password" name="password" type="password" class="form-control" id="password" placeholder="Passwort eingeben" required>
+      <span>Password: {{password}}</span>
+    </div>
+    <div class="mb-3">
+      <label for="confirmPassword" class="form-label">Passwort bestätigen</label>
+      <input [(ngModel)]="confirmPassword" name="confirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="Passwort bestätigen" required>
+      <span>Confirm Password: {{confirmPassword}}</span>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+  
