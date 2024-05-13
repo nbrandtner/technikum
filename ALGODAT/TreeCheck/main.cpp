@@ -46,8 +46,7 @@ Node *insertNodeIntoAVLTree(Node *node, int key)
 }
 
 // Function to calculate the height of a node
-int calculateNodeHeight(Node *node)
-{
+int calculateNodeHeight(Node *node){
     // If the node is null, its height is 0
     if (node == nullptr)
         return 0;
@@ -239,22 +238,6 @@ string joinListElementsIntoString(const vector<int> &list, const string &delimit
     return result;
 }
 
-// Function to check if a tree is a subtree of another tree
-bool checkIfSubtree(Node *tree, Node *subtree)
-{
-    // Convert the tree and subtree to lists
-    vector<int> treeList, subtreeList;
-    convertAVLTreeToList(tree, treeList);
-    convertAVLTreeToList(subtree, subtreeList);
-
-    // Convert the lists to strings
-    string treeStr = "," + joinListElementsIntoString(treeList, ",") + ",";
-    string subtreeStr = "," + joinListElementsIntoString(subtreeList, ",") + ",";
-
-    // Check if the subtree string is a substring of the tree string
-    return treeStr.find(subtreeStr) != string::npos;
-}
-
 // Main function
 int main()
 {
@@ -262,7 +245,7 @@ int main()
     string filename;
     do
     {
-        cout << "Filename Example: `Testfiles\\test2.txt`\n";
+        cout << "Filename Example: `Testfiles\\tree2.txt`\n";
         cout << "Enter filename: ";
         cin >> filename;
     } while (filename.empty());
