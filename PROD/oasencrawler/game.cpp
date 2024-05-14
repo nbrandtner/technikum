@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -28,15 +27,15 @@ bool launchGame = true;
 int gameRound=1;
 int trackRelics = 0;
 
-int main(){
-    srand(time(nullptr));
-    Character player;
-    Enemy enemy;
-    launchGameText();
-    GameWorld game(&player);
-    game.play();
-    return 0;
-}
+// int main(){
+//     srand(time(nullptr));
+//     Character player;
+//     Enemy enemy;
+//     launchGameText();
+//     GameWorld game(&player);
+//     game.play();
+//     return 0;
+// }
 
 void launchGameText(){
     if(launchGame){
@@ -65,8 +64,15 @@ void Character::setPosition(int x, int y) {
 }
 
 void Character::move(int dx, int dy) {
-    posX += dx;
-    posY += dy;
+    try {
+        if (posX + dx < 0 || posX + dx > 4 || posY + dy < 0 || posY + dy > 4) {
+            throw std::out_of_range("Character cannot move out of the game world boundaries.");
+        }
+        posX += dx;
+        posY += dy;
+    } catch (const std::out_of_range& e) {
+        std::cerr << "Exception caught: " << e.what() << '\n';
+    }
 }
 
 void Character::increaseHealth() {
@@ -103,8 +109,15 @@ void Enemy::setPosition(int x, int y) {
 }
 
 void Enemy::move(int dx, int dy) {
-    posX += dx;
-    posY += dy;
+    try {
+        if (posX + dx < 0 || posX + dx > 4 || posY + dy < 0 || posY + dy > 4) {
+            throw std::out_of_range("Enemy cannot move out of the game world boundaries.");
+        }
+        posX += dx;
+        posY += dy;
+    } catch (const std::out_of_range& e) {
+        std::cerr << "Exception caught: " << e.what() << '\n';
+    }
 }
 
 int Enemy::getX() const {
@@ -242,6 +255,10 @@ FieldType GameWorld::getRandomFieldType() const {
 }
 
 void GameWorld::handleFieldInteraction(int x, int y) {
+    try {
+        if (x < 0 || x > 4 || y < 0 || y > 4) {
+            throw std::out_of_range("Cannot handle field interaction outside of the game world boundaries.");
+        }
     FieldType fieldType = world[x][y];
     Attribute itemAtt;
     int difficulty = rand() % 5+gameRound;
@@ -302,6 +319,9 @@ void GameWorld::handleFieldInteraction(int x, int y) {
             break;
     }
     fieldVisited[x][y] = true;
+    } catch (const std::out_of_range& e) {
+        std::cerr << "Exception caught: " << e.what() << '\n';
+    }
 }
 
 void GameWorld::play() {
@@ -326,7 +346,7 @@ void GameWorld::play() {
             cout << "\033[1;38;2;212;175;55mRelics\033[0m collected: " << trackRelics << endl;
             cout << "Press any key to continue..." << endl;
             _getch();
-            main();
+            //main();
         }
         printWorld(x, y, enemyX, enemyY);
 

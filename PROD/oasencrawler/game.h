@@ -71,6 +71,26 @@ public:
     int getPotionCount(Attribute attribute) const;
     int getAttributeValue(Attribute attribute) const;
     void printAttributes() const;
+
+    // Überladen des + Operators
+    Character operator+(const Character& other) {
+        Character newCharacter;
+        newCharacter.healthPoints = this->healthPoints + other.healthPoints;
+        newCharacter.relicPoints = this->relicPoints + other.relicPoints;
+        return newCharacter;
+    }
+
+    // Überladen des == Operators
+    bool operator==(const Character& other) const {
+        return this->healthPoints == other.healthPoints &&
+               this->relicPoints == other.relicPoints;
+    }
+
+    // Überladen des < Operators
+    bool operator<(const Character& other) const {
+        return this->healthPoints < other.healthPoints;
+    }
+
 };
 
 class Enemy {
