@@ -1,0 +1,49 @@
+<form (ngSubmit)="register()" novalidate>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input [formControl]="email" type="email" class="form-control" id="email" placeholder="Email eingeben" required>
+        <span class="text-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+            {{getErrorMessage()}}
+        </span>
+    </div>
+<!-- Passwort -->
+<div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input [type]="hidePassword ? 'password' : 'text'" [formControl]="password" class="form-control" id="password" placeholder="Passwort eingeben" required>
+    <input type="checkbox" (click)="hidePassword = !hidePassword">Passwort anzeigen
+    <span class="text-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+        {{getErrorMessage()}}
+    </span>
+</div>
+<!-- Passwort bestätigen -->
+<div class="mb-3">
+    <label for="confirmPassword" class="form-label">Confirm Password</label>
+    <input [type]="hideConfirmPassword ? 'password' : 'text'" [formControl]="confirmPassword" class="form-control" id="confirmPassword" placeholder="Passwort eingeben" required>
+    <input type="checkbox" (click)="hideConfirmPassword = !hideConfirmPassword">Passwort anzeigen
+    <span class="text-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+        {{getErrorMessage()}}
+    </span>
+</div>
+
+    <div class="mb-3">
+        <label for="company" class="form-label">Company</label>
+        <input type="text" id="company" class="form-control" readonly="true" value="FH Technikum Wien">
+    </div>
+
+    <div class="mb-3">
+        <label for="street" class="form-label">Street</label>
+        <textarea id="street" class="form-control"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="city" class="form-label">City</label>
+        <input type="text" id="city" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="zip" class="form-label">ZIP</label>
+        <input type="number" id="zip" class="form-control" pattern="\d*">
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="register()">Register</button>
+</form>
