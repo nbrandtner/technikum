@@ -8,10 +8,10 @@
 				"-fdiagnostics-color=always",
 				"-g",
 				"${workspaceFolder}\\PROD\\oasencrawler\\game.cpp",
-                "${workspaceFolder}\\PROD\\oasencrawler\\catch_amalgamated.cpp",
+				"${workspaceFolder}\\PROD\\oasencrawler\\catch_amalgamated.cpp",
 				"${file}",
 				"-o",
-				"${fileDirname}\\${fileBasenameNoExtension}.exe",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe"
 			],
 			"options": {
 				"cwd": "${fileDirname}"

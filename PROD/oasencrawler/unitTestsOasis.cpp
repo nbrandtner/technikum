@@ -69,11 +69,11 @@ TEST_CASE("Character equality operator works correctly", "[Character]") {
 
 TEST_CASE("Character less than operator works correctly", "[Character]") {
     Character character1;
-    character1.increaseHealth();  // Health is now 2
+    character1.increaseHealth();  // Health is now 6
 
     Character character2;
     character2.increaseHealth();
-    character2.increaseHealth();  // Health is now 3
+    character2.increaseHealth();  // Health is now 7
 
     REQUIRE(character1 < character2);
 }
