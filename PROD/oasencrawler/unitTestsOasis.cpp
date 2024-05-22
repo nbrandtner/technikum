@@ -2,7 +2,15 @@
 #include "catch_amalgamated.hpp"
 #include "game.h"
 
+TEST_CASE("Add Characters", "[Character]") {
+    Character char1;
+    Character char2;
+    char1.increaseHealth();
+    char1.increaseRelics();
+    Character char3 = char1 + char2;
+    std::cout << char3.getHealth() << std::endl;
 
+}
 TEST_CASE("Character health increases when increaseHealth is called", "[Character]") {
     Character character;
     int initialHealth = character.getHealth();

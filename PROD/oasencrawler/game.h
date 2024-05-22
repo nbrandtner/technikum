@@ -82,8 +82,7 @@ public:
 
     // Überladen des == Operators
     bool operator==(const Character& other) const {
-        return this->healthPoints == other.healthPoints &&
-               this->relicPoints == other.relicPoints;
+        return this->healthPoints == other.healthPoints && this->relicPoints == other.relicPoints;
     }
 
     // Überladen des < Operators

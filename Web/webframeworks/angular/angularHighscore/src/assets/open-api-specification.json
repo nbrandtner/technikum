@@ -1,0 +1,155 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Webframeworks Project (Login, Register, Highscores)",
+    "version": "1.0.0",
+    "description": "API für die Registrierung, das Einloggen und das Abrufen von Highscores (WEBFR Project)."
+  },
+  "paths": {
+    "/register": {
+      "post": {
+        "summary": "Register a new user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": { "type": "string" },
+                  "password": { "type": "string" },
+                  "verify_password": { "type": "string" },
+                  "firma": { "type": "string" },
+                  "street": { "type": "string" },
+                  "city": { "type": "string" },
+                  "plz": { "type": "string" }
+                },
+                "required": ["username", "password", "verify_password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful registration",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string" }
+                  }
+                },
+                "example": { "message": "User registered successfully" }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": { "type": "string" }
+                  }
+                },
+                "example": { "error": "Registration failed" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "Log in a user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": { "type": "string" },
+                  "password": { "type": "string" }
+                },
+                "required": ["username", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful login",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string" }
+                  }
+                },
+                "example": { "message": "Login successful" }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": { "type": "string" }
+                  }
+                },
+                "example": { "error": "Invalid credentials" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/highscores": {
+      "get": {
+        "summary": "Get highscore list",
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of highscore list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "username": { "type": "string" },
+                      "score": { "type": "number" }
+                    }
+                  }
+                },
+                "example": [
+                  { "username": "Player1", "score": 10000 },
+                  { "username": "Player2", "score": 9999 }
+                ]
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": { "type": "string" }
+                  }
+                },
+                "example": { "error": "Could not retrieve highscores" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
