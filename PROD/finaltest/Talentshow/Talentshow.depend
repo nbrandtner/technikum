@@ -1,0 +1,54 @@
+# depslib dependency file v1.0
+1719348544 source:f:\technikum\prod\finaltest\talentshow\src\abstractact.cpp
+	"AbstractAct.h"
+	<iostream>
+
+1719348537 f:\technikum\prod\finaltest\talentshow\include\abstractact.h
+	<vector>
+
+1719354398 source:f:\technikum\prod\finaltest\talentshow\main.cpp
+	<iostream>
+	<TalentShow.h>
+
+1719347278 f:\technikum\prod\finaltest\talentshow\include\talentshow.h
+	<string>
+	<vector>
+	"AbstractAct.h"
+	"MagicAct.h"
+	"SongAct.h"
+	"AcrobaticAct.h"
+
+1719348550 f:\technikum\prod\finaltest\talentshow\include\magicact.h
+	<vector>
+	<AbstractAct.h>
+
+1719348557 f:\technikum\prod\finaltest\talentshow\include\songact.h
+	<vector>
+	<AbstractAct.h>
+
+1719348562 f:\technikum\prod\finaltest\talentshow\include\acrobaticact.h
+	<vector>
+	<AbstractAct.h>
+
+1719348875 source:f:\technikum\prod\finaltest\talentshow\src\talentshow.cpp
+	"TalentShow.h"
+	<exception>
+	<stdexcept>
+	<iostream>
+
+1719354355 source:f:\technikum\prod\finaltest\talentshow\src\acrobaticact.cpp
+	"AcrobaticAct.h"
+	<iostream>
+	<stdexcept>
+	<exception>
+
+1719354154 source:f:\technikum\prod\finaltest\talentshow\src\magicact.cpp
+	"MagicAct.h"
+	<iostream>
+	<stdexcept>
+
+1719353825 source:f:\technikum\prod\finaltest\talentshow\src\songact.cpp
+	"SongAct.h"
+	<iostream>
+	<stdexcept>
+

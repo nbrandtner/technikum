@@ -1,0 +1,51 @@
+# depslib dependency file v1.0
+1719340709 source:f:\technikum\prod\finaltest\animalconcert\src\ianimalsong.cpp
+	"ianimalsong.h"
+
+1719341817 f:\technikum\prod\finaltest\animalconcert\include\ianimalsong.h
+	<vector>
+
+1719343509 source:f:\technikum\prod\finaltest\animalconcert\main.cpp
+	<iostream>
+	<vector>
+	"Concert.h"
+
+1719332114 f:\technikum\prod\finaltest\animalconcert\include\concert.h
+	<vector>
+	"ianimalsong.h"
+
+1719343278 source:f:\technikum\prod\finaltest\animalconcert\src\catsong.cpp
+	"catsong.h"
+	<stdexcept>
+	<iostream>
+
+1719341829 f:\technikum\prod\finaltest\animalconcert\include\catsong.h
+	<vector>
+	<ianimalsong.h>
+
+1719343242 source:f:\technikum\prod\finaltest\animalconcert\src\dogsong.cpp
+	"dogsong.h"
+	<stdexcept>
+	<iostream>
+
+1719341832 f:\technikum\prod\finaltest\animalconcert\include\dogsong.h
+	<vector>
+	<ianimalsong.h>
+
+1719343361 source:f:\technikum\prod\finaltest\animalconcert\src\roostersong.cpp
+	"roostersong.h"
+	<stdexcept>
+	<iostream>
+
+1719341835 f:\technikum\prod\finaltest\animalconcert\include\roostersong.h
+	<vector>
+	<ianimalsong.h>
+
+1719342523 source:f:\technikum\prod\finaltest\animalconcert\src\concert.cpp
+	<iostream>
+	"concert.h"
+	"dogsong.h"
+	"catsong.h"
+	"roostersong.h"
+	<stdexcept>
+

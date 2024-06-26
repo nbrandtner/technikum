@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1719362767 source:f:\technikum\prod\finaltest\animalrace\src\turtle.cpp
+	"Turtle.h"
+
+1719358916 f:\technikum\prod\finaltest\animalrace\include\turtle.h
+	<Animal.h>
+
+1719393399 f:\technikum\prod\finaltest\animalrace\include\animal.h
+	<iostream>
+
+1719394017 source:f:\technikum\prod\finaltest\animalrace\src\animal.cpp
+	"Animal.h"
+
+1719355034 source:f:\technikum\prod\finaltest\animalrace\main.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+	"Race.h"
+	"Rabbit.h"
+	"Turtle.h"
+
+1719394607 f:\technikum\prod\finaltest\animalrace\include\race.h
+	<vector>
+	"Animal.h"
+	<stdexcept>
+
+1719360398 f:\technikum\prod\finaltest\animalrace\include\rabbit.h
+	<Animal.h>
+
+1719393918 source:f:\technikum\prod\finaltest\animalrace\src\rabbit.cpp
+	"Rabbit.h"
+
+1719395091 source:f:\technikum\prod\finaltest\animalrace\src\race.cpp
+	"Race.h"
+

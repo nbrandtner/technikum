@@ -1,0 +1,50 @@
+# depslib dependency file v1.0
+1719240428 source:f:\technikum\prod\finaltest\test2021-oop-cpp\tile.cpp
+	"Tile.h"
+
+1719241734 f:\technikum\prod\finaltest\test2021-oop-cpp\tile.h
+	<iostream>
+	<stdlib.h>
+
+1719249030 source:f:\technikum\prod\finaltest\test2021-oop-cpp\redtile.cpp
+	"redtile.h"
+
+1719249021 f:\technikum\prod\finaltest\test2021-oop-cpp\redtile.h
+	<iostream>
+	<stdlib.h>
+	"Tile.h"
+
+1719250465 source:f:\technikum\prod\finaltest\test2021-oop-cpp\bluetile.cpp
+	"bluetile.h"
+	<ctime>
+
+1719247727 f:\technikum\prod\finaltest\test2021-oop-cpp\bluetile.h
+	<iostream>
+	<stdlib.h>
+	"Tile.h"
+
+1719248994 source:f:\technikum\prod\finaltest\test2021-oop-cpp\greentile.cpp
+	"greentile.h"
+
+1719247731 f:\technikum\prod\finaltest\test2021-oop-cpp\greentile.h
+	<iostream>
+	<stdlib.h>
+	"Tile.h"
+
+1719255202 source:f:\technikum\prod\finaltest\test2021-oop-cpp\main.cpp
+	<iostream>
+	"floor.h"
+	<ctime>
+
+1719253828 f:\technikum\prod\finaltest\test2021-oop-cpp\floor.h
+	<iostream>
+	<cstdlib>
+	"Tile.h"
+	"redtile.h"
+	"bluetile.h"
+	"greentile.h"
+
+1719254180 source:f:\technikum\prod\finaltest\test2021-oop-cpp\floor.cpp
+	"floor.h"
+	<ctime>
+
